@@ -1,23 +1,38 @@
+using Domain.DomainEvents;
+using Domain.Handlers;
+using Domain.ValueObject;
+
 namespace Domain.Entity;
 
 public class PoEntity : AggregateRoot
 {
-    public PoEntity(decimal totalAmount)
+    public PoEntity(decimal totalAmount,Guid rootGuid,User customer,User supplier)
     {
         if (totalAmount < 0)
             throw new ArgumentException(nameof(totalAmount));
+        if(Guid.Empty == rootGuid)
+            throw new ArgumentException(nameof(rootGuid));
         TotalAmount = totalAmount;
+        base.Guid = rootGuid;
+        base.CreatedOn = DateTime.UtcNow;
+        Customer = customer;
+        Supplier = supplier;
     }
  
     public decimal TotalAmount { get; protected set; }
-    public DateTime IssuedDate { get; } = DateTime.UtcNow;
+    public User Customer { get; protected set; }
+    public User Supplier { get; protected set; }
     public virtual ICollection<LineItem> LineItems { get; protected set; } = new List<LineItem>();
 
-    public void AddLineItem(List<LineItem> lineItem)
+    public Result.Result AddLineItems(List<LineItem> lineItem)
     {
         foreach (var line in lineItem)
         {
+            if (LineItems.Any(l => l.Item == line.Item))
+                return Result.Result.Fail("Item already added");
             LineItems.Add(line);
         }
+        AddDomainEvent(new PoCreatedEvent(Id, Guid,(IReadOnlyList<LineItem>)LineItems, TotalAmount,Customer,Supplier));
+       return Result.Result.Ok();
     }
 }

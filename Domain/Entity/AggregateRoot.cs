@@ -4,6 +4,7 @@ namespace Domain.Entity;
 
 public class AggregateRoot : Entity
 {
+    public virtual Guid Guid { get; protected internal set; }
     private readonly List<IDomainEvent> _domainEvents = new List<IDomainEvent>();
     public virtual IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents;
 

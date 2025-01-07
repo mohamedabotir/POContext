@@ -10,9 +10,8 @@ public class LineItemTests
     public void CreateLineItem_Failed_DueTo_NullQuantity()
     {
         Quantity quantity  = null;
-        int purchaseOrderId = 5;
         Item purchaseOrderItem = new Item("Panadol",500,"asdssada");
-        Action act = () => new LineItem(quantity,purchaseOrderId,purchaseOrderItem);
+        Action act = () => new LineItem(quantity,purchaseOrderItem);
 
         act.Should().Throw<ArgumentNullException>();
 

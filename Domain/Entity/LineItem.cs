@@ -4,10 +4,9 @@ namespace Domain.Entity;
 
 public class LineItem :Entity
 {
-    public LineItem(Quantity quantity, int purchaseOrderId, Item item)
+    public LineItem(Quantity quantity,Item item)
     {
         Quantity = quantity ?? throw new ArgumentNullException(nameof(quantity));
-        PurchaseOrderId = purchaseOrderId;
         Item = item ?? throw new ArgumentNullException(nameof(item));
     }
 

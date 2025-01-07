@@ -63,14 +63,14 @@
         }
       }
     },
-    "/home/threading/DistributedSystem Assisment/POContext/PO.Test/PO.Test.csproj": {
+    "/home/threading/DistributedSystem Assisment/POContext/Infrastructure/Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/threading/DistributedSystem Assisment/POContext/PO.Test/PO.Test.csproj",
-        "projectName": "PO.Test",
-        "projectPath": "/home/threading/DistributedSystem Assisment/POContext/PO.Test/PO.Test.csproj",
+        "projectUniqueName": "/home/threading/DistributedSystem Assisment/POContext/Infrastructure/Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "/home/threading/DistributedSystem Assisment/POContext/Infrastructure/Infrastructure.csproj",
         "packagesPath": "/home/threading/.nuget/packages/",
-        "outputPath": "/home/threading/DistributedSystem Assisment/POContext/PO.Test/obj/",
+        "outputPath": "/home/threading/DistributedSystem Assisment/POContext/Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/threading/.nuget/NuGet/NuGet.Config"
@@ -107,6 +107,78 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/threading/.dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/threading/DistributedSystem Assisment/POContext/PO.Test/PO.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/threading/DistributedSystem Assisment/POContext/PO.Test/PO.Test.csproj",
+        "projectName": "PO.Test",
+        "projectPath": "/home/threading/DistributedSystem Assisment/POContext/PO.Test/PO.Test.csproj",
+        "packagesPath": "/home/threading/.nuget/packages/",
+        "outputPath": "/home/threading/DistributedSystem Assisment/POContext/PO.Test/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/threading/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/threading/DistributedSystem Assisment/POContext/Domain/Domain.csproj": {
+                "projectPath": "/home/threading/DistributedSystem Assisment/POContext/Domain/Domain.csproj"
+              },
+              "/home/threading/DistributedSystem Assisment/POContext/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/home/threading/DistributedSystem Assisment/POContext/Infrastructure/Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
             "FluentAssertions": {
               "target": "Package",
               "version": "[8.0.0-rc.2, )"
@@ -114,6 +186,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
             },
             "NUnit": {
               "target": "Package",

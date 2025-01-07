@@ -1,6 +1,6 @@
 namespace Domain.ValueObject;
 
-public class Item: ValueObject<Item>
+public sealed class Item: ValueObject<Item>
 {
     public Item(string name, decimal price, string sku)
     {
