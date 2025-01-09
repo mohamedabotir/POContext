@@ -1,0 +1,6 @@
+﻿services:
+  purchaseorder.webapi:
+    image: purchaseorder.webapi
+    build:
+      context: .
+      dockerfile: PurchaseOrder.WebAPI/Dockerfile
