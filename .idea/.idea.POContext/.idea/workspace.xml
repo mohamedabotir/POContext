@@ -9,57 +9,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/DomainEvents/DomainEventBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/DomainEvents/IEventStore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/DomainEvents/PoCreatedEventBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Mongo/EventModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Repository/IEventRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/MessageBroker/Producers/IProducer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/MessageBroker/Producers/Producer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/MessageBroker/Topic.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Mongo/EventModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/UserCases/PO/Command/PoCreationCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UserCases/PO/Command/PoCreationCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/UserCases/PO/Models/PurchaseOrderDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UserCases/PO/Models/PurchaseOrderDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/UserCases/PO/PurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UserCases/PO/PurchaseOrderUseCase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/DomainEvents/IDomainEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/DomainEvents/PoCreatedEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entity/AggregateRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/AggregateRoot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Handlers/IEventDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Handlers/IEventDispatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Repository/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Repository/IUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/ValueObject/Quantity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ValueObject/Quantity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UserCases/PO/Command/PoCreationCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/Command/PoCreationCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UserCases/PO/IPurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/IPurchaseOrderUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UserCases/PO/Models/PurchaseOrderDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Models/PurchaseOrderDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UserCases/PO/PurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/EventHandlers/PurchaseOrderCreationHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/EventHandlers/PurchaseOrderCreationHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Extensions/EventDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Extensions/EventDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/EventHandlers/IDomainEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/EventHandlers/IDomainEventHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/EventHandlers/PurchaseOrderCreationHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderCreationHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Extensions/EventDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Mongo/EventModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Mongo/EventModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/ref/PO.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/ref/PO.Test.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/refint/PO.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/refint/PO.Test.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/POContext.sln" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,22 +95,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.PurchaseOrder.WebAPI: http.executor&quot;: &quot;Debug&quot;,
-    &quot;2c6a6e6a-d06a-4294-bf37-f6da2b1ae926.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/threading/RiderProjects/Ecommerce/Backend/pos.sln&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.PurchaseOrder.WebAPI: http.executor": "Run",
+    "2c6a6e6a-d06a-4294-bf37-f6da2b1ae926.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/threading/RiderProjects/Ecommerce/Backend/pos.sln",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.PurchaseOrder.WebAPI: http">
     <configuration name="PurchaseOrder.WebAPI: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/PurchaseOrder.WebAPI/PurchaseOrder.WebAPI.csproj" />
@@ -210,7 +199,8 @@
       <workItem from="1736103655550" duration="641000" />
       <workItem from="1736105821912" duration="10981000" />
       <workItem from="1736251363386" duration="16709000" />
-      <workItem from="1736368726167" duration="14340000" />
+      <workItem from="1736368726167" duration="14641000" />
+      <workItem from="1736418830045" duration="4005000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -220,7 +210,23 @@
       <option name="project" value="LOCAL" />
       <updated>1736268518263</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add event producer and event handler also add Event Store">
+      <option name="closed" value="true" />
+      <created>1736383453147</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1736383453147</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add run book">
+      <option name="closed" value="true" />
+      <created>1736383500618</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1736383500618</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +248,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="almost complete domain , and starts on application layer and implement communication across layers" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost complete domain , and starts on application layer and implement communication across layers" />
+    <MESSAGE value="add event producer and event handler also add Event Store" />
+    <MESSAGE value="add run book" />
+    <option name="LAST_COMMIT_MESSAGE" value="add run book" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -262,13 +270,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/PO.Test/PurchaseOrder.cs</url>
-          <line>27</line>
+          <line>25</line>
           <properties documentPath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder_Failed_DueTo_invalidParameters'">
             <startOffsets>
-              <option value="736" />
+              <option value="692" />
             </startOffsets>
             <endOffsets>
-              <option value="814" />
+              <option value="770" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
@@ -287,27 +295,27 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/UserCases/PO/PurchaseOrderUseCase.cs</url>
+          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
           <line>22</line>
           <properties documentPath="$PROJECT_DIR$/Application/UserCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
             <startOffsets>
-              <option value="822" />
+              <option value="820" />
             </startOffsets>
             <endOffsets>
-              <option value="884" />
+              <option value="882" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/EventHandlers/PurchaseOrderCreationHandler.cs</url>
+          <url>file://$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderCreationHandler.cs</url>
           <line>8</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/EventHandlers/PurchaseOrderCreationHandler.cs" containingFunctionPresentation="Method 'HandleAsync'">
             <startOffsets>
-              <option value="300" />
+              <option value="297" />
             </startOffsets>
             <endOffsets>
-              <option value="361" />
+              <option value="358" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="26" />
@@ -320,7 +328,7 @@
               <option value="423" />
             </startOffsets>
             <endOffsets>
-              <option value="743" />
+              <option value="777" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="27" />
@@ -343,10 +351,10 @@
           <line>16</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Constructor 'EventRepository'">
             <startOffsets>
-              <option value="585" />
+              <option value="579" />
             </startOffsets>
             <endOffsets>
-              <option value="646" />
+              <option value="640" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="32" />
@@ -356,23 +364,23 @@
           <line>15</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Constructor 'EventRepository'">
             <startOffsets>
-              <option value="503" />
+              <option value="497" />
             </startOffsets>
             <endOffsets>
-              <option value="572" />
+              <option value="566" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Extensions/EventDispatcher.cs</url>
+          <url>file://$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs</url>
           <line>25</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Extensions/EventDispatcher.cs" containingFunctionPresentation="Method 'DispatchDomainEventsAsync'">
             <startOffsets>
-              <option value="737" />
+              <option value="731" />
             </startOffsets>
             <endOffsets>
-              <option value="757" />
+              <option value="751" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="35" />
@@ -382,10 +390,10 @@
           <line>55</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Method 'SaveEventAsync'">
             <startOffsets>
-              <option value="1990" />
+              <option value="1984" />
             </startOffsets>
             <endOffsets>
-              <option value="2065" />
+              <option value="2059" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="36" />

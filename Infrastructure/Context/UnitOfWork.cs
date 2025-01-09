@@ -5,7 +5,7 @@ using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure.Context;
+namespace Application.Context;
 
 public class UnitOfWork : IUnitOfWork
 {

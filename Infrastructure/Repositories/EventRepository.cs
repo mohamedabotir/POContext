@@ -1,10 +1,10 @@
+using Application.Mongo;
 using Domain.Repository;
-using Infrastructure.Mongo;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using EventModel = Domain.Mongo.EventModel;
 
-namespace Infrastructure.Repositories;
+namespace Application.Repositories;
 
 public class EventRepository:IEventRepository
 {

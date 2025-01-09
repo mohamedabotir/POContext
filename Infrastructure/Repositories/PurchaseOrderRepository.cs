@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 using Domain.Entity;
 using Domain.Repository;
 
-namespace Infrastructure.Repositories;
+namespace Application.Repositories;
 
 public class PurchaseOrderRepository : IPurchaseOrderRepository
 {

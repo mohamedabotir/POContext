@@ -1,6 +1,6 @@
 using Domain.DomainEvents;
 
-namespace Infrastructure.EventHandlers;
+namespace Application.EventHandlers;
 
 public class PurchaseOrderCreationHandler(IEventStore eventStore):IDomainEventHandler<PoCreatedEventBase>
 {

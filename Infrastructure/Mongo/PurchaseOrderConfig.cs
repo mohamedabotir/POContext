@@ -1,4 +1,4 @@
-namespace Infrastructure.Mongo;
+namespace Application.Mongo;
 
 public class PurchaseOrderConfig
 {

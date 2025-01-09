@@ -3,8 +3,6 @@ using Domain.Entity;
 using Domain.Handlers;
 using Domain.ValueObject;
 using FluentAssertions;
-using Infrastructure.Extensions;
-using Moq;
 
 namespace PO.Test;
 [TestFixture]

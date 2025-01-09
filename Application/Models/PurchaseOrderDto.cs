@@ -1,7 +1,7 @@
 using Domain.ValueObject;
 using MediatR;
 
-namespace Application.UserCases.PO.Models;
+namespace Application.UseCases.PO.Models;
 
 public record PurchaseOrderDto(decimal TotalAmount, Guid RootGuid, User Customer, User Supplier,List<ItemLineDto> ItemLines):IRequest;
 

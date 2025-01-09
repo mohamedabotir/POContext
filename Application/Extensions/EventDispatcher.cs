@@ -1,8 +1,8 @@
 using Domain.DomainEvents;
 using Domain.Handlers;
-using Infrastructure.EventHandlers;
+using Application.EventHandlers;
 
-namespace Infrastructure.Extensions;
+namespace Application.Extensions;
 
 public class EventDispatcher : IEventDispatcher
 {

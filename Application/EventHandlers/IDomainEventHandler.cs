@@ -1,4 +1,4 @@
-namespace Infrastructure.EventHandlers;
+namespace Application.EventHandlers;
 
 public interface IDomainEventHandler<T>
 {

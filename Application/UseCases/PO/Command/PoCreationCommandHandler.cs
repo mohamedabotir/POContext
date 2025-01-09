@@ -1,7 +1,7 @@
-using Application.UserCases.PO.Models;
+using Application.UseCases.PO.Models;
 using MediatR;
 
-namespace Application.UserCases.PO.Command;
+namespace Application.UseCases.PO.Command;
 
 public class PoCreationCommandHandler(IPurchaseOrderUseCase purchaseOrderUseCase) : IRequestHandler<PurchaseOrderDto>
 {

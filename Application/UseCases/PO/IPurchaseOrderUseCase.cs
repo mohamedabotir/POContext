@@ -1,6 +1,6 @@
-using Application.UserCases.PO.Models;
+using Application.UseCases.PO.Models;
 
-namespace Application.UserCases.PO;
+namespace Application.UseCases.PO;
 
 public interface IPurchaseOrderUseCase
 {

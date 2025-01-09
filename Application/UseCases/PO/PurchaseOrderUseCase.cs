@@ -1,10 +1,10 @@
-using Application.UserCases.PO.Models;
+using Application.UseCases.PO.Models;
 using Domain.Entity;
 using Domain.Handlers;
 using Domain.Repository;
 using Domain.ValueObject;
 
-namespace Application.UserCases.PO;
+namespace Application.UseCases.PO;
 
 public class PurchaseOrderUseCase(IUnitOfWork unitOfWork)
     : IPurchaseOrderUseCase

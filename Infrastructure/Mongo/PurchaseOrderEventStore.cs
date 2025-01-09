@@ -13,8 +13,9 @@ public class PurchaseOrderEventStore(IEventRepository eventRepository, IProducer
     public async Task SaveEventAsync(Guid aggregateId, DomainEventBase eventBase)
     {
  
-            var eventModel = new Infrastructure.Mongo.EventModel
+            var eventModel = new Application.Mongo.EventModel
             {
+                Id = Guid.NewGuid(),
                 TimeStamp = DateTime.Now,
                 AggregateType = nameof(PoEntity),
                 AggregateIdentifier = aggregateId,
