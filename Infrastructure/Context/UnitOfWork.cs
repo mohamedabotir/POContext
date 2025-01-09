@@ -1,3 +1,4 @@
+using Domain.DomainEvents;
 using Domain.Entity;
 using Domain.Handlers;
 using Domain.Repository;
@@ -6,19 +7,27 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Context;
 
-public class UnitOfWork(DbContext _context, IServiceProvider _serviceProvider,IEventDispatcher eventDispatcher): IUnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
-  
-    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    private readonly DbContext _context1;
+    private readonly IServiceProvider _serviceProvider1;
+    private readonly IEventDispatcher _eventDispatcher;
+
+   
+
+    public UnitOfWork(IServiceProvider serviceProvider,IEventDispatcher eventDispatcher)
     {
-        var domainEvents = _context.ChangeTracker
-            .Entries<AggregateRoot>()
-            .SelectMany(x => x.Entity.DomainEvents)
-            .ToList();
+        //_context1 = context;
+        _serviceProvider1 = serviceProvider;
+        _eventDispatcher = eventDispatcher;
+    }
 
-        var result = await _context.SaveChangesAsync(cancellationToken);
+    public async Task<int> SaveChangesAsync(IEnumerable<DomainEventBase> events,CancellationToken cancellationToken = default)
+    {
 
-        await eventDispatcher.DispatchDomainEventsAsync(domainEvents);
+        var result = 1;//await _context1.SaveChangesAsync(cancellationToken);
+
+        await _eventDispatcher.DispatchDomainEventsAsync(events);
 
         return result;
         
@@ -26,11 +35,11 @@ public class UnitOfWork(DbContext _context, IServiceProvider _serviceProvider,IE
 
     public IRepository<T>? GetRepository<T>() where T : AggregateRoot
     {
-        return _serviceProvider.GetService<Domain.Repository.IRepository<T>>();
+        return _serviceProvider1.GetService<Domain.Repository.IRepository<T>>();
     }
     public void Dispose()
     {
-        _context?.Dispose();
+        _context1?.Dispose();
         GC.SuppressFinalize(this);
     }
 

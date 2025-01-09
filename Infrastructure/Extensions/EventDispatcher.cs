@@ -17,14 +17,17 @@ public class EventDispatcher : IEventDispatcher
     {
         
     }
-    public async Task DispatchDomainEventsAsync(IEnumerable<IDomainEvent> domainEvents)
+    public async Task DispatchDomainEventsAsync(IEnumerable<DomainEventBase> domainEvents)
     {
         foreach (var domainEvent in domainEvents)
         {
             var handlerType = typeof(IDomainEventHandler<>).MakeGenericType(domainEvent.GetType());
-            var handler = (IDomainEventHandler<IDomainEvent>) _serviceProvider.GetService(handlerType)!;
-            await handler.HandleAsync(domainEvent);
+            var handler = _serviceProvider.GetService(handlerType);
+            if (handler != null)
+            {
+                var handleMethod = handlerType.GetMethod("HandleAsync");
+                await (Task)handleMethod.Invoke(handler, new object[] { domainEvent ,CancellationToken.None});
+            }
         }
-        
     }
 }

@@ -5,11 +5,22 @@ public enum QuantityType
     Gram,
     Tab
 }
-public sealed class Quantity(int quantityQuantityValue,QuantityType quantityType) : ValueObject<Quantity>
+public sealed class Quantity : ValueObject<Quantity>
 {
+    public Quantity()
+    {
+        
+    }
+
+    public Quantity(int quantityQuantityValue,QuantityType quantityType)
+    {
+        QuantityValue = quantityQuantityValue;
+        QuantityType = quantityType;
+    }
+
     public static readonly Quantity Tab = new Quantity(100, QuantityType.Tab);
-    public  int QuantityValue { get;} = quantityQuantityValue;
-    public  QuantityType QuantityType { get; } = quantityType;
+    public  int QuantityValue { get;}
+    public  QuantityType QuantityType { get; }
 
    
     protected override bool EqualsCore(Quantity other)

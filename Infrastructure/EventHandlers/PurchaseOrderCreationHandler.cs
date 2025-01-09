@@ -2,11 +2,10 @@ using Domain.DomainEvents;
 
 namespace Infrastructure.EventHandlers;
 
-public class PurchaseOrderCreationHandler:IDomainEventHandler<PoCreatedEvent>
+public class PurchaseOrderCreationHandler(IEventStore eventStore):IDomainEventHandler<PoCreatedEventBase>
 {
-    public Task HandleAsync(PoCreatedEvent @event, CancellationToken cancellationToken = default)
+    public async Task HandleAsync(PoCreatedEventBase eventBase, CancellationToken cancellationToken = default)
     {
-        //publish event to kafka and log this event on elk
-        throw new NotImplementedException();
+      await  eventStore.SaveEventAsync(eventBase.PoGuid,eventBase);
     }
 }

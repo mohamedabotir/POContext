@@ -32,7 +32,7 @@ public class PoEntity : AggregateRoot
                 return Result.Result.Fail("Item already added");
             LineItems.Add(line);
         }
-        AddDomainEvent(new PoCreatedEvent(Id, Guid,(IReadOnlyList<LineItem>)LineItems, TotalAmount,Customer,Supplier));
+        AddDomainEvent(new PoCreatedEventBase(Id, Guid,(IReadOnlyList<LineItem>)LineItems, TotalAmount,Customer,Supplier));
        return Result.Result.Ok();
     }
 }

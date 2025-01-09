@@ -5,12 +5,12 @@ namespace Domain.Entity;
 public class AggregateRoot : Entity
 {
     public virtual Guid Guid { get; protected internal set; }
-    private readonly List<IDomainEvent> _domainEvents = new List<IDomainEvent>();
-    public virtual IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents;
+    private readonly List<DomainEventBase> _domainEvents = new List<DomainEventBase>();
+    public virtual IReadOnlyList<DomainEventBase> DomainEvents => _domainEvents;
 
-    protected virtual void AddDomainEvent(IDomainEvent newEvent)
+    protected virtual void AddDomainEvent(DomainEventBase newEventBase)
     {
-        _domainEvents.Add(newEvent);
+        _domainEvents.Add(newEventBase);
     }
 
     public virtual void ClearEvents()

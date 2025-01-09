@@ -20,7 +20,7 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork)
             purchaseOrder.AddLineItems(lineItems);
            await unitOfWork.GetRepository<PoEntity>()
                 .AddAsync(purchaseOrder);
-            await unitOfWork.SaveChangesAsync();
+            await unitOfWork.SaveChangesAsync(purchaseOrder.DomainEvents);
         }
     }
 
