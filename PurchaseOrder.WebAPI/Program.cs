@@ -14,6 +14,7 @@ using Application.EventHandlers;
 using Application.Extensions;
 using Application.Mongo;
 using Application.Repositories;
+using Domain.Result;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
@@ -42,7 +43,7 @@ builder.Services.AddSingleton<IEventRepository, EventRepository>();
 builder.Services.AddSingleton<IPurchaseOrderRepository, PurchaseOrderRepository>();
 builder.Services.AddSingleton<IRepository<PoEntity>, PurchaseOrderRepository>();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
-builder.Services.AddTransient<IRequestHandler<PurchaseOrderDto, Unit>, PoCreationCommandHandler>();
+builder.Services.AddTransient<IRequestHandler<PurchaseOrderDto, Result>, PoCreationCommandHandler>();
 builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
 
 
@@ -58,8 +59,12 @@ app.UseHttpsRedirection();
 
 app.MapPost("/weatherforecast", async ([FromBody]PurchaseOrderDto command, IMediator mediator) =>
 {
-    var orderId = await mediator.Send(command);
-    return Results.Created($"/orders/{orderId}", orderId);
+    var result = await mediator.Send(command);
+    if (result.IsFailure)
+    {
+      return  Results.BadRequest(result.Error);
+    }
+    return Results.Created();
     })
     .WithName("GetWeatherForecast")
     .WithOpenApi();

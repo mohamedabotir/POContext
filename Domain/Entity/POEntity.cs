@@ -6,10 +6,9 @@ namespace Domain.Entity;
 
 public class PoEntity : AggregateRoot
 {
-    public PoEntity(decimal totalAmount,Guid rootGuid,User customer,User supplier)
+    public PoEntity(Money totalAmount,Guid rootGuid,User customer,User supplier)
     {
-        if (totalAmount < 0)
-            throw new ArgumentException(nameof(totalAmount));
+       
         if(Guid.Empty == rootGuid)
             throw new ArgumentException(nameof(rootGuid));
         TotalAmount = totalAmount;
@@ -19,7 +18,7 @@ public class PoEntity : AggregateRoot
         Supplier = supplier;
     }
  
-    public decimal TotalAmount { get; protected set; }
+    public Money TotalAmount { get; protected set; }
     public User Customer { get; protected set; }
     public User Supplier { get; protected set; }
     public virtual ICollection<LineItem> LineItems { get; protected set; } = new List<LineItem>();

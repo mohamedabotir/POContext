@@ -1,6 +1,7 @@
 using Domain.DomainEvents;
 using Domain.Entity;
 using Domain.Handlers;
+using Domain.Result;
 using Domain.ValueObject;
 using FluentAssertions;
 
@@ -13,32 +14,41 @@ public class PurchaseOrder
     [SetUp]
    public void Oninit()
     {
-        _customer = new User("cusomter@example.com", "customer","+20000000000");
-        _supplier = new User("suppier@example.com", "suppier","+20000000000");
-
+        var customerMail =Email.CreateInstance("cusomter@example.com");
+        var supplierMail =Email.CreateInstance("suppier@example.com");
+         _customer = User.CreateInstance(customerMail.Value, "customer", "").Value;
+        _supplier = User.CreateInstance(supplierMail.Value, "supplier", "").Value;
     }
 
     [TestCase(-1,"c2a987f6-54d7-4e1b-a624-24be50544cfb")]
-    [TestCase(5,"00000000-0000-0000-0000-000000000000")]
     [Test]
-    public void CreatePurchaseOrder_Failed_DueTo_invalidParameters(decimal totalAmount,Guid rootGuid)
+    public void CreatePurchaseOrder_Failed_DueTo_invalidAmount(decimal totalAmount,Guid rootGuid)
     {
-        Action act = () => new PoEntity(totalAmount,rootGuid , _customer , _supplier);
+        var money = Money.CreateInstance(totalAmount);
+        money.IsFailure.Should().Be(true);
+    }
+    [TestCase(5,"00000000-0000-0000-0000-000000000000")]
+    public void CreatePurchaseOrder_Failed_DueTo_invalidGuid(decimal totalAmount,Guid rootGuid)
+    {
+        var money = Money.CreateInstance(totalAmount);
+        Action act = () => new PoEntity(money.Value,rootGuid , _customer , _supplier);
         act.Should().Throw<ArgumentException>();
     }
     [Test]
     public void CreatePurchaseOrder_Success_DueTo_ValidParameters()
     {
-         var totalAmount = 100;
+        var money = Money.CreateInstance(100);
          var rootGuid = Guid.NewGuid();
-        Action act = () => new PoEntity(totalAmount,rootGuid,_customer, _supplier);
+        Action act = () => new PoEntity(money.Value,rootGuid,_customer, _supplier);
         act.Should().NotThrow();
     }
     [Test]
     public void  AddItemLineForPurchaseOrder_Failed_DueTo_Duplication()
     {
         var PoGuid = Guid.NewGuid(); 
-        var PoEntity = new PoEntity(15,PoGuid,_customer, _supplier);
+        var money = Money.CreateInstance(100);
+
+        var PoEntity = new PoEntity(money.Value,PoGuid,_customer, _supplier);
         var item = new Item("panadol", 25M, "123");
        var result =   PoEntity.AddLineItems(new List<LineItem>()
         {
@@ -52,7 +62,9 @@ public class PurchaseOrder
     {
         
         var PoGuid = Guid.NewGuid();
-        var PoEntity = new PoEntity(15,PoGuid,_customer, _supplier);
+        var money = Money.CreateInstance(15);
+
+        var PoEntity = new PoEntity(money.Value,PoGuid,_customer, _supplier);
         var item1 = new Item("panadol", 25M, "123");
         var item2 = new Item("panadol", 40M, "124");
          

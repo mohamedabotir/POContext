@@ -2,6 +2,7 @@ using Application.UseCases.PO.Models;
 using Domain.Entity;
 using Domain.Handlers;
 using Domain.Repository;
+using Domain.Result;
 using Domain.ValueObject;
 
 namespace Application.UseCases.PO;
@@ -9,18 +10,36 @@ namespace Application.UseCases.PO;
 public class PurchaseOrderUseCase(IUnitOfWork unitOfWork)
     : IPurchaseOrderUseCase
 {
-    public async Task CreatePurchaseOrder(PurchaseOrderDto purchaseOrderDto)
+    public async Task<Result> CreatePurchaseOrder(PurchaseOrderDto purchaseOrderDto)
     {
         
         using (unitOfWork)
         {
-            var purchaseOrder = new PoEntity(purchaseOrderDto.TotalAmount, purchaseOrderDto.RootGuid,
-                purchaseOrderDto.Customer, purchaseOrderDto.Supplier);
+            var money = Money.CreateInstance(purchaseOrderDto.TotalAmount);
+            var customerEmail = Email.CreateInstance(purchaseOrderDto.Customer.Email);
+            var supplierEmail = Email.CreateInstance(purchaseOrderDto.Supplier.Email);
+            
+            var validations = Result.Combine(money,customerEmail,supplierEmail);
+          
+            if (validations.IsFailure)
+                return Result.Fail(validations.Error);
+            
+            var customerUser = User.CreateInstance(customerEmail.Value, purchaseOrderDto.Customer.Name
+                , purchaseOrderDto.Customer.PhoneNumber);
+            var supplierUser = User.CreateInstance(supplierEmail.Value, purchaseOrderDto.Supplier.Name
+                , purchaseOrderDto.Supplier.PhoneNumber);
+            validations = Result.Combine(money,customerUser,supplierUser);
+            if (validations.IsFailure)
+                return Result.Fail(validations.Error);
+            
+            var purchaseOrder = new PoEntity(money.Value, purchaseOrderDto.RootGuid,
+                customerUser.Value, supplierUser.Value);
             var lineItems = purchaseOrderDto.ItemLines.Select(ItemLineDtoToLineItemEntity).ToList();
             purchaseOrder.AddLineItems(lineItems);
            await unitOfWork.GetRepository<PoEntity>()
                 .AddAsync(purchaseOrder);
             await unitOfWork.SaveChangesAsync(purchaseOrder.DomainEvents);
+            return Result.Ok();
         }
     }
 

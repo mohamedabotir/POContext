@@ -5,7 +5,7 @@ namespace Domain.DomainEvents;
 
 public  class  PoCreatedEventBase : DomainEventBase
 {
-    public PoCreatedEventBase(long internalPoId,Guid poGuid,IReadOnlyList<LineItem> lineItems, decimal totalAmount, User customer,User supplier)
+    public PoCreatedEventBase(long internalPoId,Guid poGuid,IReadOnlyList<LineItem> lineItems, Money totalAmount, User customer,User supplier)
     {
         Supplier = supplier;
         Customer = customer;
@@ -21,7 +21,7 @@ public  class  PoCreatedEventBase : DomainEventBase
 
     public User Customer { set; get; }
 
-    public decimal TotalAmount { set; get; }
+    public Money TotalAmount { set; get; }
 
     public IReadOnlyList<LineItem> LineItems { set; get; }
 
