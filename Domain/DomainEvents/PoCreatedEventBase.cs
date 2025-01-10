@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Domain.Entity;
 using Domain.ValueObject;
 
@@ -5,7 +6,9 @@ namespace Domain.DomainEvents;
 
 public  class  PoCreatedEventBase : DomainEventBase
 {
-    public PoCreatedEventBase(long internalPoId,Guid poGuid,IReadOnlyList<LineItem> lineItems, Money totalAmount, User customer,User supplier)
+    
+    [JsonConstructor]
+    public PoCreatedEventBase(long internalPoId,Guid poGuid,IReadOnlyList<LineItem> lineItems, Money totalAmount, User customer,User supplier):base(nameof(PoCreatedEventBase))
     {
         Supplier = supplier;
         Customer = customer;
@@ -14,7 +17,6 @@ public  class  PoCreatedEventBase : DomainEventBase
         PoGuid = poGuid;
         InternalPoId = internalPoId;
     }
-
 
     public User Supplier { set; get; }
 

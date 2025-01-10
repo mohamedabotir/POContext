@@ -15,11 +15,14 @@ using Application.Extensions;
 using Application.Mongo;
 using Application.Repositories;
 using Domain.Result;
+using Infrastructure.Consumer;
 using MediatR;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
+using EventHandler = Infrastructure.Consumer.EventHandler;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +37,7 @@ BsonClassMap.RegisterClassMap<PoCreatedEventBase>();
 builder.Services.Configure<Topic>(builder.Configuration.GetSection("Topic"));
 builder.Services.Configure<PurchaseOrderConfig>(builder.Configuration.GetSection("MongoConfig"));
 builder.Services.Configure<ProducerConfig>(builder.Configuration.GetSection("ProducerConfig"));
+builder.Services.Configure<ConsumerConfig>(builder.Configuration.GetSection("ConsumerConfig"));
 builder.Services.AddSingleton<IProducer, Producer>();
 builder.Services.AddSingleton<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IEventStore, PurchaseOrderEventStore>();
@@ -46,6 +50,10 @@ builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddTransient<IRequestHandler<PurchaseOrderDto, Result>, PoCreationCommandHandler>();
 builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
 
+// consumers
+builder.Services.AddScoped<IEventHandler, EventHandler>();
+builder.Services.AddScoped<IEventConsumer<EventConsumer>, EventConsumer>();
+builder.Services.AddHostedService<ConsumerHostingService>();
 
 var app = builder.Build();
 

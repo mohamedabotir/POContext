@@ -36,4 +36,10 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
     {
         throw new NotImplementedException();
     }
+
+    public Task MarkPoAsShippedAsync(Guid poId)
+    {
+        Console.WriteLine("Mark PO as shipped:"+poId);
+        return Task.CompletedTask;
+    }
 }
