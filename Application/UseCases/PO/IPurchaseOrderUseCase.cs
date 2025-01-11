@@ -5,5 +5,5 @@ namespace Application.UseCases.PO;
 
 public interface IPurchaseOrderUseCase
 {
-    Task<Result> CreatePurchaseOrder(PurchaseOrderDto purchaseOrderDto);
+    Task<Result> CreatePurchaseOrder(List<PurchaseOrderDto> purchaseOrdersDto);
 }

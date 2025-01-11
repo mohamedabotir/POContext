@@ -4,11 +4,11 @@ using MediatR;
 
 namespace Application.UseCases.PO.Command;
 
-public class PoCreationCommandHandler(IPurchaseOrderUseCase purchaseOrderUseCase) : IRequestHandler<PurchaseOrderDto,Result>
+public class PoCreationCommandHandler(IPurchaseOrderUseCase purchaseOrderUseCase) : IRequestHandler<PurchaseOrdersDto,Result>
 {
-    public async Task<Result> Handle(PurchaseOrderDto purchaseOrder, CancellationToken cancellationToken)
+    public async Task<Result> Handle(PurchaseOrdersDto purchaseOrders, CancellationToken cancellationToken)
     {
-        var result = await purchaseOrderUseCase.CreatePurchaseOrder(purchaseOrder);
+        var result = await purchaseOrderUseCase.CreatePurchaseOrder(purchaseOrders.PurchaseOrders);
         return result;
     }
 }

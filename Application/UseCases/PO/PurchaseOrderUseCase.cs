@@ -10,11 +10,13 @@ namespace Application.UseCases.PO;
 public class PurchaseOrderUseCase(IUnitOfWork unitOfWork)
     : IPurchaseOrderUseCase
 {
-    public async Task<Result> CreatePurchaseOrder(PurchaseOrderDto purchaseOrderDto)
+    public async Task<Result> CreatePurchaseOrder(List<PurchaseOrderDto> purchaseOrdersDto)
     {
         
         using (unitOfWork)
         {
+            foreach (var purchaseOrderDto in purchaseOrdersDto)
+            {
             var money = Money.CreateInstance(purchaseOrderDto.TotalAmount);
             var customerEmail = Email.CreateInstance(purchaseOrderDto.Customer.Email);
             var supplierEmail = Email.CreateInstance(purchaseOrderDto.Supplier.Email);
@@ -28,17 +30,19 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork)
                 , purchaseOrderDto.Customer.PhoneNumber);
             var supplierUser = User.CreateInstance(supplierEmail.Value, purchaseOrderDto.Supplier.Name
                 , purchaseOrderDto.Supplier.PhoneNumber);
-            validations = Result.Combine(money,customerUser,supplierUser);
+            var poNumber = PoNumber.CreateInstance(purchaseOrderDto.NumberGenerator);
+            validations = Result.Combine(money,customerUser,supplierUser,poNumber);
             if (validations.IsFailure)
                 return Result.Fail(validations.Error);
             
             var purchaseOrder = new PoEntity(money.Value, purchaseOrderDto.RootGuid,
-                customerUser.Value, supplierUser.Value);
+                customerUser.Value, supplierUser.Value,poNumber.Value);
             var lineItems = purchaseOrderDto.ItemLines.Select(ItemLineDtoToLineItemEntity).ToList();
             purchaseOrder.AddLineItems(lineItems);
            await unitOfWork.GetRepository<PoEntity>()
                 .AddAsync(purchaseOrder);
             await unitOfWork.SaveChangesAsync(purchaseOrder.DomainEvents);
+            }
             return Result.Ok();
         }
     }

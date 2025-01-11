@@ -47,7 +47,7 @@ builder.Services.AddSingleton<IEventRepository, EventRepository>();
 builder.Services.AddSingleton<IPurchaseOrderRepository, PurchaseOrderRepository>();
 builder.Services.AddSingleton<IRepository<PoEntity>, PurchaseOrderRepository>();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
-builder.Services.AddTransient<IRequestHandler<PurchaseOrderDto, Result>, PoCreationCommandHandler>();
+builder.Services.AddTransient<IRequestHandler<PurchaseOrdersDto, Result>, PoCreationCommandHandler>();
 builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
 
 // consumers
@@ -65,7 +65,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/weatherforecast", async ([FromBody]PurchaseOrderDto command, IMediator mediator) =>
+app.MapPost("/weatherforecast", async ([FromBody]PurchaseOrdersDto command, IMediator mediator) =>
 {
     var result = await mediator.Send(command);
     if (result.IsFailure)
