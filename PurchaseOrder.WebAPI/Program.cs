@@ -13,12 +13,13 @@ using Application.Context;
 using Application.EventHandlers;
 using Application.Extensions;
 using Application.Mongo;
-using Application.Repositories;
+using Infrastructure.Repository;
 using Domain.Result;
 using Infrastructure.Consumer;
 using MediatR;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
@@ -28,8 +29,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
+builder.Services.AddDbContext<PurchaseOrderDbContext>(e=>e.
+    UseSqlServer(builder.Configuration.GetConnectionString("PurchaseOrderDB")),ServiceLifetime.Scoped);
+ 
 BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
 BsonClassMap.RegisterClassMap<DomainEventBase>();
 BsonClassMap.RegisterClassMap<PoCreatedEventBase>();
@@ -38,21 +40,21 @@ builder.Services.Configure<Topic>(builder.Configuration.GetSection("Topic"));
 builder.Services.Configure<PurchaseOrderConfig>(builder.Configuration.GetSection("MongoConfig"));
 builder.Services.Configure<ProducerConfig>(builder.Configuration.GetSection("ProducerConfig"));
 builder.Services.Configure<ConsumerConfig>(builder.Configuration.GetSection("ConsumerConfig"));
-builder.Services.AddSingleton<IProducer, Producer>();
-builder.Services.AddSingleton<IUnitOfWork, UnitOfWork>();
+builder.Services.AddTransient<IProducer, Producer>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IEventStore, PurchaseOrderEventStore>();
 builder.Services.AddTransient<IDomainEventHandler<PoCreatedEventBase>, PurchaseOrderCreationHandler>();
 builder.Services.AddTransient<IPurchaseOrderUseCase, PurchaseOrderUseCase>();
-builder.Services.AddSingleton<IEventRepository, EventRepository>();
-builder.Services.AddSingleton<IPurchaseOrderRepository, PurchaseOrderRepository>();
-builder.Services.AddSingleton<IRepository<PoEntity>, PurchaseOrderRepository>();
+builder.Services.AddTransient<IEventRepository, EventRepository>();
+builder.Services.AddTransient<IPurchaseOrderRepository, PurchaseOrderRepository>();
+builder.Services.AddTransient<IRepository<PoEntity>, PurchaseOrderRepository>();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddTransient<IRequestHandler<PurchaseOrdersDto, Result>, PoCreationCommandHandler>();
 builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
 
 // consumers
-builder.Services.AddScoped<IEventHandler, EventHandler>();
-builder.Services.AddScoped<IEventConsumer<EventConsumer>, EventConsumer>();
+builder.Services.AddTransient<IEventHandler, EventHandler>();
+builder.Services.AddTransient<IEventConsumer<EventConsumer>, EventConsumer>();
 builder.Services.AddHostedService<ConsumerHostingService>();
 
 var app = builder.Build();

@@ -9,6 +9,10 @@ public sealed class Item: ValueObject<Item>
         SKU = sku ?? throw new ArgumentNullException(nameof(sku));
     }
 
+    public Item()
+    {
+        
+    }
     public string Name { get; }
     public decimal Price { get; }// add money value object 
     public string SKU { get; } // Stock Keeping Unit, a unique identifier

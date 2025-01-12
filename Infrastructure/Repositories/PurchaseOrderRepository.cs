@@ -1,11 +1,18 @@
 using System.Linq.Expressions;
+using Application.Context;
+using Application.Context.Pocos;
 using Domain.Entity;
 using Domain.Repository;
 
-namespace Application.Repositories;
+namespace Infrastructure.Repository;
 
 public class PurchaseOrderRepository : IPurchaseOrderRepository
 {
+    private PurchaseOrderDbContext _context;
+    public PurchaseOrderRepository(PurchaseOrderDbContext dbContext)
+    {
+        _context = dbContext;
+    }
     public Task<PoEntity> GetByIdAsync(Guid id)
     {
         throw new NotImplementedException();
@@ -16,10 +23,12 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
         throw new NotImplementedException();
     }
 
-    public Task AddAsync(PoEntity entity)
+    public async Task AddAsync(PoEntity entity)
     {
-        Console.WriteLine("Add PurchaseOrder");
-        return Task.CompletedTask;
+        _context.Set<PurchaseOrder>();
+        var purchaseOrder = new PurchaseOrder();
+        purchaseOrder.MapPoEntityToPurchaseOrder(entity);
+       await _context.AddAsync(purchaseOrder);
     }
 
     public Task UpdateAsync(PoEntity entity)

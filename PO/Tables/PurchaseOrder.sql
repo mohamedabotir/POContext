@@ -11,7 +11,7 @@ CREATE TABLE [dbo].[PurchaseOrder]
     [SupplierEmail] VARCHAR(25) NOT NULL,
     [SupplierName] VARCHAR(50) NOT NULL,
     [SupplierPhoneNumber] VARCHAR(15) NOT NULL,
-    [IsActive] BIT NOT NULL DEFAULT 0,
+    [IsActive] INT NOT NULL DEFAULT 0,
     [CreatedOn] DATETIME NOT NULL DEFAULT GETDATE(),
     [ModifiedOn] DATETIME NOT NULL DEFAULT GETDATE(),
 );

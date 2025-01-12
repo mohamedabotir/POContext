@@ -19,18 +19,22 @@ public class PoEntity : AggregateRoot
         Supplier = supplier;
         PoNumber = poNumber;
     }
- 
-    public Money TotalAmount { get; protected set; }
-    public User Customer { get; protected set; }
-    public User Supplier { get; protected set; }
-    public ActivationStatus ActivationStatus { get; protected set; } = ActivationStatus.Active;
+
+    public PoEntity()
+    {
+        
+    }
+    public virtual Money TotalAmount { get; protected set; }
+    public virtual User Customer { get; protected set; }
+    public  User Supplier { get; protected set; }
+    public virtual ActivationStatus ActivationStatus { get; protected set; } = ActivationStatus.Active;
 
     public Result.Result DeActivate() => new PoActivationProcessor(new PoDeActivationState(), ActivationStatus).ProcessOrder();
     public Result.Result Activate() => new PoActivationProcessor(new PoActivationState(), ActivationStatus).ProcessOrder();
 
      
-    public PoNumber PoNumber { get; protected set; }
-    public virtual ICollection<LineItem> LineItems { get; protected set; } = new List<LineItem>();
+    public virtual PoNumber PoNumber { get; protected set; }
+    public  ICollection<LineItem> LineItems { get; protected set; } = new List<LineItem>();
     
     public Result.Result AddLineItems(List<LineItem> lineItem)
     {
@@ -42,6 +46,14 @@ public class PoEntity : AggregateRoot
         }
         AddDomainEvent(new PoCreatedEventBase(Id, Guid,(IReadOnlyList<LineItem>)LineItems, TotalAmount,Customer,Supplier));
        return Result.Result.Ok();
+    }
+
+    public void SetLineItems(List<LineItem> lineItem)
+    { 
+            foreach (var line in lineItem)
+            {
+                LineItems.Add(line);
+            }
     }
 }
 

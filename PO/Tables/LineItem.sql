@@ -1,7 +1,7 @@
 USE PurchaseOrder;
 CREATE TABLE [dbo].[LineItem]
 (
-  [Id] INT NOT NULL PRIMARY KEY,
+  [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
   [Guid] UNIQUEIDENTIFIER NOT NULL UNIQUE,
   [QuantityValue] INT NOT NULL ,
   [QuantityType] BIT NOT NULL,

@@ -4,15 +4,20 @@ namespace Domain.Entity;
 
 public class LineItem :Entity
 {
-    public LineItem(Quantity quantity,Item item,Guid guid)
+    public LineItem(Quantity quantity,Item item,Guid guid,long id)
     {
         Quantity = quantity ?? throw new ArgumentNullException(nameof(quantity));
         Item = item ?? throw new ArgumentNullException(nameof(item));
-        Guid = guid;
+        Guid = guid;  
+        Id = id;
     }
 
-    public Guid Guid { get; private set; }
-    public Quantity Quantity { get; private set; }
-    public int PurchaseOrderId { get; private set; }
+    public LineItem()
+    {
+        
+    }
+    public virtual Guid Guid { get; protected set; }
+    public virtual Quantity Quantity { get; protected set; }
+    public virtual int PurchaseOrderId { get; protected set; }
     public Item Item { get; private set; }
 }

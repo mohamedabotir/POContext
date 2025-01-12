@@ -113,7 +113,7 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.Extensions.Hosting.Abstractions": {
               "target": "Package",

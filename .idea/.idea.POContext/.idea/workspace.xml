@@ -8,8 +8,150 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="">
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="ADD NEW GUID FOR lINE ITEM , add Line Item Table">
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/LineItemsPoco.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Context/PurchaseOrderDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/LineItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/LineItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/ValueObject/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ValueObject/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/ValueObject/PoNumber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ValueObject/PoNumber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/LineItemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/LineItemTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/CoverletSourceRootsMapping_PO.Test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/FluentAssertions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Microsoft.TestPlatform.CommunicationUtilities.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Microsoft.TestPlatform.CoreUtilities.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Microsoft.TestPlatform.CrossPlatEngine.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Microsoft.TestPlatform.PlatformAbstractions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Microsoft.TestPlatform.Utilities.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Microsoft.VisualStudio.TestPlatform.Common.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/NUnit3.TestAdapter.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/NUnit3.TestAdapter.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Newtonsoft.Json.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/NuGet.Frameworks.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/cs/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/cs/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/cs/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/cs/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/de/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/de/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/de/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/de/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/de/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/es/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/es/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/es/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/es/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/es/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/fr/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/fr/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/fr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/fr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/fr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/it/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/it/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/it/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/it/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/it/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ja/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ja/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ja/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ja/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ja/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ko/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ko/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ko/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ko/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ko/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/nunit.engine.api.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/nunit.engine.core.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/nunit.engine.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/nunit.framework.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pl/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pl/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pl/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pl/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pl/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pt-BR/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pt-BR/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pt-BR/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pt-BR/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/pt-BR/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ru/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ru/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ru/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ru/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/ru/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/testcentric.engine.metadata.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/testhost.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/tr/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/tr/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/tr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/tr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/tr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hans/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hans/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hans/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hans/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hans/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hant/Microsoft.TestPlatform.CoreUtilities.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.AssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.Up2Date" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.genruntimeconfig.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/ref/PO.Test.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/refint/PO.Test.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Tables/LineItem.sql" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Tables/LineItem.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Tables/PurchaseOrder.sql" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Tables/PurchaseOrder.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/PurchaseOrder.WebAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/PurchaseOrder.WebAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,17 +190,25 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3222da496abbe1a1317bf25877e9094f1ee5c654e899857b8b5ead49bdf17c7/RequestDelegateFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/375037591458387146414156a4f44c12bcaed9d9185241f1a6a4dfbb11f977c/MongoCollectionBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ad82f9910d5c82d76b445db10584a60305639dcad2533e08e6c47f85e3b6d83/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bd4df5aff92cabbc4d630be64227073db1b8539b3a1e47786b4b189d7cdb7/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4a28847852ee9ba45fd3107526c0a749a733bd4f4ebf33aa3c9a59737a3f758/EntityFrameworkServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5e36f79053446033ddbc7cc8397a3d0627114f46f804559a98a094977b488d/RequestExceptionProcessorBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/621526284d3e4868b98948aff942206525763e57e194a27623b66c384466/ServiceProviderServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/68b06b8592b1287fd78f3ee68566d6a38d6e2f45b9a9e6ebd4d0e9972f7c29/Object.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71f8a5297672ad56962c6af62f7241a092ad7d95eaee4ef564601be5d8e37b38/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8056cd3f452fefb9834f05cdb275b762dd41f27b7766cd71174e78592dc495b/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8b934f3b15886a282112a2d2b9b6bbbb6d2cf6702a289c2842eda7be1702bcb/ObjectWithParameterizedConstructorConverter.Large.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e2e3f232b3f74cfc56d24ec307aaea234eb831ec23796f1b454eb7e8fe1/CallSiteVisitor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/97e0acfa9f8fa9e34de846c450a980af9e82bb257912dd5a8ca5d029c0d2b08c/ObjectWithParameterizedConstructorConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a0b45f29f34f594814a7b1fbc25fe5ef3c18257956ed4f4fbfa68717db58/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a110e6bccb7f8a3c21a52d7f7afdfd91767c2ae28632bbdc660c7ca42f6d4e9/JsonSerializer.Read.String.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c1558d44394b3be0f45e5cfe17d84d06c60a9ea79543868636a2edb57c2342/IRequestHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce37be1a06b16c6faa02038d2cc477dd3bca5b217ceeb41c5f2ad45c1bf9/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7185afbe59eff37fdb572764d59313fd2aa33dc2158592e6597c2e7a913e/JsonConverterOfT.ReadCore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dfd0695bfb41ede73eb6f6ea2ef339ec8a345366da40fa88f00d6d6b7345a/JsonConverterOfT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/Domain/Entity/LineItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/Domain/ValueObject/User.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/PurchaseOrder.WebAPI/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -85,6 +235,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -180,6 +331,7 @@
       <workItem from="1736418830045" duration="4842000" />
       <workItem from="1736499987949" duration="19258000" />
       <workItem from="1736626027939" duration="8118000" />
+      <workItem from="1736681057318" duration="26060000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -237,7 +389,31 @@
       <option name="project" value="LOCAL" />
       <updated>1736630566266</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="start adding database project">
+      <option name="closed" value="true" />
+      <created>1736683041082</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1736683041082</updated>
+    </task>
+    <task id="LOCAL-00009" summary="adding move Email.cs to value object">
+      <option name="closed" value="true" />
+      <created>1736683075591</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1736683075591</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ADD NEW GUID FOR lINE ITEM , add Line Item Table">
+      <option name="closed" value="true" />
+      <created>1736687461868</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736687461868</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +441,10 @@
     <MESSAGE value="implement result pattern with railway oriented to handle validation case" />
     <MESSAGE value="add converter for event" />
     <MESSAGE value="done number generator and add activation status and add  multiple PO" />
-    <option name="LAST_COMMIT_MESSAGE" value="done number generator and add activation status and add  multiple PO" />
+    <MESSAGE value="start adding database project" />
+    <MESSAGE value="adding move Email.cs to value object" />
+    <MESSAGE value="ADD NEW GUID FOR lINE ITEM , add Line Item Table" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD NEW GUID FOR lINE ITEM , add Line Item Table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -295,19 +474,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>43</line>
-          <properties documentPath="$PROJECT_DIR$/Application/UserCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
-            <startOffsets>
-              <option value="1979" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2041" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderCreationHandler.cs</url>
@@ -353,10 +519,10 @@
           <line>16</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Constructor 'EventRepository'">
             <startOffsets>
-              <option value="579" />
+              <option value="580" />
             </startOffsets>
             <endOffsets>
-              <option value="640" />
+              <option value="641" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="32" />
@@ -366,10 +532,10 @@
           <line>15</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Constructor 'EventRepository'">
             <startOffsets>
-              <option value="497" />
+              <option value="498" />
             </startOffsets>
             <endOffsets>
-              <option value="566" />
+              <option value="567" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="33" />
@@ -392,10 +558,10 @@
           <line>55</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Method 'SaveEventAsync'">
             <startOffsets>
-              <option value="1984" />
+              <option value="1985" />
             </startOffsets>
             <endOffsets>
-              <option value="2059" />
+              <option value="2060" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="36" />
@@ -428,39 +594,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>21</line>
+          <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
             <startOffsets>
-              <option value="676" />
+              <option value="714" />
             </startOffsets>
             <endOffsets>
-              <option value="750" />
+              <option value="788" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>19</line>
+          <line>18</line>
           <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
             <startOffsets>
-              <option value="513" />
+              <option value="543" />
             </startOffsets>
             <endOffsets>
-              <option value="576" />
+              <option value="606" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs</url>
-          <line>70</line>
+          <line>72</line>
           <properties documentPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" containingFunctionPresentation="">
             <startOffsets>
-              <option value="2776" />
+              <option value="2984" />
             </startOffsets>
             <endOffsets>
-              <option value="2797" />
+              <option value="3005" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
@@ -519,13 +685,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
-          <line>41</line>
+          <line>50</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'MarkPoAsShippedAsync'">
             <startOffsets>
-              <option value="947" />
+              <option value="1280" />
             </startOffsets>
             <endOffsets>
-              <option value="993" />
+              <option value="1326" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="52" />
@@ -587,10 +753,10 @@
           <line>10</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" containingFunctionPresentation="Method 'On'">
             <startOffsets>
-              <option value="280" />
+              <option value="281" />
             </startOffsets>
             <endOffsets>
-              <option value="346" />
+              <option value="347" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="61" />
@@ -620,6 +786,149 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
+          <line>27</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'AddAsync'">
+            <startOffsets>
+              <option value="677" />
+            </startOffsets>
+            <endOffsets>
+              <option value="707" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
+          <line>29</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'AddAsync'">
+            <startOffsets>
+              <option value="765" />
+            </startOffsets>
+            <endOffsets>
+              <option value="814" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
+          <line>28</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'AddAsync'">
+            <startOffsets>
+              <option value="716" />
+            </startOffsets>
+            <endOffsets>
+              <option value="756" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
+          <line>40</line>
+          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
+            <startOffsets>
+              <option value="1985" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2040" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
+          <line>41</line>
+          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
+            <startOffsets>
+              <option value="2057" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2119" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs</url>
+          <line>40</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" containingFunctionPresentation="Method 'SaveChangesAsync'">
+            <startOffsets>
+              <option value="1209" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1273" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
+          <line>69</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
+            <startOffsets>
+              <option value="2053" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2111" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
+          <line>81</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
+            <startOffsets>
+              <option value="2813" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2913" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
+          <line>30</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'AddAsync'">
+            <startOffsets>
+              <option value="822" />
+            </startOffsets>
+            <endOffsets>
+              <option value="861" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
+          <line>85</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
+            <startOffsets>
+              <option value="3029" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3030" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
+          <line>84</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
+            <startOffsets>
+              <option value="2992" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3016" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

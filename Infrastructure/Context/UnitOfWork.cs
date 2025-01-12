@@ -9,37 +9,53 @@ namespace Application.Context;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly DbContext _context1;
-    private readonly IServiceProvider _serviceProvider1;
+    private readonly PurchaseOrderDbContext _context;
+    private readonly IServiceProvider _serviceProvider;
     private readonly IEventDispatcher _eventDispatcher;
 
    
 
-    public UnitOfWork(IServiceProvider serviceProvider,IEventDispatcher eventDispatcher)
+    public UnitOfWork(PurchaseOrderDbContext dbContext,IServiceProvider serviceProvider,IEventDispatcher eventDispatcher)
     {
-        //_context1 = context;
-        _serviceProvider1 = serviceProvider;
+        _context = dbContext;
+        _serviceProvider = serviceProvider;
         _eventDispatcher = eventDispatcher;
     }
 
     public async Task<int> SaveChangesAsync(IEnumerable<DomainEventBase> events,CancellationToken cancellationToken = default)
     {
+     /*
+      * 
+        var domainEvents = _context1.ChangeTracker
+            .Entries<AggregateRoot>() 
+            .SelectMany(e => e.Entity.DomainEvents) 
+            .Where(domainEvent => domainEvent != null)
+            .ToList();
 
-        var result = 1;//await _context1.SaveChangesAsync(cancellationToken);
+        foreach (var entry in _context1.ChangeTracker.Entries<AggregateRoot>())
+        {
+            entry.Entity.ClearEvents();
+        }
+      */
 
-        await _eventDispatcher.DispatchDomainEventsAsync(events);
+        var result = await _context.SaveChangesAsync(cancellationToken);
+
+        if (events.Any())
+        {
+            await _eventDispatcher.DispatchDomainEventsAsync(events);
+        }
 
         return result;
-        
     }
+
 
     public IRepository<T>? GetRepository<T>() where T : AggregateRoot
     {
-        return _serviceProvider1.GetService<Domain.Repository.IRepository<T>>();
+        return _serviceProvider.GetService<Domain.Repository.IRepository<T>>();
     }
     public void Dispose()
     {
-        _context1?.Dispose();
+        _context?.Dispose();
         GC.SuppressFinalize(this);
     }
 

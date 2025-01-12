@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using EventModel = Domain.Mongo.EventModel;
 
-namespace Application.Repositories;
+namespace Infrastructure.Repository;
 
 public class EventRepository:IEventRepository
 {
