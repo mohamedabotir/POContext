@@ -8,42 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="add converter for event">
-      <change afterPath="$PROJECT_DIR$/Domain/ValueObject/PoNumber.cs" afterDir="false" />
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Models/PurchaseOrderDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Models/PurchaseOrderDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/UseCases/PO/Command/PoCreationCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/Command/PoCreationCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/UseCases/PO/IPurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/IPurchaseOrderUseCase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/bin/Debug/net8.0/PO.Test.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/ref/PO.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/ref/PO.Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/refint/PO.Test.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/refint/PO.Test.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +179,7 @@
       <workItem from="1736368726167" duration="14641000" />
       <workItem from="1736418830045" duration="4842000" />
       <workItem from="1736499987949" duration="19258000" />
-      <workItem from="1736626027939" duration="4472000" />
+      <workItem from="1736626027939" duration="8118000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -263,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736522802097</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="done number generator and add activation status and add  multiple PO">
+      <option name="closed" value="true" />
+      <created>1736630566266</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1736630566266</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +264,8 @@
     <MESSAGE value="move event handler to application" />
     <MESSAGE value="implement result pattern with railway oriented to handle validation case" />
     <MESSAGE value="add converter for event" />
-    <option name="LAST_COMMIT_MESSAGE" value="add converter for event" />
+    <MESSAGE value="done number generator and add activation status and add  multiple PO" />
+    <option name="LAST_COMMIT_MESSAGE" value="done number generator and add activation status and add  multiple PO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
