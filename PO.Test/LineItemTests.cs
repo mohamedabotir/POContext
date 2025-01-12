@@ -11,7 +11,7 @@ public class LineItemTests
     {
         Quantity quantity  = null;
         Item purchaseOrderItem = new Item("Panadol",500,"asdssada");
-        Action act = () => new LineItem(quantity,purchaseOrderItem);
+        Action act = () => new LineItem(quantity,purchaseOrderItem,Guid.NewGuid());
 
         act.Should().Throw<ArgumentNullException>();
 

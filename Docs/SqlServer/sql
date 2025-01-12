@@ -1,0 +1,1 @@
+sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@ssw0rd" -p 1433:1433 --user root --cap-add=SYS_PTRACE --name erpsql -d mcr.microsoft.com/mssql/server:2022-latest

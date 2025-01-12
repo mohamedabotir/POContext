@@ -8,7 +8,14 @@
     <ModelCollation>1033, CI</ModelCollation>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Pre-DeploymentSscript" />
     <Folder Include="Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Pre-DeploymentSscript\DatabaseCreation.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PO_1.publish.xml" />
   </ItemGroup>
   <Target Name="BeforeBuild">
     <Delete Files="$(BaseIntermediateOutputPath)\project.assets.json" />

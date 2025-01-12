@@ -1,3 +1,4 @@
+USE PurchaseOrder;
 CREATE TABLE [dbo].[PurchaseOrder]
 (
     [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),

@@ -48,5 +48,5 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork)
     }
 
     private LineItem ItemLineDtoToLineItemEntity(ItemLineDto itemLineDto) 
-        => new LineItem(itemLineDto.Quantity,new Item(itemLineDto.Name,itemLineDto.Price,itemLineDto.Sku));
+        => new LineItem(itemLineDto.Quantity,new Item(itemLineDto.Name,itemLineDto.Price,itemLineDto.Sku),itemLineDto.Guid);
 }

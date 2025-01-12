@@ -12,6 +12,6 @@ public record PurchaseOrderDto(
     List<ItemLineDto> ItemLines,
     NumberGenerator NumberGenerator);
 
-public record ItemLineDto(Quantity Quantity, string Name, decimal Price, string Sku);
+public record ItemLineDto(Quantity Quantity, string Name, decimal Price, string Sku,Guid Guid);
 public record UserDto(string Email, string PhoneNumber, string Name);
 public record PurchaseOrdersDto(List<PurchaseOrderDto> PurchaseOrders):IRequest<Result>;
