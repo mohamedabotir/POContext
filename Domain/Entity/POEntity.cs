@@ -9,9 +9,6 @@ public class PoEntity : AggregateRoot
 {
     public PoEntity(Money totalAmount,Guid rootGuid,User customer,User supplier,PoNumber poNumber)
     {
-       
-        if(Guid.Empty == rootGuid)
-            throw new ArgumentException(nameof(rootGuid));
         TotalAmount = totalAmount;
         base.Guid = rootGuid;
         base.CreatedOn = DateTime.UtcNow;

@@ -15,6 +15,9 @@ using Application.Extensions;
 using Application.Mongo;
 using Infrastructure.Repository;
 using Domain.Result;
+using GraphQL;
+using GraphQL.Server.Ui.Playground;
+using GraphQL.Types;
 using Infrastructure.Consumer;
 using MediatR;
 using Microsoft.AspNetCore.Components.Web;
@@ -23,6 +26,7 @@ using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
+using PurchaseOrder.WebAPI.GraphQl;
 using EventHandler = Infrastructure.Consumer.EventHandler;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -56,7 +60,14 @@ builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
 builder.Services.AddTransient<IEventHandler, EventHandler>();
 builder.Services.AddTransient<IEventConsumer<EventConsumer>, EventConsumer>();
 builder.Services.AddHostedService<ConsumerHostingService>();
-
+//GraphQl
+builder.Services.AddScoped<PurchaseOrderType>();
+builder.Services.AddScoped<LineItemsType>();
+builder.Services.AddScoped<PurchaseOrderQuery>();
+builder.Services.AddScoped<ISchema, PurchaseSchema>();
+builder.Services.AddGraphQL(b => b
+    .AddAutoSchema<PurchaseOrderQuery>()  
+    .AddSystemTextJson());
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -66,7 +77,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseGraphQL<ISchema>("/graphql");
+app.UseGraphQLPlayground("/graphql-ui" , new PlaygroundOptions()
+{
+    GraphQLEndPoint = "/graphql"
+});
 app.MapPost("/weatherforecast", async ([FromBody]PurchaseOrdersDto command, IMediator mediator) =>
 {
     var result = await mediator.Send(command);

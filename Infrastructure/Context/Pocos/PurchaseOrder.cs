@@ -109,7 +109,7 @@ namespace Application.Context.Pocos;
             var purchaseOrder = new PoEntity(money.Value, Guid,
                 customerUser.Value, supplierUser.Value,poNumber.Value);
             var lineItems = LineItems.Select(e=>e.MapLineItemPocoToItemLine()).ToList();
-            purchaseOrder.AddLineItems(lineItems);
+            purchaseOrder.SetLineItems(lineItems);
             return Result.Ok(purchaseOrder);
         }
     }

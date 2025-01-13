@@ -27,7 +27,7 @@ public class LineItems
 
     [Required]
     [MaxLength(50)]
-    public virtual string Name { get;protected set; }
+    public  string Name { get;protected set; }
 
     [Required]
     [Column(TypeName = "decimal(8, 2)")]
@@ -35,7 +35,7 @@ public class LineItems
 
     [Required]
     [MaxLength(20)]
-    public virtual string SKU { get;protected set; }
+    public  string SKU { get;protected set; }
 
     [ForeignKey("PurchaseOrderId")]
     public virtual PurchaseOrder PurchaseOrder { get; set; }

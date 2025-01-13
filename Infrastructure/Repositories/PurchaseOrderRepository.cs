@@ -3,6 +3,7 @@ using Application.Context;
 using Application.Context.Pocos;
 using Domain.Entity;
 using Domain.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository;
 
@@ -20,7 +21,14 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
 
     public Task<IEnumerable<PoEntity>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        _context.Set<PurchaseOrder>();
+        var purchaseOrder = _context.PurchaseOrder
+            .Include(e=>e.LineItems)
+            .Select(e => e)
+            .ToList();
+        var poEntities = purchaseOrder.Select(e => e.GetPoEntity()).ToList();
+         return Task.FromResult<IEnumerable<PoEntity>>( poEntities.Select(e => e.Value).ToList());
+
     }
 
     public async Task AddAsync(PoEntity entity)
