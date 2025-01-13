@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
-using Domain.Entity;
+using Common.Entity;
 
-namespace Domain.Repository;
+namespace Common.Repository;
 
 public interface IRepository<T> where T : AggregateRoot
 {

@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
-namespace Domain.Result;
+
+namespace Common.Result;
 public class Result
 {
     public bool IsSuccess { get; private set; }
@@ -73,7 +74,7 @@ public class Result<T> : Result
         }
     }
 
-    protected internal Result([AllowNull] T value, bool isSuccess, string message)
+     public Result([AllowNull] T value, bool isSuccess, string message)
         : base(isSuccess, message)
     {
         _value = value;

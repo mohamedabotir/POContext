@@ -1,4 +1,4 @@
-using Domain.Result;
+using Common.Result;
 using Domain.ValueObject;
 using MediatR;
 

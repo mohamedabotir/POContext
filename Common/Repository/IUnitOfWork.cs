@@ -1,7 +1,7 @@
-using Domain.DomainEvents;
-using Domain.Entity;
+using Common.Domains;
+using Common.Entity;
 
-namespace Domain.Repository;
+namespace Common.Repository;
 
 public interface IUnitOfWork: IDisposable
 {

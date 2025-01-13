@@ -1,7 +1,8 @@
 using Application.UseCases.PO.Models;
+using Common.Repository;
+using Common.Result;
 using Domain.Entity;
 using Domain.Repository;
-using Domain.Result;
 using Domain.ValueObject;
 
 namespace Application.UseCases.PO;
@@ -22,10 +23,9 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepositor
                   results.AddResult(Result.Fail("PO already exists"));
                     continue;   
                 }
-                var money = Money.CreateInstance(purchaseOrderDto.TotalAmount);
                 var customerEmail = Email.CreateInstance(purchaseOrderDto.Customer.Email);
                 var supplierEmail = Email.CreateInstance(purchaseOrderDto.Supplier.Email);
-                var validations = Result.Combine(money,customerEmail,supplierEmail);
+                var validations = Result.Combine(customerEmail,supplierEmail);
 
                 if (validations.IsFailure)
                 {
@@ -38,7 +38,7 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepositor
                 var supplierUser = User.CreateInstance(supplierEmail.Value, purchaseOrderDto.Supplier.Name
                     , purchaseOrderDto.Supplier.PhoneNumber);
                 var poNumber = PoNumber.CreateInstance(purchaseOrderDto.NumberGenerator);
-                validations = Result.Combine(money,customerUser,supplierUser,poNumber);
+                validations = Result.Combine(customerUser,supplierUser,poNumber);
                 if (validations.IsFailure)
                 {
                     results.AddResult(validations);

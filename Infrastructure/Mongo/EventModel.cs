@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Application.Mongo;
 
-public  class EventModel : Domain.Mongo.EventModel
+public  class EventModel : Common.Domains.EventModel
 {
     [BsonId]
     public Guid Id { get; set; }

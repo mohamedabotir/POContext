@@ -1,6 +1,9 @@
+using Common.Domains;
+using Common.Entity;
+using Common.Handlers;
+using Common.Repository;
 using Domain.DomainEvents;
 using Domain.Entity;
-using Domain.Handlers;
 using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,7 +54,7 @@ public class UnitOfWork : IUnitOfWork
 
     public IRepository<T>? GetRepository<T>() where T : AggregateRoot
     {
-        return _serviceProvider.GetService<Domain.Repository.IRepository<T>>();
+        return _serviceProvider.GetService<IRepository<T>>();
     }
     public void Dispose()
     {

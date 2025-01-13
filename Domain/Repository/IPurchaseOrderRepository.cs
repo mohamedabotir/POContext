@@ -1,3 +1,4 @@
+using Common.Repository;
 using Domain.Entity;
 
 namespace Domain.Repository;

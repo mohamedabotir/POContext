@@ -1,5 +1,6 @@
 using System.ComponentModel;
-using Domain.Result;
+using Common.Result;
+using Common.ValueObject;
 
 namespace Domain.ValueObject;
 
@@ -21,7 +22,7 @@ public class PoNumber:ValueObject<PoNumber>
 
     public static Result<PoNumber> SetPoNumber(string poNumberValue)
     {
-        var number = Result.Result.Fail<PoNumber>("Invalid PoNumber");
+        var number = Result.Fail<PoNumber>("Invalid PoNumber");
         foreach (int enumValue in Enum.GetValues(typeof(NumberGenerator)))
         {
             var generator = NumberGeneratorBase.CreateGenerator((NumberGenerator)enumValue);
@@ -116,7 +117,7 @@ public class PoNumberTimestampGenerator : NumberGeneratorBase
     [
         new PoNumberPart(1, "PO",2),
         new PoNumberPart(2, "{",1),
-        new PoNumberPart(3, $"{DateTime.Now:yyyyMMdd-HHmmss}",8),
+        new PoNumberPart(3, $"{DateTime.Now:yyyyMMdd-HHmmss}",15),
         new PoNumberPart(4, "}",1),
     ];
     

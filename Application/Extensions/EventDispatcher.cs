@@ -1,6 +1,7 @@
 using Domain.DomainEvents;
-using Domain.Handlers;
 using Application.EventHandlers;
+using Common.Domains;
+using Common.Handlers;
 
 namespace Application.Extensions;
 

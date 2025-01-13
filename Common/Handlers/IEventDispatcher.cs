@@ -1,6 +1,6 @@
-using Domain.DomainEvents;
+using Common.Domains;
 
-namespace Domain.Handlers;
+namespace Common.Handlers;
 
 public interface IEventDispatcher
 {

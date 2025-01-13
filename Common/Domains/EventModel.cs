@@ -1,6 +1,4 @@
-using Domain.DomainEvents;
-
-namespace Domain.Mongo;
+namespace Common.Domains;
     public  class EventModel
     {
         public DateTime TimeStamp { get; set; }

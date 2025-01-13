@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
-using Domain.Result;
+using Common.Result;
+using Common.ValueObject;
 
 namespace Domain.ValueObject;
 

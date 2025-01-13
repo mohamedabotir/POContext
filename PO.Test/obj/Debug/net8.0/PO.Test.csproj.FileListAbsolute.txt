@@ -153,3 +153,5 @@
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/obj/Debug/net8.0/PO.Test.pdb
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/obj/Debug/net8.0/PO.Test.genruntimeconfig.cache
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/obj/Debug/net8.0/ref/PO.Test.dll
+/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Common.dll
+/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Common.pdb

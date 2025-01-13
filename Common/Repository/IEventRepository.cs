@@ -1,4 +1,4 @@
-using Domain.Mongo;
+using Common.Domains;
 
 namespace Domain.Repository;
 

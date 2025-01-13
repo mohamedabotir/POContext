@@ -2,7 +2,7 @@ using Domain.ValueObject;
 
 namespace Domain.Entity;
 
-public class LineItem :Entity
+public class LineItem :Common.Entity.Entity
 {
     public LineItem(Quantity quantity,Item item,Guid guid,long id)
     {

@@ -1,4 +1,4 @@
-namespace Domain.Result;
+namespace Common.Result;
 
 public static class ResultExtensions
 {

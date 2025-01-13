@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Common.Domains;
 using Confluent.Kafka;
 using Domain.DomainEvents;
 using Microsoft.Extensions.Options;

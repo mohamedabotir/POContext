@@ -1,7 +1,5 @@
 using Domain.DomainEvents;
 using Domain.Entity;
-using Domain.Handlers;
-using Domain.Result;
 using Domain.ValueObject;
 using FluentAssertions;
 

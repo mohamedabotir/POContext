@@ -1,3 +1,4 @@
+using Common.Domains;
 using Domain.DomainEvents;
 
 namespace Domain.Mongo.Producers;

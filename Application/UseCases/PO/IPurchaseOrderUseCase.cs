@@ -1,5 +1,5 @@
 using Application.UseCases.PO.Models;
-using Domain.Result;
+using Common.Result;
 
 namespace Application.UseCases.PO;
 

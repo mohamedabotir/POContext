@@ -1,6 +1,6 @@
+using Common.Entity;
+using Common.Result;
 using Domain.DomainEvents;
-using Domain.Handlers;
-using Domain.Result;
 using Domain.ValueObject;
 
 namespace Domain.Entity;
@@ -28,19 +28,19 @@ public class PoEntity : AggregateRoot
     public  User Supplier { get; protected set; }
     public virtual ActivationStatus ActivationStatus { get; protected set; } = ActivationStatus.Active;
 
-    public Result.Result DeActivate() => new PoActivationProcessor(new PoDeActivationState(), ActivationStatus).ProcessOrder();
-    public Result.Result Activate() => new PoActivationProcessor(new PoActivationState(), ActivationStatus).ProcessOrder();
+    public Result DeActivate() => new PoActivationProcessor(new PoDeActivationState(), ActivationStatus).ProcessOrder();
+    public Result Activate() => new PoActivationProcessor(new PoActivationState(), ActivationStatus).ProcessOrder();
 
      
     public virtual PoNumber PoNumber { get; protected set; }
     public  ICollection<LineItem> LineItems { get; protected set; } = new List<LineItem>();
     
-    public Result.Result AddLineItems(List<LineItem> lineItem)
+    public Result AddLineItems(List<LineItem> lineItem)
     {
         foreach (var line in lineItem)
         {
             if (LineItems.Any(l => l.Item == line.Item))
-                return Result.Result.Fail("Item already added");
+                return Result.Fail("Item already added");
             LineItems.Add(line);
         }
 
@@ -50,15 +50,23 @@ public class PoEntity : AggregateRoot
             return moneyAmount;
         TotalAmount = moneyAmount.Value;
         AddDomainEvent(new PoCreatedEventBase(Id, Guid,(IReadOnlyList<LineItem>)LineItems, TotalAmount,Customer,Supplier));
-       return Result.Result.Ok();
+       return Result.Ok();
     }
 
-    public void SetLineItems(List<LineItem> lineItem)
+     
+
+    public Result SetLineItems(List<LineItem> lineItem)
     { 
             foreach (var line in lineItem)
             {
                 LineItems.Add(line);
             }
+            var totalAmount = LineItems.Sum(e=>e.Item.Price);
+            var moneyAmount = Money.CreateInstance(totalAmount);
+            if (moneyAmount.IsFailure)
+                return moneyAmount;
+            TotalAmount = moneyAmount.Value;
+            return Result.Ok();
     }
 }
 
@@ -69,7 +77,7 @@ public enum ActivationStatus
 
 interface IPoActivationState
 {
-    Result.Result Process(PoActivationProcessor context);
+    Result Process(PoActivationProcessor context);
 }
 
  class PoActivationProcessor(IPoActivationState currentState, ActivationStatus activationStatus)
@@ -83,7 +91,7 @@ interface IPoActivationState
         
     }
 
-    public Result.Result ProcessOrder()
+    public Result ProcessOrder()
     {
         return CurrentState.Process(this);
     }
@@ -91,19 +99,19 @@ interface IPoActivationState
 
 class PoActivationState: IPoActivationState
 {
-    public Result.Result Process(PoActivationProcessor context)
+    public Result Process(PoActivationProcessor context)
     {
         if (context.ActivationStatus != ActivationStatus.NotActive)
-            return Result.Result.Fail("Purchase Not On In-Active State");
-        return Result.Result.Ok();
+            return Result.Fail("Purchase Not On In-Active State");
+        return Result.Ok();
     }
 }
 class PoDeActivationState: IPoActivationState
 {
-    public Result.Result Process(PoActivationProcessor context)
+    public Result Process(PoActivationProcessor context)
     {
         if (context.ActivationStatus != ActivationStatus.Active)
-            return Result.Result.Fail("Purchase Not on Active State");
-        return Result.Result.Ok();
+            return Result.Fail("Purchase Not on Active State");
+        return Result.Ok();
     }
 }

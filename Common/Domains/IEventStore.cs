@@ -1,4 +1,4 @@
-namespace Domain.DomainEvents;
+namespace Common.Domains;
 
 public interface IEventStore
 {

@@ -1,6 +1,6 @@
-using Domain.DomainEvents;
+using Common.Domains;
 
-namespace Domain.Entity;
+namespace Common.Entity;
 
 public class AggregateRoot : Entity
 {

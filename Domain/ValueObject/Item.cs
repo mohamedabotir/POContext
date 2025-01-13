@@ -1,3 +1,5 @@
+using Common.ValueObject;
+
 namespace Domain.ValueObject;
 
 public sealed class Item: ValueObject<Item>

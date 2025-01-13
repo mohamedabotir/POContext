@@ -1,6 +1,5 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Domain.Result;
 using Domain.ValueObject;
 
 namespace Infrastructure.EventsSerializer.PoCreatedEvent;

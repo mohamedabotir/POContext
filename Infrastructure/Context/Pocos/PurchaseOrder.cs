@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Common.Result;
 using Domain.Entity;
-using Domain.Result;
 using Domain.ValueObject;
 using Microsoft.EntityFrameworkCore;
 
@@ -110,7 +110,9 @@ namespace Application.Context.Pocos;
             var purchaseOrder = new PoEntity( Guid,
                 customerUser.Value, supplierUser.Value,poNumber.Value);
             var lineItems = LineItems.Select(e=>e.MapLineItemPocoToItemLine()).ToList();
-            purchaseOrder.SetLineItems(lineItems);
+            var settingLineItemsResult = purchaseOrder.SetLineItems(lineItems);
+            if(supplierEmail.IsFailure)
+                return Result.Fail<PoEntity>(settingLineItemsResult.Message);
             return Result.Ok(purchaseOrder);
         }
     }

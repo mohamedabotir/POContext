@@ -1,3 +1,4 @@
+using Common.Domains;
 using Confluent.Kafka;
 using Domain.DomainEvents;
 using Domain.Entity;

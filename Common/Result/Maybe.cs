@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Domain.Result;
+namespace Common.Result;
 
  public class Maybe<T> 
         where T : class
