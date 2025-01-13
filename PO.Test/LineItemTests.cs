@@ -1,5 +1,5 @@
-using Domain.Entity;
-using Domain.ValueObject;
+using Common.Entity;
+using Common.ValueObject;
 using FluentAssertions;
 
 namespace PO.Test;

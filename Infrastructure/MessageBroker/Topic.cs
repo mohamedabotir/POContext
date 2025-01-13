@@ -1,4 +1,4 @@
-namespace Domain.Mongo;
+namespace Common.Mongo;
 
 public class Topic
 {

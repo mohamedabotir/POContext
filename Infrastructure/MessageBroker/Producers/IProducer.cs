@@ -1,7 +1,7 @@
 using Common.Domains;
-using Domain.DomainEvents;
+using Common.DomainEvents;
 
-namespace Domain.Mongo.Producers;
+namespace Common.Mongo.Producers;
 
 public interface IProducer
 {

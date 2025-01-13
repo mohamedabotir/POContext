@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 using Common.Result;
 using Common.ValueObject;
 
-namespace Domain.ValueObject;
+namespace Common.ValueObject;
 
 public sealed class Email : ValueObject<Email>
 {

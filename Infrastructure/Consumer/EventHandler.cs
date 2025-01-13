@@ -1,6 +1,6 @@
 using Infrastructure.Repository;
-using Domain.DomainEvents;
-using Domain.Repository;
+using Common.DomainEvents;
+using Common.Repository;
 
 namespace Infrastructure.Consumer;
 

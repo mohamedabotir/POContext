@@ -1,8 +1,8 @@
 using System.Linq.Expressions;
 using Application.Context;
 using Application.Context.Pocos;
-using Domain.Entity;
-using Domain.Repository;
+using Common.Entity;
+using Common.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository;

@@ -1,10 +1,8 @@
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Common.Result;
-using Domain.Entity;
-using Domain.ValueObject;
-using Microsoft.EntityFrameworkCore;
+using Common.Entity;
+using Common.ValueObject;
 
 namespace Application.Context.Pocos;
 [Table("PurchaseOrder")]
@@ -103,7 +101,7 @@ namespace Application.Context.Pocos;
                 , CustomerPhoneNumber);
             var supplierUser = User.CreateInstance(supplierEmail.Value, SupplierName
                 , SupplierPhoneNumber);
-            var poNumber = Domain.ValueObject.PoNumber.SetPoNumber(PoNumber);
+            var poNumber = Common.Utils.PoNumber.SetPoNumber(PoNumber);
             validations = Result.Combine(money,customerUser,supplierUser,poNumber);
             if (validations.IsFailure)
                 return   Result.Fail<PoEntity>(validations.Message);

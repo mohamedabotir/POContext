@@ -1,10 +1,10 @@
 using System.Text.Json;
 using Common.Domains;
 using Confluent.Kafka;
-using Domain.DomainEvents;
+using Common.DomainEvents;
 using Microsoft.Extensions.Options;
 
-namespace Domain.Mongo.Producers;
+namespace Common.Mongo.Producers;
 
 public class Producer:IProducer
 {

@@ -1,4 +1,4 @@
-using Domain.Entity;
+using Common.Entity;
 using GraphQL.Types;
 
 namespace PurchaseOrder.WebAPI.GraphQl;

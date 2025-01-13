@@ -1,12 +1,12 @@
 using Common.Domains;
+using Common.Entity;
+using Common.Mongo.Producers;
+using Common.Repository;
 using Confluent.Kafka;
-using Domain.DomainEvents;
-using Domain.Entity;
-using Domain.Mongo.Producers;
-using Domain.Repository;
+using Common.DomainEvents;
 using Microsoft.Extensions.Options;
 
-namespace Domain.Mongo;
+namespace Common.Mongo;
 
 public class PurchaseOrderEventStore(IEventRepository eventRepository, IProducer producer, IOptions<Topic> options) : IEventStore
 {

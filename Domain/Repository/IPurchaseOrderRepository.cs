@@ -1,7 +1,7 @@
+using Common.Entity;
 using Common.Repository;
-using Domain.Entity;
 
-namespace Domain.Repository;
+namespace Common.Repository;
 
 public interface IPurchaseOrderRepository : IRepository<PoEntity>
 {

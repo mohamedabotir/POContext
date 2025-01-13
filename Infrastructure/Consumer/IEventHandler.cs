@@ -1,4 +1,4 @@
-using Domain.DomainEvents;
+using Common.DomainEvents;
 
 namespace Infrastructure.Consumer;
 

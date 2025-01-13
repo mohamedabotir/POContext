@@ -1,4 +1,4 @@
-using Domain.ValueObject;
+using Common.ValueObject;
 using FluentAssertions;
 
 namespace PO.Test;

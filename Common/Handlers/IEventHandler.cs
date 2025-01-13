@@ -1,6 +1,6 @@
-namespace Application.EventHandlers;
+namespace Common.Handlers;
 
-public interface IDomainEventHandler<T>
+public interface IEventHandler<T>
 {
     Task HandleAsync (T @event, CancellationToken cancellationToken = default);
 }

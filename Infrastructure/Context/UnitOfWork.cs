@@ -2,9 +2,7 @@ using Common.Domains;
 using Common.Entity;
 using Common.Handlers;
 using Common.Repository;
-using Domain.DomainEvents;
-using Domain.Entity;
-using Domain.Repository;
+using Common.DomainEvents;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

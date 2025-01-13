@@ -1,9 +1,9 @@
 using System.Text.Json.Serialization;
 using Common.Domains;
-using Domain.Entity;
-using Domain.ValueObject;
+using Common.Entity;
+using Common.ValueObject;
 
-namespace Domain.DomainEvents;
+namespace Common.DomainEvents;
 
 public  class  PoCreatedEventBase : DomainEventBase
 {

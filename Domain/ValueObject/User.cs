@@ -1,7 +1,7 @@
 using Common.Result;
 using Common.ValueObject;
 
-namespace Domain.ValueObject;
+namespace Common.ValueObject;
 
 public sealed class User: ValueObject<User>
 {

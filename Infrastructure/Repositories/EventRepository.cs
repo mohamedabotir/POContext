@@ -1,5 +1,5 @@
 using Application.Mongo;
-using Domain.Repository;
+using Common.Repository;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using EventModel = Common.Domains.EventModel;

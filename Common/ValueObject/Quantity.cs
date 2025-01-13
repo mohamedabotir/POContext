@@ -1,6 +1,6 @@
 using Common.ValueObject;
 
-namespace Domain.ValueObject;
+namespace Common.ValueObject;
 public enum QuantityType
 {
     Kilo,

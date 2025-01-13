@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Entity;
-using Domain.ValueObject;
+using Common.Entity;
+using Common.ValueObject;
 
 namespace Application.Context.Pocos;
 

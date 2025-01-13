@@ -1,4 +1,4 @@
-using Domain.DomainEvents;
+using Common.DomainEvents;
 using Application.EventHandlers;
 using Common.Domains;
 using Common.Handlers;
@@ -22,7 +22,7 @@ public class EventDispatcher : IEventDispatcher
     {
         foreach (var domainEvent in domainEvents)
         {
-            var handlerType = typeof(IDomainEventHandler<>).MakeGenericType(domainEvent.GetType());
+            var handlerType = typeof(IEventHandler<>).MakeGenericType(domainEvent.GetType());
             var handler = _serviceProvider.GetService(handlerType);
             if (handler != null)
             {

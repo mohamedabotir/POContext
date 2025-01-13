@@ -1,6 +1,6 @@
-using Domain.ValueObject;
+using Common.ValueObject;
 
-namespace Domain.Entity;
+namespace Common.Entity;
 
 public class LineItem :Common.Entity.Entity
 {

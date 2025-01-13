@@ -1,6 +1,6 @@
 using Common.Domains;
 
-namespace Domain.Repository;
+namespace Common.Repository;
 
 public interface IEventRepository
 {
