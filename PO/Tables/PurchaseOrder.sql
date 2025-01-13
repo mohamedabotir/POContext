@@ -2,7 +2,7 @@ USE PurchaseOrder;
 CREATE TABLE [dbo].[PurchaseOrder]
 (
     [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-    [Guid] UNIQUEIDENTIFIER NOT NULL,
+    [Guid] UNIQUEIDENTIFIER NOT NULL UNIQUE,
     [PoNumber] NVARCHAR(100) NOT NULL unique,
     [TotalAmount] DECIMAL(18, 2) NOT NULL,
     [CustomerEmail] VARCHAR(25) NOT NULL,

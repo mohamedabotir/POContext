@@ -82,21 +82,16 @@ app.UseGraphQLPlayground("/graphql-ui" , new PlaygroundOptions()
 {
     GraphQLEndPoint = "/graphql"
 });
-app.MapPost("/weatherforecast", async ([FromBody]PurchaseOrdersDto command, IMediator mediator) =>
+app.MapPost("/orders", async ([FromBody]PurchaseOrdersDto command, IMediator mediator) =>
 {
     var result = await mediator.Send(command);
-    if (result.IsFailure)
+    if (result.Results.Any(r=>r.IsFailure))
     {
-      return  Results.BadRequest(result.Error);
+      return  Results.BadRequest(result.Results.Select(e=>e.Message));
     }
     return Results.Created();
     })
-    .WithName("GetWeatherForecast")
+    .WithName("add orders")
     .WithOpenApi();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

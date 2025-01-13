@@ -5,7 +5,6 @@ using MediatR;
 namespace Application.UseCases.PO.Models;
 
 public record PurchaseOrderDto(
-    decimal TotalAmount,
     Guid RootGuid,
     UserDto Customer,
     UserDto Supplier,

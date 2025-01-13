@@ -9,13 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="apply pocos , add project db">
-      <change afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/Models/LineItemsType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/Models/PurchaseOrderType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/PurchaseOrderQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/PurchaseSchema.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Models/PurchaseOrderDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Models/PurchaseOrderDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Repository/IPurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Repository/IPurchaseOrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Result/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Result/Result.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Result/ResultExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Result/ResultExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/ValueObject/Email.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ValueObject/Email.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/ValueObject/PoNumber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ValueObject/PoNumber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/ValueObject/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ValueObject/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
@@ -24,15 +27,16 @@
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Context/Pocos/LineItemsPoco.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/LineItemsPoco.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/EventsSerializer/PoCreatedEvent/UserSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/EventsSerializer/PoCreatedEvent/UserSerializer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO/Tables/LineItem.sql" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Tables/LineItem.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Tables/PurchaseOrder.sql" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Tables/PurchaseOrder.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/PurchaseOrder.WebAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/PurchaseOrder.WebAPI.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,12 +71,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/22647a7960d2619ab733924a2acfee09d32a8827c8c680a37cc4863678abec/LateBoundTestFramework.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/241e1d23cc7720ff7026526ba3dec37ef841d3ab953a74eea402883a85a75/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/24276f5a960c41c7b74713aa84cb1cae4672f89e225b6dcd2fe9b297a3a39/TaskAwaiter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/24a9a89178ac21a1badb47fd257b91abd17a5a85fe90f9b5a24083e98d63c3/Select.SpeedOpt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/24befa2ffc626d27ba8214c24a4652ff05bea6d888c118b9968a6c31/BsonSerializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3222da496abbe1a1317bf25877e9094f1ee5c654e899857b8b5ead49bdf17c7/RequestDelegateFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/375037591458387146414156a4f44c12bcaed9d9185241f1a6a4dfbb11f977c/MongoCollectionBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/399b164c8552f5e0df86b2d39f739410f6ad6385819ad2628c82b81b65634/PathString.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ad82f9910d5c82d76b445db10584a60305639dcad2533e08e6c47f85e3b6d83/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bd4df5aff92cabbc4d630be64227073db1b8539b3a1e47786b4b189d7cdb7/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3e5dcb9c3cb14e71199a19b986971319f7ae233ba20ccda59c2d37d533cbe78/Select.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4a28847852ee9ba45fd3107526c0a749a733bd4f4ebf33aa3c9a59737a3f758/EntityFrameworkServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5e36f79053446033ddbc7cc8397a3d0627114f46f804559a98a094977b488d/RequestExceptionProcessorBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/621526284d3e4868b98948aff942206525763e57e194a27623b66c384466/ServiceProviderServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
@@ -90,10 +96,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7185afbe59eff37fdb572764d59313fd2aa33dc2158592e6597c2e7a913e/JsonConverterOfT.ReadCore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dfd0695bfb41ede73eb6f6ea2ef339ec8a345366da40fa88f00d6d6b7345a/JsonConverterOfT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e3dbceecae5af84cbcd183e8765f2e6b1badd73eba26f72345dff9d73897684/ToCollection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/Domain/Entity/LineItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/Domain/ValueObject/User.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/PO.Test/LineItemTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/PurchaseOrder.WebAPI/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e747192abb38e2df82cbdb37e721567726f559914a7b81f8b26ba537de632f4/List.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/Domain/Repository/IPurchaseOrderRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/Domain/ValueObject/Email.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/threading/DistributedSystem Assisment/POContext/Domain/ValueObject/PoNumber.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -217,6 +223,7 @@
       <workItem from="1736499987949" duration="19258000" />
       <workItem from="1736626027939" duration="8118000" />
       <workItem from="1736681057318" duration="33108000" />
+      <workItem from="1736755791226" duration="10964000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -488,26 +495,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>20</line>
+          <line>26</line>
           <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
             <startOffsets>
-              <option value="714" />
+              <option value="977" />
             </startOffsets>
             <endOffsets>
-              <option value="788" />
+              <option value="1051" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>18</line>
+          <line>24</line>
           <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
             <startOffsets>
-              <option value="543" />
+              <option value="806" />
             </startOffsets>
             <endOffsets>
-              <option value="606" />
+              <option value="869" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="43" />
@@ -517,10 +524,10 @@
           <line>87</line>
           <properties documentPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" containingFunctionPresentation="">
             <startOffsets>
-              <option value="3545" />
+              <option value="3536" />
             </startOffsets>
             <endOffsets>
-              <option value="3566" />
+              <option value="3562" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
@@ -656,32 +663,6 @@
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>40</line>
-          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
-            <startOffsets>
-              <option value="1985" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2040" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>41</line>
-          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
-            <startOffsets>
-              <option value="2057" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2119" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs</url>
           <line>40</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" containingFunctionPresentation="Method 'SaveChangesAsync'">
@@ -709,39 +690,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>81</line>
+          <line>82</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
             <startOffsets>
-              <option value="2813" />
+              <option value="2853" />
             </startOffsets>
             <endOffsets>
-              <option value="2913" />
+              <option value="2953" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>85</line>
+          <line>86</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
             <startOffsets>
-              <option value="3029" />
+              <option value="3069" />
             </startOffsets>
             <endOffsets>
-              <option value="3030" />
+              <option value="3070" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>84</line>
+          <line>85</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
             <startOffsets>
-              <option value="2992" />
+              <option value="3032" />
             </startOffsets>
             <endOffsets>
-              <option value="3016" />
+              <option value="3056" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="76" />
@@ -761,7 +742,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
-          <line>31</line>
+          <line>29</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'GetAllAsync'">
             <startOffsets>
               <option value="909" />
@@ -774,7 +755,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
-          <line>31</line>
+          <line>29</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Lambda expression inside Method 'GetAllAsync'">
             <startOffsets>
               <option value="952" />
@@ -787,26 +768,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>104</line>
+          <line>105</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'GetPoEntity'">
             <startOffsets>
-              <option value="3779" />
+              <option value="3821" />
             </startOffsets>
             <endOffsets>
-              <option value="3844" />
+              <option value="3886" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>108</line>
+          <line>109</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'GetPoEntity'">
             <startOffsets>
-              <option value="4047" />
+              <option value="4091" />
             </startOffsets>
             <endOffsets>
-              <option value="4170" />
+              <option value="4202" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="83" />
@@ -823,6 +804,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/LineItemsPoco.cs</url>
+          <line>49</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/LineItemsPoco.cs" containingFunctionPresentation="Method 'MapItemLineToLineItemPoco'">
+            <startOffsets>
+              <option value="1240" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1589" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
+          <line>19</line>
+          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
+            <startOffsets>
+              <option value="583" />
+            </startOffsets>
+            <endOffsets>
+              <option value="649" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

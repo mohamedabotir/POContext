@@ -15,8 +15,8 @@ public sealed class User: ValueObject<User>
     public static Result<User> CreateInstance(Email email, Maybe<string> nameOrNothing, string phoneNumber)
     {
     return    nameOrNothing.ToResult("Name cannot be empty")
-            .Ensure(name => name.Length < 256, "Name is too long")
-            .Ensure(name => name.Length >= 7, "Name is too short")
+            .Ensure(name => name.Length < 256, $"Name is too long :{nameOrNothing}")
+            .Ensure(name => name.Length >= 7, $"Name is too short :{nameOrNothing}")
             .Map(name => new User(email, name, phoneNumber));
     }
     public Email Email { get; private set; }

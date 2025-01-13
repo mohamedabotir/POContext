@@ -13,6 +13,7 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
     public PurchaseOrderRepository(PurchaseOrderDbContext dbContext)
     {
         _context = dbContext;
+        _context.Set<PurchaseOrder>();
     }
     public Task<PoEntity> GetByIdAsync(Guid id)
     {
@@ -21,7 +22,6 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
 
     public Task<IEnumerable<PoEntity>> GetAllAsync()
     {
-        _context.Set<PurchaseOrder>();
         var purchaseOrder = _context.PurchaseOrder
             .Include(e=>e.LineItems)
             .Select(e => e)
@@ -33,7 +33,6 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
 
     public async Task AddAsync(PoEntity entity)
     {
-        _context.Set<PurchaseOrder>();
         var purchaseOrder = new PurchaseOrder();
         purchaseOrder.MapPoEntityToPurchaseOrder(entity);
        await _context.AddAsync(purchaseOrder);
@@ -59,4 +58,6 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
         Console.WriteLine("Mark PO as shipped:"+poId);
         return Task.CompletedTask;
     }
+    public bool IsPoExists(Guid poId) =>_context.PurchaseOrder.Any(e=>e.Guid == poId);
+    
 }

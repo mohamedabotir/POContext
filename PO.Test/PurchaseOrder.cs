@@ -33,7 +33,7 @@ public class PurchaseOrder
     public void CreatePurchaseOrder_Failed_DueTo_invalidGuid(decimal totalAmount,Guid rootGuid)
     {
         var money = Money.CreateInstance(totalAmount);
-        Action act = () => new PoEntity(money.Value,rootGuid , _customer , _supplier,_poNumber);
+        Action act = () => new PoEntity(rootGuid , _customer , _supplier,_poNumber);
         act.Should().Throw<ArgumentException>();
     }
     [Test]
@@ -41,7 +41,7 @@ public class PurchaseOrder
     {
         var money = Money.CreateInstance(100);
          var rootGuid = Guid.NewGuid();
-        Action act = () => new PoEntity(money.Value,rootGuid,_customer, _supplier,_poNumber);
+        Action act = () => new PoEntity(rootGuid,_customer, _supplier,_poNumber);
         act.Should().NotThrow();
     }
     [Test]
@@ -50,14 +50,14 @@ public class PurchaseOrder
         var PoGuid = Guid.NewGuid(); 
         var money = Money.CreateInstance(100);
 
-        var PoEntity = new PoEntity(money.Value,PoGuid,_customer, _supplier,_poNumber);
+        var PoEntity = new PoEntity(PoGuid,_customer, _supplier,_poNumber);
         var item = new Item("panadol", 25M, "123");
        var result =   PoEntity.AddLineItems(new List<LineItem>()
         {
             new LineItem(Quantity.Tab, item,Guid.NewGuid(),0),
             new LineItem(Quantity.Tab, item,Guid.NewGuid(),0)
         });
-        result.Error.Should().Be("Item already added");
+        result.Message.Should().Be("Item already added");
     }
     [Test]
     public void  AddItemLineForPurchaseOrder_Success_DueTo_ValidParameters()
@@ -66,7 +66,7 @@ public class PurchaseOrder
         var PoGuid = Guid.NewGuid();
         var money = Money.CreateInstance(15);
 
-        var PoEntity = new PoEntity(money.Value,PoGuid,_customer, _supplier,_poNumber);
+        var PoEntity = new PoEntity(PoGuid,_customer, _supplier,_poNumber);
         var item1 = new Item("panadol", 25M, "123");
         var item2 = new Item("panadol", 40M, "124");
          

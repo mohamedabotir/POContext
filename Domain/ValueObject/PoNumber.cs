@@ -75,8 +75,9 @@ public class PoNumberDateGenerator : NumberGeneratorBase{
  
     public override string GenerateNumber()
     {
+        var generatedPart = Guid.NewGuid().ToString("N").Substring(0, 5).ToUpper();;
         var number = string.Concat(_generatorPart.OrderBy(e=>e.OrderPart)
-            .Select(e=>e.PartValue));
+            .Select(e=>e.OrderPart==5?generatedPart:e.PartValue));
         return number;
     }
 

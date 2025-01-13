@@ -2,21 +2,25 @@ using System.Diagnostics.CodeAnalysis;
 namespace Domain.Result;
 public class Result
 {
-    public bool IsSuccess { get; }
-    public string Error { get; }
+    public bool IsSuccess { get; private set; }
+    public string Message { get; private set; }
+    public List<Result> Results { get; } = [];
+
     public bool IsFailure => !IsSuccess;
 
-    protected Result(bool isSuccess, string error)
+    protected Result(bool isSuccess, string message)
     {
-        if (isSuccess && error != string.Empty)
-            throw new InvalidOperationException();
-        if (!isSuccess && error == string.Empty)
-            throw new InvalidOperationException();
-
         IsSuccess = isSuccess;
-        Error = error;
+        Message = message;
     }
 
+    public void AddResult(Result result)
+    {
+        IsSuccess = result.IsSuccess;
+        Message = result.Message;
+        Results.Add(result);
+    }
+    
     public static Result Fail(string message)
     {
         return new Result(false, message);
@@ -26,12 +30,18 @@ public class Result
     {
         return new Result<T>(default(T), false, message);
     }
-
     public static Result Ok()
     {
         return new Result(true, string.Empty);
     }
-
+    public static Result Ok(string message)
+    {
+        return new Result(true, message);
+    }
+    public static Result<T> Ok<T>(T value,string message)
+    {
+        return new Result<T>(value, true, message);
+    }
     public static Result<T> Ok<T>(T value)
     {
         return new Result<T>(value, true, string.Empty);
@@ -63,8 +73,8 @@ public class Result<T> : Result
         }
     }
 
-    protected internal Result([AllowNull] T value, bool isSuccess, string error)
-        : base(isSuccess, error)
+    protected internal Result([AllowNull] T value, bool isSuccess, string message)
+        : base(isSuccess, message)
     {
         _value = value;
     }

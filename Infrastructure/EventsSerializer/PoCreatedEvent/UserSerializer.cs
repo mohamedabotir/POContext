@@ -12,7 +12,7 @@ public class UserJsonConverter : JsonConverter<User>
         var name = jsonObject.GetProperty("Name").GetString();
         var email =  Email.CreateInstance(jsonObject.GetProperty("Email").GetProperty("EmailValue").GetString());
         if (email.IsFailure)
-            throw new JsonException(email.Error);
+            throw new JsonException(email.Message);
         // Assuming User has a static factory method `CreateInstance`
         return User.CreateInstance(email.Value,name,jsonObject.GetProperty("PhoneNumber").GetString()).Value;
     }

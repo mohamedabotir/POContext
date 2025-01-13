@@ -7,9 +7,11 @@ namespace Domain.Entity;
 
 public class PoEntity : AggregateRoot
 {
-    public PoEntity(Money totalAmount,Guid rootGuid,User customer,User supplier,PoNumber poNumber)
+    public PoEntity(Guid rootGuid,User customer,User supplier,PoNumber poNumber)
     {
-        TotalAmount = totalAmount;
+        if(Guid.Empty == rootGuid)
+            throw new ArgumentException(nameof(rootGuid));
+
         base.Guid = rootGuid;
         base.CreatedOn = DateTime.UtcNow;
         Customer = customer;
@@ -41,6 +43,12 @@ public class PoEntity : AggregateRoot
                 return Result.Result.Fail("Item already added");
             LineItems.Add(line);
         }
+
+        var totalAmount = LineItems.Sum(e=>e.Item.Price);
+        var moneyAmount = Money.CreateInstance(totalAmount);
+        if (moneyAmount.IsFailure)
+            return moneyAmount;
+        TotalAmount = moneyAmount.Value;
         AddDomainEvent(new PoCreatedEventBase(Id, Guid,(IReadOnlyList<LineItem>)LineItems, TotalAmount,Customer,Supplier));
        return Result.Result.Ok();
     }

@@ -14,16 +14,24 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepositor
         
         using (unitOfWork)
         {
+            var results  = Result.Ok();
             foreach (var purchaseOrderDto in purchaseOrdersDto)
             {
+                if (purchaseOrderRepository.IsPoExists(purchaseOrderDto.RootGuid))
+                {
+                  results.AddResult(Result.Fail("PO already exists"));
+                    continue;   
+                }
                 var money = Money.CreateInstance(purchaseOrderDto.TotalAmount);
                 var customerEmail = Email.CreateInstance(purchaseOrderDto.Customer.Email);
                 var supplierEmail = Email.CreateInstance(purchaseOrderDto.Supplier.Email);
-            
                 var validations = Result.Combine(money,customerEmail,supplierEmail);
-          
+
                 if (validations.IsFailure)
-                    return Result.Fail(validations.Error);
+                {
+                    results.AddResult(validations);
+                    continue;
+                }
             
                 var customerUser = User.CreateInstance(customerEmail.Value, purchaseOrderDto.Customer.Name
                     , purchaseOrderDto.Customer.PhoneNumber);
@@ -32,16 +40,19 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepositor
                 var poNumber = PoNumber.CreateInstance(purchaseOrderDto.NumberGenerator);
                 validations = Result.Combine(money,customerUser,supplierUser,poNumber);
                 if (validations.IsFailure)
-                    return Result.Fail(validations.Error);
-            
-                var purchaseOrder = new PoEntity(money.Value, purchaseOrderDto.RootGuid,
+                {
+                    results.AddResult(validations);
+                    continue;    
+                }
+                var purchaseOrder = new PoEntity(purchaseOrderDto.RootGuid,
                     customerUser.Value, supplierUser.Value,poNumber.Value);
                 var lineItems = purchaseOrderDto.ItemLines.Select(ItemLineDtoToLineItemEntity).ToList();
                 purchaseOrder.AddLineItems(lineItems);
                 await purchaseOrderRepository.AddAsync(purchaseOrder)!;
                 await unitOfWork.SaveChangesAsync(purchaseOrder.DomainEvents);
+                results.AddResult(Result.Ok($"Po created Successfully For :{purchaseOrderDto.RootGuid}"));
             }
-            return Result.Ok();
+            return results;
         }
     }
 

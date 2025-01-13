@@ -13,7 +13,7 @@ public static class ResultExtensions
     public static Result<K> OnSuccess<T, K>(this Result<T> result, Func<T, K> func)
     {
         if (result.IsFailure)
-            return Result.Fail<K>(result.Error);
+            return Result.Fail<K>(result.Message);
 
         return Result.Ok(func(result.Value));
     }
@@ -32,7 +32,7 @@ public static class ResultExtensions
     public static Result<K> Map<T, K>(this Result<T> result, Func<T, K> func)
     {
         if (result.IsFailure)
-            return Result.Fail<K>(result.Error);
+            return Result.Fail<K>(result.Message);
 
         return Result.Ok(func(result.Value));
     }

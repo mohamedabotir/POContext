@@ -72,6 +72,7 @@ namespace Application.Context.Pocos;
             CustomerName = purchaseEntity.Customer.Name;
             SupplierPhoneNumber = purchaseEntity.Supplier.PhoneNumber;
             SupplierEmail = purchaseEntity.Supplier.Email.EmailValue;
+            Guid = purchaseEntity.Guid;
             SupplierName = purchaseEntity.Supplier.Name;
             SupplierPhoneNumber = purchaseEntity.Supplier.PhoneNumber;
             PoNumber = purchaseEntity.PoNumber.PoNumberValue;
@@ -96,7 +97,7 @@ namespace Application.Context.Pocos;
             
             var validations = Result.Combine(money,customerEmail,supplierEmail);
             if (validations.IsFailure)
-                return   Result.Fail<PoEntity>(validations.Error);
+                return   Result.Fail<PoEntity>(validations.Message);
             
             var customerUser = User.CreateInstance(customerEmail.Value, CustomerName
                 , CustomerPhoneNumber);
@@ -105,8 +106,8 @@ namespace Application.Context.Pocos;
             var poNumber = Domain.ValueObject.PoNumber.SetPoNumber(PoNumber);
             validations = Result.Combine(money,customerUser,supplierUser,poNumber);
             if (validations.IsFailure)
-                return   Result.Fail<PoEntity>(validations.Error);
-            var purchaseOrder = new PoEntity(money.Value, Guid,
+                return   Result.Fail<PoEntity>(validations.Message);
+            var purchaseOrder = new PoEntity( Guid,
                 customerUser.Value, supplierUser.Value,poNumber.Value);
             var lineItems = LineItems.Select(e=>e.MapLineItemPocoToItemLine()).ToList();
             purchaseOrder.SetLineItems(lineItems);
