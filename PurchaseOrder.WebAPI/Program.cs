@@ -40,22 +40,25 @@ builder.Services.AddDbContext<PurchaseOrderDbContext>(e=>e.
 BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
 BsonClassMap.RegisterClassMap<DomainEventBase>();
 BsonClassMap.RegisterClassMap<PoCreatedEventBase>();
-
+//Configurations
 builder.Services.Configure<Topic>(builder.Configuration.GetSection("Topic"));
 builder.Services.Configure<PurchaseOrderConfig>(builder.Configuration.GetSection("MongoConfig"));
 builder.Services.Configure<ProducerConfig>(builder.Configuration.GetSection("ProducerConfig"));
 builder.Services.Configure<ConsumerConfig>(builder.Configuration.GetSection("ConsumerConfig"));
+
+
 builder.Services.AddTransient<IProducer, Producer>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IEventStore, PurchaseOrderEventStore>();
-builder.Services.AddTransient<IEventHandler<PoCreatedEventBase>, PurchaseOrderCreationHandler>();
 builder.Services.AddTransient<IPurchaseOrderUseCase, PurchaseOrderUseCase>();
 builder.Services.AddTransient<IEventRepository, EventRepository>();
 builder.Services.AddTransient<IPurchaseOrderRepository, PurchaseOrderRepository>();
 builder.Services.AddTransient<IRepository<PoEntity>, PurchaseOrderRepository>();
+//Handlers and Dispatcher
+builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddTransient<IRequestHandler<PurchaseOrdersDto, Result>, PoCreationCommandHandler>();
-builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
+builder.Services.AddTransient<IEventHandler<PoCreatedEventBase>, PurchaseOrderCreationHandler>();
 
 // consumers
 builder.Services.AddTransient<IEventHandler, EventHandler>();

@@ -25,20 +25,7 @@ public class UnitOfWork : IUnitOfWork
 
     public async Task<int> SaveChangesAsync(IEnumerable<DomainEventBase> events,CancellationToken cancellationToken = default)
     {
-     /*
-      * 
-        var domainEvents = _context1.ChangeTracker
-            .Entries<AggregateRoot>() 
-            .SelectMany(e => e.Entity.DomainEvents) 
-            .Where(domainEvent => domainEvent != null)
-            .ToList();
-
-        foreach (var entry in _context1.ChangeTracker.Entries<AggregateRoot>())
-        {
-            entry.Entity.ClearEvents();
-        }
-      */
-
+     
         var result = await _context.SaveChangesAsync(cancellationToken);
 
         if (events.Any())
