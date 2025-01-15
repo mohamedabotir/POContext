@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="">
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="change id parameter">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/Repository/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Repository/IRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/Utils/SkuNumberGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Utils/SkuNumberGenerator.cs" afterDir="false" />
@@ -208,7 +208,7 @@
       <workItem from="1736681057318" duration="33108000" />
       <workItem from="1736755791226" duration="23390000" />
       <workItem from="1736880658018" duration="6481000" />
-      <workItem from="1736960606683" duration="4863000" />
+      <workItem from="1736960606683" duration="5397000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -314,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736781862115</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="change id parameter">
+      <option name="closed" value="true" />
+      <created>1736973078330</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1736973078330</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +356,8 @@
     <MESSAGE value="apply pocos , add project db" />
     <MESSAGE value="- make money calculation responsability of  PoEntity&#10;- idempotent request &#10;- make messages more descriptive of email validation" />
     <MESSAGE value="add common as shared kernel to reuse into inventory system" />
-    <option name="LAST_COMMIT_MESSAGE" value="add common as shared kernel to reuse into inventory system" />
+    <MESSAGE value="change id parameter" />
+    <option name="LAST_COMMIT_MESSAGE" value="change id parameter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
