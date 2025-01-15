@@ -15,7 +15,7 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
         _context = dbContext;
         _context.Set<PurchaseOrder>();
     }
-    public Task<PoEntity> GetByIdAsync(Guid id)
+    public Task<PoEntity> GetByIdAsync(int id)
     {
         throw new NotImplementedException();
     }

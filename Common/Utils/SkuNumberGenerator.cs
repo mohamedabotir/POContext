@@ -21,6 +21,6 @@ public class SkuNumberGenerator: NumberGeneratorBase{
                 return false;
             }
         }
-        return number.Length==16;
+        return number.Length==15;
     }
 }

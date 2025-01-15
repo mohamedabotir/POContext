@@ -8,15 +8,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="add common as shared kernel to reuse into inventory system">
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Entity/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Repository/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Repository/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Utils/SkuNumberGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Utils/SkuNumberGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +207,8 @@
       <workItem from="1736626027939" duration="8118000" />
       <workItem from="1736681057318" duration="33108000" />
       <workItem from="1736755791226" duration="23390000" />
-      <workItem from="1736880658018" duration="6237000" />
+      <workItem from="1736880658018" duration="6481000" />
+      <workItem from="1736960606683" duration="4863000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -695,10 +702,10 @@
           <line>29</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'GetAllAsync'">
             <startOffsets>
-              <option value="865" />
+              <option value="864" />
             </startOffsets>
             <endOffsets>
-              <option value="954" />
+              <option value="953" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="90" />
