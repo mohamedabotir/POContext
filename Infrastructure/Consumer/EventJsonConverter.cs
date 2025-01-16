@@ -2,7 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Common.Events;
 using Common.DomainEvents;
-using Infrastructure.EventsSerializer.PoCreatedEvent;
+using Common.Serializer;
 
 namespace Infrastructure.Consumer;
 
@@ -23,13 +23,13 @@ public class EventJsonConverter: JsonConverter<DomainEventBase>
         var json = doc.RootElement.GetRawText();
         return disc switch
         {
-            nameof(PoCreatedEventBase) => JsonSerializer.Deserialize<PoCreatedEventBase>(json, getCustomerOptions(options)),
+            nameof(PoCreatedEventBase) => JsonSerializer.Deserialize<PoCreatedEventBase>(json, GetCustomerOptions(options)),
             _ => throw new JsonException($"Event Type {disc} not supported yet!")
         };
 
     }
 
-    private JsonSerializerOptions getCustomerOptions(JsonSerializerOptions defaultOption)
+    private JsonSerializerOptions GetCustomerOptions(JsonSerializerOptions defaultOption)
     {
         JsonSerializerOptions @new = new JsonSerializerOptions(JsonSerializerDefaults.Web);
         foreach (var converter in defaultOption.Converters)

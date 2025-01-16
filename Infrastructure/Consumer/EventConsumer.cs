@@ -26,7 +26,6 @@ namespace Infrastructure.Consumer;
             consumer.Subscribe(Topic);
             while (true)
             {
-                Console.WriteLine("one");
                 ConsumeResult<string, string> consumeResult = null;
 
                 try

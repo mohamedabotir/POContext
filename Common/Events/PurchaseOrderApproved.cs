@@ -1,23 +1,37 @@
+using System.Text.Json.Serialization;
 using Common.Constants;
 using Common.ValueObject;
 
 namespace Common.Events;
 
-public class PurchaseOrderApproved(
-    Guid purchaseOrderId,
-    string purchaseOrderNumber,
-    ActivationStatus activationStatus,
-    Money totalAmount,
-    string customerName,
-    string customerAddress,
-    string customerPhoneNumber)
-    : DomainEventBase(nameof(PurchaseOrderApproved))
+
+public class PurchaseOrderApproved : DomainEventBase
 {
-    public Guid PurchaseOrderId { get; } = purchaseOrderId;
-    public string PurchaseOrderNumber { get;  } = purchaseOrderNumber;
-    public ActivationStatus ActivationStatus { get; } = activationStatus;
-    public Money TotalAmount { get;} = totalAmount;
-    public string CustomerName { get;} = customerName;
-    public string CustomerAddress { get;} = customerAddress;
-    public string CustomerPhoneNumber { get;} = customerPhoneNumber;
+    [ JsonConstructor]
+    public PurchaseOrderApproved(Guid purchaseOrderId,
+        string purchaseOrderNumber,
+        ActivationStatus activationStatus,
+        Money totalAmount,
+        string customerName,
+        string customerAddress,
+        string customerPhoneNumber) : base(nameof(PurchaseOrderApproved))
+    {
+        PurchaseOrderId = purchaseOrderId;
+        PurchaseOrderNumber = purchaseOrderNumber;
+        ActivationStatus = activationStatus;
+        TotalAmount = totalAmount;
+        CustomerName = customerName;
+        CustomerAddress = customerAddress;
+        CustomerPhoneNumber = customerPhoneNumber;
+        //OrderStage = type;
+    }
+
+    public Guid PurchaseOrderId { get; }
+    public string PurchaseOrderNumber { get;  }
+    public ActivationStatus ActivationStatus { get; }
+    public Money TotalAmount { get;}
+    public string CustomerName { get;}
+    public string CustomerAddress { get;}
+    public string CustomerPhoneNumber { get;}
+    public PurchaseOrderStage OrderStage { get;}
 }

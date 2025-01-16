@@ -2,7 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Common.ValueObject;
 
-namespace Infrastructure.EventsSerializer.PoCreatedEvent;
+namespace Common.Serializer;
 public class UserJsonConverter : JsonConverter<User>
 {
     public override User Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
