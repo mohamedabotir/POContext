@@ -1,4 +1,4 @@
-namespace Common.Domains;
+namespace Common.Events;
 
 public  abstract class DomainEventBase
 {

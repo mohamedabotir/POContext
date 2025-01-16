@@ -1,4 +1,4 @@
-using Common.Domains;
+using Common.Events;
 using Common.DomainEvents;
 using Common.Handlers;
 

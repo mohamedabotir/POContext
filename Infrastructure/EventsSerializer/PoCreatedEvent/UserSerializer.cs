@@ -10,10 +10,11 @@ public class UserJsonConverter : JsonConverter<User>
         var jsonObject = JsonDocument.ParseValue(ref reader).RootElement;
         var name = jsonObject.GetProperty("Name").GetString();
         var email =  Email.CreateInstance(jsonObject.GetProperty("Email").GetProperty("EmailValue").GetString());
+        var address =  Address.CreateInstance(jsonObject.GetProperty("Address").GetProperty("AddressValue").GetString());
         if (email.IsFailure)
             throw new JsonException(email.Message);
         // Assuming User has a static factory method `CreateInstance`
-        return User.CreateInstance(email.Value,name,jsonObject.GetProperty("PhoneNumber").GetString()).Value;
+        return User.CreateInstance(email.Value,name,jsonObject.GetProperty("PhoneNumber").GetString(),address.Value).Value;
     }
 
     public override void Write(Utf8JsonWriter writer, User value, JsonSerializerOptions options)

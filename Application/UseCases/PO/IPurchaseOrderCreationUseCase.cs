@@ -3,7 +3,7 @@ using Common.Result;
 
 namespace Application.UseCases.PO;
 
-public interface IPurchaseOrderUseCase
+public interface IPurchaseOrderCreationUseCase
 {
     Task<Result> CreatePurchaseOrder(List<PurchaseOrderDto> purchaseOrdersDto);
 }

@@ -1,4 +1,5 @@
 using Application.UseCases.PO.Models;
+using Common.Constants;
 using Common.Repository;
 using Common.Result;
 using Common.Entity;
@@ -7,8 +8,8 @@ using Common.ValueObject;
 
 namespace Application.UseCases.PO;
 
-public class PurchaseOrderUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepository purchaseOrderRepository)
-    : IPurchaseOrderUseCase
+public class PurchaseOrderCreationCreationUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepository purchaseOrderRepository)
+    : IPurchaseOrderCreationUseCase
 {
     public async Task<Result> CreatePurchaseOrder(List<PurchaseOrderDto> purchaseOrdersDto)
     {
@@ -20,12 +21,14 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepositor
             {
                 if (purchaseOrderRepository.IsPoExists(purchaseOrderDto.RootGuid))
                 {
-                  results.AddResult(Result.Fail("PO already exists"));
+                  results.AddResult(Result.Fail($"PO({purchaseOrderDto.RootGuid}) already exists"));
                     continue;   
                 }
                 var customerEmail = Email.CreateInstance(purchaseOrderDto.Customer.Email);
                 var supplierEmail = Email.CreateInstance(purchaseOrderDto.Supplier.Email);
-                var validations = Result.Combine(customerEmail,supplierEmail);
+                var userLocation = Address.CreateInstance(purchaseOrderDto.address);
+
+                var validations = Result.Combine(customerEmail,supplierEmail,userLocation);
 
                 if (validations.IsFailure)
                 {
@@ -34,9 +37,9 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepositor
                 }
             
                 var customerUser = User.CreateInstance(customerEmail.Value, purchaseOrderDto.Customer.Name
-                    , purchaseOrderDto.Customer.PhoneNumber);
+                    , purchaseOrderDto.Customer.PhoneNumber,userLocation.Value);
                 var supplierUser = User.CreateInstance(supplierEmail.Value, purchaseOrderDto.Supplier.Name
-                    , purchaseOrderDto.Supplier.PhoneNumber);
+                    , purchaseOrderDto.Supplier.PhoneNumber,userLocation.Value);
                 var poNumber = PoNumber.CreateInstance(purchaseOrderDto.NumberGenerator);
                 validations = Result.Combine(customerUser,supplierUser,poNumber);
                 if (validations.IsFailure)
@@ -45,9 +48,15 @@ public class PurchaseOrderUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepositor
                     continue;    
                 }
                 var purchaseOrder = new PoEntity(purchaseOrderDto.RootGuid,
-                    customerUser.Value, supplierUser.Value,poNumber.Value);
+                    customerUser.Value, supplierUser.Value,poNumber.Value,PurchaseOrderStage.Created);
                 var lineItems = purchaseOrderDto.ItemLines.Select(ItemLineDtoToLineItemEntity).ToList();
-                purchaseOrder.AddLineItems(lineItems);
+                var addLineResult = purchaseOrder.AddLineItems(lineItems);
+                if(addLineResult.IsFailure)
+                {
+                    results.AddResult(addLineResult);
+                    continue;
+                }
+                
                 await purchaseOrderRepository.AddAsync(purchaseOrder)!;
                 await unitOfWork.SaveChangesAsync(purchaseOrder.DomainEvents);
                 results.AddResult(Result.Ok($"Po created Successfully For :{purchaseOrderDto.RootGuid}"));

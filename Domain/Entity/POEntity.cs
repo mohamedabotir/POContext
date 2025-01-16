@@ -1,4 +1,6 @@
+using Common.Constants;
 using Common.DomainEvents;
+using Common.Events;
 using Common.Entity;
 using Common.Result;
 using Common.Utils;
@@ -8,7 +10,7 @@ namespace Common.Entity;
 
 public class PoEntity : AggregateRoot
 {
-    public PoEntity(Guid rootGuid,User customer,User supplier,PoNumber poNumber)
+    public PoEntity(Guid rootGuid,User customer,User supplier,PoNumber poNumber,PurchaseOrderStage stage)
     {
         if(Guid.Empty == rootGuid)
             throw new ArgumentException(nameof(rootGuid));
@@ -18,12 +20,15 @@ public class PoEntity : AggregateRoot
         Customer = customer;
         Supplier = supplier;
         PoNumber = poNumber;
+        PurchaseOrderStage = stage;
     }
 
     public PoEntity()
     {
         
     }
+
+    public PurchaseOrderStage PurchaseOrderStage { get;private set; }
     public virtual Money TotalAmount { get; protected set; }
     public virtual User Customer { get; protected set; }
     public  User Supplier { get; protected set; }
@@ -32,7 +37,16 @@ public class PoEntity : AggregateRoot
     public Result.Result DeActivate() => new PoActivationProcessor(new PoDeActivationState(), ActivationStatus).ProcessOrder();
     public Result.Result Activate() => new PoActivationProcessor(new PoActivationState(), ActivationStatus).ProcessOrder();
 
-     
+    public Result.Result ApprovePurchase()
+    {
+        if(PurchaseOrderStage != PurchaseOrderStage.Created)
+            return Result.Result.Fail("PurchaseOrderStage Should be on Created");
+        PurchaseOrderStage = PurchaseOrderStage.Approved;
+        AddDomainEvent(new PurchaseOrderApproved(Guid,PoNumber.PoNumberValue,ActivationStatus,TotalAmount,Customer.Name,Customer.Address.AddressValue,
+            Customer.PhoneNumber));
+        return Result.Result.Ok();
+    }
+
     public virtual PoNumber PoNumber { get; protected set; }
     public  ICollection<LineItem> LineItems { get; protected set; } = new List<LineItem>();
     
@@ -69,11 +83,6 @@ public class PoEntity : AggregateRoot
             TotalAmount = moneyAmount.Value;
             return Result.Result.Ok();
     }
-}
-
-public enum ActivationStatus
-{
-    Active,NotActive
 }
 
 interface IPoActivationState

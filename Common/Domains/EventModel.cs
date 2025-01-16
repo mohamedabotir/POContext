@@ -1,4 +1,4 @@
-namespace Common.Domains;
+namespace Common.Events;
     public  class EventModel
     {
         public DateTime TimeStamp { get; set; }

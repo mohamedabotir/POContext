@@ -2,7 +2,7 @@ using Application.Mongo;
 using Common.Repository;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using EventModel = Common.Domains.EventModel;
+using EventModel = Common.Events.EventModel;
 
 namespace Infrastructure.Repository;
 

@@ -9,9 +9,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="change id parameter">
+      <change afterPath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderApproveHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Models/PoApproveCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/UseCases/PO/Command/PoApproveCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/UseCases/PO/IPurchaseOrderApproveUseCase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderApproveUseCase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Constants/ActivationStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Constants/PurchaseOrderStage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Events/PurchaseOrderApproved.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/ValueObject/Address.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Repository/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Repository/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Utils/SkuNumberGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Utils/SkuNumberGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderCreationHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderCreationHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Models/PurchaseOrderDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Models/PurchaseOrderDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UseCases/PO/Command/PoCreationCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/Command/PoCreationCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UseCases/PO/IPurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/IPurchaseOrderCreationUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderCreationCreationUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Domains/DomainEventBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Domains/DomainEventBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Domains/EventModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Domains/EventModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Domains/IEventStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Domains/IEventStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Entity/AggregateRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Entity/AggregateRoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Handlers/IEventDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Handlers/IEventDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Repository/IEventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Repository/IEventRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Repository/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Repository/IUnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Utils/NumberGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Utils/NumberGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/Utils/PoNumberTimestampGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Utils/PoNumberTimestampGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/DomainEvents/PoCreatedEventBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/DomainEvents/PoCreatedEventBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Repository/IPurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Repository/IPurchaseOrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/ValueObject/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/ValueObject/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
@@ -20,9 +46,23 @@
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/EventsSerializer/PoCreatedEvent/UserSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/EventsSerializer/PoCreatedEvent/UserSerializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/MessageBroker/Producers/IProducer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/MessageBroker/Producers/IProducer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/MessageBroker/Producers/Producer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/MessageBroker/Producers/Producer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Mongo/EventModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Mongo/EventModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Pre-DeploymentSscript/DatabaseCreation.sql" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Pre-DeploymentSscript/DatabaseCreation.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Tables/LineItem.sql" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Tables/LineItem.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Tables/PurchaseOrder.sql" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Tables/PurchaseOrder.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +121,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce37be1a06b16c6faa02038d2cc477dd3bca5b217ceeb41c5f2ad45c1bf9/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7185afbe59eff37fdb572764d59313fd2aa33dc2158592e6597c2e7a913e/JsonConverterOfT.ReadCore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dfd0695bfb41ede73eb6f6ea2ef339ec8a345366da40fa88f00d6d6b7345a/JsonConverterOfT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e358d67bcd5815a5083706ec88db8489a9872915d46156ba24277cd21bd662/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e3dbceecae5af84cbcd183e8765f2e6b1badd73eba26f72345dff9d73897684/ToCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e747192abb38e2df82cbdb37e721567726f559914a7b81f8b26ba537de632f4/List.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -98,7 +139,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.PurchaseOrder.WebAPI: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.PurchaseOrder.WebAPI: http.executor&quot;: &quot;Debug&quot;,
     &quot;2c6a6e6a-d06a-4294-bf37-f6da2b1ae926.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -209,6 +250,7 @@
       <workItem from="1736755791226" duration="23390000" />
       <workItem from="1736880658018" duration="6481000" />
       <workItem from="1736960606683" duration="5397000" />
+      <workItem from="1737028142672" duration="20098000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -382,27 +424,14 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderCreationHandler.cs</url>
-          <line>10</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/EventHandlers/PurchaseOrderCreationHandler.cs" containingFunctionPresentation="Method 'HandleAsync'">
-            <startOffsets>
-              <option value="336" />
-            </startOffsets>
-            <endOffsets>
-              <option value="397" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs</url>
           <line>16</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" containingFunctionPresentation="Method 'SaveEventAsync'">
             <startOffsets>
-              <option value="445" />
+              <option value="444" />
             </startOffsets>
             <endOffsets>
-              <option value="799" />
+              <option value="798" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="27" />
@@ -412,10 +441,10 @@
           <line>10</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" containingFunctionPresentation="Constructor 'PurchaseOrderEventStore'">
             <startOffsets>
-              <option value="223" />
+              <option value="222" />
             </startOffsets>
             <endOffsets>
-              <option value="325" />
+              <option value="324" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="29" />
@@ -425,10 +454,10 @@
           <line>16</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Constructor 'EventRepository'">
             <startOffsets>
-              <option value="582" />
+              <option value="581" />
             </startOffsets>
             <endOffsets>
-              <option value="643" />
+              <option value="642" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="32" />
@@ -438,10 +467,10 @@
           <line>15</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Constructor 'EventRepository'">
             <startOffsets>
-              <option value="500" />
+              <option value="499" />
             </startOffsets>
             <endOffsets>
-              <option value="569" />
+              <option value="568" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="33" />
@@ -451,10 +480,10 @@
           <line>26</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Extensions/EventDispatcher.cs" containingFunctionPresentation="Method 'DispatchDomainEventsAsync'">
             <startOffsets>
-              <option value="747" />
+              <option value="746" />
             </startOffsets>
             <endOffsets>
-              <option value="767" />
+              <option value="766" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="35" />
@@ -464,49 +493,23 @@
           <line>55</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/EventRepository.cs" containingFunctionPresentation="Method 'SaveEventAsync'">
             <startOffsets>
-              <option value="1987" />
+              <option value="1986" />
             </startOffsets>
             <endOffsets>
-              <option value="2062" />
+              <option value="2061" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>26</line>
-          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
-            <startOffsets>
-              <option value="917" />
-            </startOffsets>
-            <endOffsets>
-              <option value="991" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs</url>
-          <line>91</line>
-          <properties documentPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" containingFunctionPresentation="">
-            <startOffsets>
-              <option value="3596" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3635" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
           <line>41</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
             <startOffsets>
-              <option value="1470" />
+              <option value="1469" />
             </startOffsets>
             <endOffsets>
-              <option value="1505" />
+              <option value="1504" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="49" />
@@ -516,10 +519,10 @@
           <line>28</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" containingFunctionPresentation="Method 'SaveEventAsync'">
             <startOffsets>
-              <option value="928" />
+              <option value="927" />
             </startOffsets>
             <endOffsets>
-              <option value="978" />
+              <option value="977" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="50" />
@@ -529,10 +532,10 @@
           <line>53</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
             <startOffsets>
-              <option value="1910" />
+              <option value="1909" />
             </startOffsets>
             <endOffsets>
-              <option value="2005" />
+              <option value="2004" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="51" />
@@ -542,10 +545,10 @@
           <line>54</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
             <startOffsets>
-              <option value="2030" />
+              <option value="2029" />
             </startOffsets>
             <endOffsets>
-              <option value="2118" />
+              <option value="2117" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="53" />
@@ -555,10 +558,10 @@
           <line>58</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
             <startOffsets>
-              <option value="2322" />
+              <option value="2321" />
             </startOffsets>
             <endOffsets>
-              <option value="2378" />
+              <option value="2377" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="56" />
@@ -568,10 +571,10 @@
           <line>25</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" containingFunctionPresentation="Method 'Read'">
             <startOffsets>
-              <option value="1000" />
+              <option value="999" />
             </startOffsets>
             <endOffsets>
-              <option value="1081" />
+              <option value="1080" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="57" />
@@ -581,10 +584,10 @@
           <line>40</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
             <startOffsets>
-              <option value="1452" />
+              <option value="1451" />
             </startOffsets>
             <endOffsets>
-              <option value="1453" />
+              <option value="1452" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="60" />
@@ -620,65 +623,13 @@
           <line>28</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/UnitOfWork.cs" containingFunctionPresentation="Method 'SaveChangesAsync'">
             <startOffsets>
-              <option value="848" />
+              <option value="847" />
             </startOffsets>
             <endOffsets>
-              <option value="912" />
+              <option value="911" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>67</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
-            <startOffsets>
-              <option value="1987" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2045" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>80</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
-            <startOffsets>
-              <option value="2787" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2887" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>84</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
-            <startOffsets>
-              <option value="3003" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3004" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs</url>
-          <line>83</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" containingFunctionPresentation="Method 'MapPoEntityToPurchaseOrder'">
-            <startOffsets>
-              <option value="2966" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2990" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Context/Pocos/LineItemsPoco.cs</url>
@@ -694,30 +645,82 @@
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs</url>
-          <line>20</line>
-          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
+          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderCreationCreationUseCase.cs</url>
+          <line>27</line>
+          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderCreationCreationUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
             <startOffsets>
-              <option value="603" />
+              <option value="995" />
             </startOffsets>
             <endOffsets>
-              <option value="669" />
+              <option value="1069" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="87" />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderCreationCreationUseCase.cs</url>
+          <line>21</line>
+          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderCreationCreationUseCase.cs" containingFunctionPresentation="Method 'CreatePurchaseOrder'">
+            <startOffsets>
+              <option value="651" />
+            </startOffsets>
+            <endOffsets>
+              <option value="717" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
-          <line>29</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'GetAllAsync'">
+          <line>46</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'UpdateAsync'">
             <startOffsets>
-              <option value="864" />
+              <option value="1388" />
             </startOffsets>
             <endOffsets>
-              <option value="953" />
+              <option value="1419" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="90" />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderApproveUseCase.cs</url>
+          <line>11</line>
+          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PO/PurchaseOrderApproveUseCase.cs" containingFunctionPresentation="Method 'Approve'">
+            <startOffsets>
+              <option value="382" />
+            </startOffsets>
+            <endOffsets>
+              <option value="475" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderCreationHandler.cs</url>
+          <line>10</line>
+          <properties documentPath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderCreationHandler.cs" containingFunctionPresentation="Method 'HandleAsync'">
+            <startOffsets>
+              <option value="335" />
+            </startOffsets>
+            <endOffsets>
+              <option value="396" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderApproveHandler.cs</url>
+          <line>10</line>
+          <properties documentPath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderApproveHandler.cs" containingFunctionPresentation="Method 'HandleAsync'">
+            <startOffsets>
+              <option value="339" />
+            </startOffsets>
+            <endOffsets>
+              <option value="403" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

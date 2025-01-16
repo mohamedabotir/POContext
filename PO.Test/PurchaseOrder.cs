@@ -1,3 +1,4 @@
+using Common.Constants;
 using Common.DomainEvents;
 using Common.Entity;
 using Common.Utils;
@@ -16,8 +17,9 @@ public class PurchaseOrder
     {
         var customerMail =Email.CreateInstance("cusomter@example.com");
         var supplierMail =Email.CreateInstance("suppier@example.com");
-         _customer = User.CreateInstance(customerMail.Value, "customer", "").Value;
-        _supplier = User.CreateInstance(supplierMail.Value, "supplier", "").Value;
+        var address = Address.CreateInstance("el sheikh zayed");
+         _customer = User.CreateInstance(customerMail.Value, "customer", "",address.Value).Value;
+        _supplier = User.CreateInstance(supplierMail.Value, "supplier", "",address.Value).Value;
         _poNumber = PoNumber.CreateInstance(NumberGenerator.PoAndyymmdd).Value;
     }
 
@@ -32,7 +34,7 @@ public class PurchaseOrder
     public void CreatePurchaseOrder_Failed_DueTo_invalidGuid(decimal totalAmount,Guid rootGuid)
     {
         var money = Money.CreateInstance(totalAmount);
-        Action act = () => new PoEntity(rootGuid , _customer , _supplier,_poNumber);
+        Action act = () => new PoEntity(rootGuid , _customer , _supplier,_poNumber,PurchaseOrderStage.Created);
         act.Should().Throw<ArgumentException>();
     }
     [Test]
@@ -40,7 +42,7 @@ public class PurchaseOrder
     {
         var money = Money.CreateInstance(100);
          var rootGuid = Guid.NewGuid();
-        Action act = () => new PoEntity(rootGuid,_customer, _supplier,_poNumber);
+        Action act = () => new PoEntity(rootGuid,_customer, _supplier,_poNumber,PurchaseOrderStage.Created);
         act.Should().NotThrow();
     }
     [Test]
@@ -49,7 +51,7 @@ public class PurchaseOrder
         var PoGuid = Guid.NewGuid(); 
         var money = Money.CreateInstance(100);
 
-        var PoEntity = new PoEntity(PoGuid,_customer, _supplier,_poNumber);
+        var PoEntity = new PoEntity(PoGuid,_customer, _supplier,_poNumber,PurchaseOrderStage.Created);
         var item = new Item("panadol", 25M, "123");
        var result =   PoEntity.AddLineItems(new List<LineItem>()
         {
@@ -65,7 +67,7 @@ public class PurchaseOrder
         var PoGuid = Guid.NewGuid();
         var money = Money.CreateInstance(15);
 
-        var PoEntity = new PoEntity(PoGuid,_customer, _supplier,_poNumber);
+        var PoEntity = new PoEntity(PoGuid,_customer, _supplier,_poNumber,PurchaseOrderStage.Created);
         var item1 = new Item("panadol", 25M, "123");
         var item2 = new Item("panadol", 40M, "124");
          

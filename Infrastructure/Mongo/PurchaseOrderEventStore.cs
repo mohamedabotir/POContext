@@ -1,4 +1,4 @@
-using Common.Domains;
+using Common.Events;
 using Common.Entity;
 using Common.Mongo.Producers;
 using Common.Repository;

@@ -10,7 +10,7 @@ public record PurchaseOrderDto(
     UserDto Customer,
     UserDto Supplier,
     List<ItemLineDto> ItemLines,
-    NumberGenerator NumberGenerator);
+    NumberGenerator NumberGenerator,string address);
 
 public record ItemLineDto(Quantity Quantity, string Name, decimal Price, string Sku,Guid Guid);
 public record UserDto(string Email, string PhoneNumber, string Name);

@@ -10,7 +10,7 @@ public class PoNumberTimestampGenerator : NumberGeneratorBase
         new PoNumberPart(3, $"{DateTime.Now:yyyyMMdd-HHmmss}",15),
         new PoNumberPart(4, "}",1),
     ];
-    
+     
     public override string GenerateNumber()
     {
         var number = string.Concat(_generatorPart.OrderBy(e=>e.OrderPart)

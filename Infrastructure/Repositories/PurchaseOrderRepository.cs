@@ -1,8 +1,10 @@
 using System.Linq.Expressions;
 using Application.Context;
 using Application.Context.Pocos;
+using Common.Constants;
 using Common.Entity;
 using Common.Repository;
+using Common.Result;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository;
@@ -40,7 +42,10 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
 
     public Task UpdateAsync(PoEntity entity)
     {
-        throw new NotImplementedException();
+        var purchaseOrder = new PurchaseOrder();
+        purchaseOrder.MapPoEntityToPurchaseOrder(entity);
+        _context.Update(purchaseOrder);
+       return Task.CompletedTask;
     }
 
     public Task DeleteAsync(Guid id)
@@ -59,5 +64,20 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
         return Task.CompletedTask;
     }
     public bool IsPoExists(Guid poId) =>_context.PurchaseOrder.Any(e=>e.Guid == poId);
-    
+    public async Task<Result<PoEntity>> GetPoByPurchaseNumberAsync(string poId)
+    {
+       var purchaseOrder = await _context.PurchaseOrder
+            .Include(e=>e.LineItems)
+            .FirstOrDefaultAsync(e=>e.PoNumber == poId);
+       var poEntity = purchaseOrder!.GetPoEntity();
+       return poEntity;
+    }
+
+    public Task UpdatePoStageAsync(Guid poId, PurchaseOrderStage stage)
+    {
+        var purchaseOrder = _context.PurchaseOrder.FirstOrDefault(e => e.Guid == poId);
+        purchaseOrder!.OrderStage = stage;
+        _context.Update(purchaseOrder);
+        return Task.CompletedTask;    
+    }
 }

@@ -11,7 +11,7 @@ using Application.Context;
 using Application.EventHandlers;
 using Application.Extensions;
 using Application.Mongo;
-using Common.Domains;
+using Common.Events;
 using Common.Handlers;
 using Common.Repository;
 using Common.Result;
@@ -50,7 +50,10 @@ builder.Services.Configure<ConsumerConfig>(builder.Configuration.GetSection("Con
 builder.Services.AddTransient<IProducer, Producer>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IEventStore, PurchaseOrderEventStore>();
-builder.Services.AddTransient<IPurchaseOrderUseCase, PurchaseOrderUseCase>();
+// UseCases
+builder.Services.AddTransient<IPurchaseOrderCreationUseCase, PurchaseOrderCreationCreationUseCase>();
+builder.Services.AddTransient<IPurchaseOrderApproveUseCase, PurchaseOrderApproveUseCase>();
+
 builder.Services.AddTransient<IEventRepository, EventRepository>();
 builder.Services.AddTransient<IPurchaseOrderRepository, PurchaseOrderRepository>();
 builder.Services.AddTransient<IRepository<PoEntity>, PurchaseOrderRepository>();
@@ -59,6 +62,9 @@ builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddTransient<IRequestHandler<PurchaseOrdersDto, Result>, PoCreationCommandHandler>();
 builder.Services.AddTransient<IEventHandler<PoCreatedEventBase>, PurchaseOrderCreationHandler>();
+builder.Services.AddTransient<IEventHandler<PurchaseOrderApproved>, PurchaseOrderApproveHandler>();
+
+builder.Services.AddTransient<IRequestHandler<PoApproveCommand, Result>, PoApproveCommandHandler>();
 
 // consumers
 builder.Services.AddTransient<IEventHandler, EventHandler>();
@@ -97,5 +103,17 @@ app.MapPost("/orders", async ([FromBody]PurchaseOrdersDto command, IMediator med
     })
     .WithName("add orders")
     .WithOpenApi();
+app.MapPost("/order/{poNumber}", async (string poNumber,IMediator mediator) =>
+    {
+        var result = await mediator.Send(new PoApproveCommand(poNumber));
+        if (result.IsFailure)
+        {
+            return  Results.BadRequest(result.Message);
+        }
+        return Results.Created();
+    })
+    .WithName("approve  order")
+    .WithOpenApi();
+
 
 app.Run();

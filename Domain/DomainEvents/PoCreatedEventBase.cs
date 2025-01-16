@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Common.Domains;
+using Common.Events;
 using Common.Entity;
 using Common.ValueObject;
 

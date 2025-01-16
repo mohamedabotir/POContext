@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Common.Constants;
 using Common.Result;
 using Common.Entity;
 using Common.ValueObject;
@@ -34,6 +35,9 @@ namespace Application.Context.Pocos;
         [Required]
         [StringLength(15)] 
         public string CustomerPhoneNumber { get; set; }
+        [Required]
+        [StringLength(10)] 
+        public string CustomerLocation { get; set; }
 
         [Required] 
         [StringLength(25)] 
@@ -59,7 +63,9 @@ namespace Application.Context.Pocos;
         [Required] 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)] 
         public  DateTime? ModifiedOn { get;protected set; }
-
+        
+        [Required] 
+        public PurchaseOrderStage OrderStage { get;  set; }
         public  virtual ICollection<LineItems> LineItems { get; protected set; }
 
         public void MapPoEntityToPurchaseOrder(PoEntity purchaseEntity)
@@ -78,6 +84,8 @@ namespace Application.Context.Pocos;
             ActivationStatus = purchaseEntity.ActivationStatus;
             CreatedOn = purchaseEntity.CreatedOn;
             ModifiedOn = purchaseEntity.ModifiedOn;
+            CustomerLocation = purchaseEntity.Customer.Address.AddressValue;
+            OrderStage = purchaseEntity.PurchaseOrderStage;
             var lineItems = purchaseEntity.LineItems.Select(new LineItems().MapItemLineToLineItemPoco).ToList();
             foreach (var lineItem in lineItems)
             {
@@ -92,21 +100,22 @@ namespace Application.Context.Pocos;
             var money = Money.CreateInstance(TotalAmount);
             var customerEmail = Email.CreateInstance(CustomerEmail);
             var supplierEmail = Email.CreateInstance(SupplierEmail);
-            
-            var validations = Result.Combine(money,customerEmail,supplierEmail);
+            var customerAddress = Address.CreateInstance(CustomerLocation);
+
+            var validations = Result.Combine(money,customerEmail,supplierEmail,customerAddress);
             if (validations.IsFailure)
                 return   Result.Fail<PoEntity>(validations.Message);
             
             var customerUser = User.CreateInstance(customerEmail.Value, CustomerName
-                , CustomerPhoneNumber);
+                , CustomerPhoneNumber,customerAddress.Value);
             var supplierUser = User.CreateInstance(supplierEmail.Value, SupplierName
-                , SupplierPhoneNumber);
+                , SupplierPhoneNumber,customerAddress.Value);
             var poNumber = Common.Utils.PoNumber.SetPoNumber(PoNumber);
             validations = Result.Combine(money,customerUser,supplierUser,poNumber);
             if (validations.IsFailure)
                 return   Result.Fail<PoEntity>(validations.Message);
             var purchaseOrder = new PoEntity( Guid,
-                customerUser.Value, supplierUser.Value,poNumber.Value);
+                customerUser.Value, supplierUser.Value,poNumber.Value,OrderStage);
             var lineItems = LineItems.Select(e=>e.MapLineItemPocoToItemLine()).ToList();
             var settingLineItemsResult = purchaseOrder.SetLineItems(lineItems);
             if(supplierEmail.IsFailure)

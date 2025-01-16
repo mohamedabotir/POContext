@@ -1,4 +1,3 @@
-USE PurchaseOrder;
 CREATE TABLE [dbo].[PurchaseOrder]
 (
     [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -8,10 +7,12 @@ CREATE TABLE [dbo].[PurchaseOrder]
     [CustomerEmail] VARCHAR(25) NOT NULL,
     [CustomerName] VARCHAR(50) NOT NULL,
     [CustomerPhoneNumber] VARCHAR(15) NOT NULL,
+    [CustomerLocation] VARCHAR(256) NOT NULL,
     [SupplierEmail] VARCHAR(25) NOT NULL,
     [SupplierName] VARCHAR(50) NOT NULL,
     [SupplierPhoneNumber] VARCHAR(15) NOT NULL,
     [IsActive] INT NOT NULL DEFAULT 0,
+    [OrderStage] INT NOT NULL DEFAULT 0,
     [CreatedOn] DATETIME NOT NULL DEFAULT GETDATE(),
     [ModifiedOn] DATETIME NOT NULL DEFAULT GETDATE(),
 );

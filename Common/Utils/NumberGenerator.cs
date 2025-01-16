@@ -9,5 +9,7 @@ public enum  NumberGenerator
     [Description("Po{timestamp}")]
     PoTimestamp,
     [Description("SKU-3-3-3")]
-    Sku
+    Sku,
+    [Description("SHO-yymmdd-poNumber")]
+    ShippingNumber
 }
