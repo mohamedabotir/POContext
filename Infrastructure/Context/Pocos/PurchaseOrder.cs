@@ -36,7 +36,8 @@ namespace Application.Context.Pocos;
         [StringLength(15)] 
         public string CustomerPhoneNumber { get; set; }
         [Required]
-        [StringLength(10)] 
+        [MinLength(10)] 
+        [MaxLength(10)] 
         public string CustomerLocation { get; set; }
 
         [Required] 

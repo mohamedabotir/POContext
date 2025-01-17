@@ -17,13 +17,13 @@ namespace Infrastructure.Consumer;
         private IEventHandler _eventHandler { get;  } = eventHandler;
         private IServiceScopeFactory _serviceProvider { get; } = serviceProvider;
 
-        public void Consume(string Topic)
+        public void Consume(string topic)
         {
             using var consumer = new ConsumerBuilder<string, string>(_consumerConfig)
                             .SetKeyDeserializer(Deserializers.Utf8)
                             .SetValueDeserializer(Deserializers.Utf8)
                             .Build();
-            consumer.Subscribe(Topic);
+            consumer.Subscribe(topic);
             while (true)
             {
                 ConsumeResult<string, string> consumeResult = null;
@@ -38,28 +38,23 @@ namespace Infrastructure.Consumer;
                     Console.WriteLine("failed :{0}", ex.Message);
                     throw;
                 }
+                finally
+                {
+                    consumer.Close();
+                }
                 if (consumeResult?.Message == null) continue;
                 try
                 {
+                    using var scope = _serviceProvider.CreateScope();
+                    using var sc = scope.ServiceProvider.CreateScope();
+                    var options = new JsonSerializerOptions() { Converters = { new EventJsonConverter() } };
+                    var @event = JsonSerializer.Deserialize<DomainEventBase>(consumeResult.Message.Value, options);
+                    var handlers = _eventHandler.GetType().GetMethod("On", new Type[] { @event.GetType() });
 
-               
-                using (var scope = _serviceProvider.CreateScope())
-                {
-                    
-                    using (var sc = scope.ServiceProvider.CreateScope())
-                    {
-
-                        var options = new JsonSerializerOptions() { Converters = { new EventJsonConverter() } };
-                        var @event = JsonSerializer.Deserialize<DomainEventBase>(consumeResult.Message.Value, options);
-                        var handlers = _eventHandler.GetType().GetMethod("On", new Type[] { @event.GetType() });
-
-                        if (handlers == null)
-                            throw new ArgumentNullException($"Handler Didn't support method with type : {@event.GetType().Name} ");
-                        handlers.Invoke(_eventHandler, new Object[] { @event });
-                        consumer.Commit(consumeResult);
-
-                    }
-                }
+                    if (handlers == null)
+                        throw new ArgumentNullException($"Handler Didn't support method with type : {@event.GetType().Name} ");
+                    handlers.Invoke(_eventHandler, new Object[] { @event });
+                    consumer.Commit(consumeResult);
                 }
                 catch (Exception e)
                 {

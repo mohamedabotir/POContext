@@ -8,9 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="implement approve and produce approvedEvent">
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/Events/PurchaseOrderApproved.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Events/PurchaseOrderApproved.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/ValueObject/Address.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/ValueObject/Address.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
@@ -21,11 +22,8 @@
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/EventsSerializer/PoCreatedEvent/MoneySerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Serializer/MoneySerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/EventsSerializer/PoCreatedEvent/UserSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/EventsSerializer/PoCreatedEvent/UserSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/MessageBroker/Producers/Producer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/MessageBroker/Producers/Producer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +100,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.PurchaseOrder.WebAPI: http.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.PurchaseOrder.WebAPI: http.executor&quot;: &quot;Run&quot;,
     &quot;2c6a6e6a-d06a-4294-bf37-f6da2b1ae926.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -215,6 +213,7 @@
       <workItem from="1736960606683" duration="5397000" />
       <workItem from="1737028142672" duration="21318000" />
       <workItem from="1737061677308" duration="4304000" />
+      <workItem from="1737100488745" duration="11207000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -476,13 +475,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>40</line>
+          <line>42</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
             <startOffsets>
-              <option value="1427" />
+              <option value="1473" />
             </startOffsets>
             <endOffsets>
-              <option value="1462" />
+              <option value="1490" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="49" />
@@ -502,39 +501,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>52</line>
+          <line>49</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
             <startOffsets>
-              <option value="1867" />
+              <option value="1771" />
             </startOffsets>
             <endOffsets>
-              <option value="1962" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>53</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
-            <startOffsets>
-              <option value="1987" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2075" />
+              <option value="1859" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>57</line>
+          <line>53</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
             <startOffsets>
-              <option value="2279" />
+              <option value="2106" />
             </startOffsets>
             <endOffsets>
-              <option value="2335" />
+              <option value="2127" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="56" />
@@ -694,6 +680,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
+            <startOffsets>
+              <option value="1191" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1226" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -14,7 +14,8 @@ public class PurchaseOrderApproved : DomainEventBase
         Money totalAmount,
         string customerName,
         string customerAddress,
-        string customerPhoneNumber) : base(nameof(PurchaseOrderApproved))
+        string customerPhoneNumber,
+        PurchaseOrderStage orderStage ) : base(nameof(PurchaseOrderApproved))
     {
         PurchaseOrderId = purchaseOrderId;
         PurchaseOrderNumber = purchaseOrderNumber;
@@ -23,7 +24,7 @@ public class PurchaseOrderApproved : DomainEventBase
         CustomerName = customerName;
         CustomerAddress = customerAddress;
         CustomerPhoneNumber = customerPhoneNumber;
-        //OrderStage = type;
+        OrderStage = orderStage;
     }
 
     public Guid PurchaseOrderId { get; }

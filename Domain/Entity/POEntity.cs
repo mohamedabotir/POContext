@@ -43,8 +43,8 @@ public class PoEntity : AggregateRoot
             return Result.Result.Fail("PurchaseOrderStage Should be on Created");
         PurchaseOrderStage = PurchaseOrderStage.Approved;
         AddDomainEvent(new PurchaseOrderApproved(Guid,PoNumber.PoNumberValue,ActivationStatus,TotalAmount,Customer.Name,Customer.Address.AddressValue,
-            Customer.PhoneNumber
-            //,PurchaseOrderStage
+            Customer.PhoneNumber,
+            PurchaseOrderStage
             ));
         return Result.Result.Ok();
     }
