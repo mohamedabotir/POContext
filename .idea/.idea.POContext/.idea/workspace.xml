@@ -8,24 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="- add context factory to allow context creation on background services &#10;- consume OrderBeingShipped">
-      <change afterPath="$PROJECT_DIR$/Common/Events/OrderShipped.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Exceptions/CommulativeException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Repository/IPurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Repository/IPurchaseOrderRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/IEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/IEventHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" afterDir="false" />
-    </list>
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="- add context factory to allow context creation on background services &#10;- consume OrderBeingShipped" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,7 +201,7 @@
       <workItem from="1737061677308" duration="4304000" />
       <workItem from="1737100488745" duration="18816000" />
       <workItem from="1737147296216" duration="7167000" />
-      <workItem from="1737198948400" duration="7692000" />
+      <workItem from="1737198948400" duration="8028000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -720,32 +703,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
-          <line>101</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'GetPoByPurchaseNumberWithFactoryAsync'">
-            <startOffsets>
-              <option value="3399" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3420" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs</url>
-          <line>93</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Repositories/PurchaseOrderRepository.cs" containingFunctionPresentation="Method 'GetPoByPurchaseNumberWithFactoryAsync'">
-            <startOffsets>
-              <option value="3112" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3252" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="115" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
