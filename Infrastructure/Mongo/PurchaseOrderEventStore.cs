@@ -4,6 +4,7 @@ using Common.Mongo.Producers;
 using Common.Repository;
 using Confluent.Kafka;
 using Common.DomainEvents;
+using Common.Result;
 using Microsoft.Extensions.Options;
 
 namespace Common.Mongo;
@@ -11,7 +12,7 @@ namespace Common.Mongo;
 public class PurchaseOrderEventStore(IEventRepository eventRepository, IProducer producer, IOptions<Topic> options) : IEventStore
 {
 
-    public async Task SaveEventAsync(Guid aggregateId, DomainEventBase eventBase)
+    public async Task SaveEventAsync(Guid aggregateId, DomainEventBase eventBase,List<Maybe<string>> anotherTopic)
     {
  
             var eventModel = new Application.Mongo.EventModel

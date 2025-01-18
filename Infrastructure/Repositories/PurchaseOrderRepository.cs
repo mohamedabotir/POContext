@@ -5,6 +5,7 @@ using Common.Constants;
 using Common.Entity;
 using Common.Repository;
 using Common.Result;
+using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository;
@@ -12,9 +13,12 @@ namespace Infrastructure.Repository;
 public class PurchaseOrderRepository : IPurchaseOrderRepository
 {
     private PurchaseOrderDbContext _context;
-    public PurchaseOrderRepository(PurchaseOrderDbContext dbContext)
+    private PurchaseOrderContextFactory _factoryContext;
+
+    public PurchaseOrderRepository(PurchaseOrderDbContext dbContext,PurchaseOrderContextFactory factoryContext)
     {
         _context = dbContext;
+        _factoryContext = factoryContext;
         _context.Set<PurchaseOrder>();
     }
     public Task<PoEntity> GetByIdAsync(int id)
@@ -58,10 +62,12 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
         throw new NotImplementedException();
     }
 
-    public Task MarkPoAsShippedAsync(Guid poId)
+    public async Task UpdatePoStageWithFactoryAsync(Guid poId,PurchaseOrderStage stage)
     {
-        Console.WriteLine("Mark PO as shipped:"+poId);
-        return Task.CompletedTask;
+        var dbconext = _factoryContext.CreateDataBaseContext();
+        var purchaseOrder =  dbconext.PurchaseOrder.FirstOrDefault(e => e.Guid == poId);
+        purchaseOrder.OrderStage = stage;
+       await dbconext.SaveChangesAsync();
     }
     public bool IsPoExists(Guid poId) =>_context.PurchaseOrder.Any(e=>e.Guid == poId);
     public async Task<Result<PoEntity>> GetPoByPurchaseNumberAsync(string poId)

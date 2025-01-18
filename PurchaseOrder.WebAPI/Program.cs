@@ -20,8 +20,8 @@ using GraphQL;
 using GraphQL.Server.Ui.Playground;
 using GraphQL.Types;
 using Infrastructure.Consumer;
+using Infrastructure.Context;
 using MediatR;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
@@ -32,14 +32,16 @@ using EventHandler = Infrastructure.Consumer.EventHandler;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<PurchaseOrderDbContext>(e=>e.
-    UseSqlServer(builder.Configuration.GetConnectionString("PurchaseOrderDB")),ServiceLifetime.Scoped);
- 
+
+Action<DbContextOptionsBuilder> sqlConfiguration = e => e.UseSqlServer(builder.Configuration.GetConnectionString("PurchaseOrderDB"));
+builder.Services.AddDbContext<PurchaseOrderDbContext>(sqlConfiguration);
+builder.Services.AddSingleton(new PurchaseOrderContextFactory(sqlConfiguration));
+
 BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
 BsonClassMap.RegisterClassMap<DomainEventBase>();
 BsonClassMap.RegisterClassMap<PoCreatedEventBase>();
+BsonClassMap.RegisterClassMap<OrderBeingShipped>();
+
 //Configurations
 builder.Services.Configure<Topic>(builder.Configuration.GetSection("Topic"));
 builder.Services.Configure<PurchaseOrderConfig>(builder.Configuration.GetSection("MongoConfig"));
@@ -76,9 +78,12 @@ builder.Services.AddScoped<LineItemsType>();
 builder.Services.AddScoped<PurchaseOrderQuery>();
 builder.Services.AddScoped<ActivationStatusEnumGraphType>();
 builder.Services.AddScoped<ISchema, PurchaseSchema>();
+// Scans
 builder.Services.AddGraphQL(b => b
     .AddAutoSchema<PurchaseOrderQuery>()  
     .AddSystemTextJson());
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

@@ -38,10 +38,7 @@ namespace Infrastructure.Consumer;
                     Console.WriteLine("failed :{0}", ex.Message);
                     throw;
                 }
-                finally
-                {
-                    consumer.Close();
-                }
+               
                 if (consumeResult?.Message == null) continue;
                 try
                 {

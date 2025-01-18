@@ -5,7 +5,7 @@ namespace Application.Context;
 
 public class PurchaseOrderDbContext : DbContext
 {
-    public PurchaseOrderDbContext(DbContextOptions<PurchaseOrderDbContext> options) : base(options)
+    public PurchaseOrderDbContext(DbContextOptions options) : base(options)
     {
     }
 
