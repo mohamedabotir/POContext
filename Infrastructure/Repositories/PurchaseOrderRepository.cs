@@ -86,4 +86,14 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
         _context.Update(purchaseOrder);
         return Task.CompletedTask;    
     }
+    public async Task<Result<PoEntity>> GetPoByPurchaseNumberWithFactoryAsync(string poId)
+    {
+        var dbconext = _factoryContext.CreateDataBaseContext();
+            var purchaseOrder =  dbconext.PurchaseOrder
+                .Include(e=>e.LineItems)
+                .Single(e=>e.PoNumber == poId);
+            var poEntity = purchaseOrder!.GetPoEntity();
+            return poEntity;
+       
+    }
 }

@@ -10,4 +10,6 @@ public interface IPurchaseOrderRepository : IRepository<PoEntity>
     bool IsPoExists(Guid poId);
     Task<Result<PoEntity>> GetPoByPurchaseNumberAsync(string poId);
     Task UpdatePoStageAsync(Guid poId,PurchaseOrderStage stage);
+    Task<Result<PoEntity>> GetPoByPurchaseNumberWithFactoryAsync(string poId);
+
 };
