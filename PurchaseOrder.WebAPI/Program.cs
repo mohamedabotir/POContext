@@ -11,16 +11,19 @@ using Application.Context;
 using Application.EventHandlers;
 using Application.Extensions;
 using Application.Mongo;
+using Application.UseCases;
 using Common.Events;
 using Common.Handlers;
 using Common.Repository;
 using Common.Result;
+using Common.Utils;
 using Infrastructure.Repository;
 using GraphQL;
 using GraphQL.Server.Ui.Playground;
 using GraphQL.Types;
 using Infrastructure.Consumer;
 using Infrastructure.Context;
+using Infrastructure.Utils;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +39,7 @@ var builder = WebApplication.CreateBuilder(args);
 Action<DbContextOptionsBuilder> sqlConfiguration = e => e.UseSqlServer(builder.Configuration.GetConnectionString("PurchaseOrderDB"));
 builder.Services.AddDbContext<PurchaseOrderDbContext>(sqlConfiguration);
 builder.Services.AddSingleton(new PurchaseOrderContextFactory(sqlConfiguration));
-
+builder.Services.AddSingleton<IServiceProviderFactory, ServiceProviderFactory>();
 BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
 BsonClassMap.RegisterClassMap<DomainEventBase>();
 BsonClassMap.RegisterClassMap<PoCreatedEventBase>();
@@ -55,16 +58,20 @@ builder.Services.AddTransient<IEventStore, PurchaseOrderEventStore>();
 // UseCases
 builder.Services.AddTransient<IPurchaseOrderCreationUseCase, PurchaseOrderCreationCreationUseCase>();
 builder.Services.AddTransient<IPurchaseOrderApproveUseCase, PurchaseOrderApproveUseCase>();
+builder.Services.AddTransient<IPurchaseOrderClosed, PurchaseOrderClosed>();
 
 builder.Services.AddTransient<IEventRepository, EventRepository>();
 builder.Services.AddTransient<IPurchaseOrderRepository, PurchaseOrderRepository>();
 builder.Services.AddTransient<IRepository<PoEntity>, PurchaseOrderRepository>();
 //Handlers and Dispatcher
+builder.Services.AddTransient<IEventDispatcherWithFactory, EventDispatcherWithFactory>();
 builder.Services.AddTransient<IEventDispatcher, EventDispatcher>();
+
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddTransient<IRequestHandler<PurchaseOrdersDto, Result>, PoCreationCommandHandler>();
 builder.Services.AddTransient<IEventHandler<PoCreatedEventBase>, PurchaseOrderCreationHandler>();
 builder.Services.AddTransient<IEventHandler<PurchaseOrderApproved>, PurchaseOrderApproveHandler>();
+builder.Services.AddTransient<IEventHandler<OrderClosed>, PurchaseOrderClosedHandler>();
 
 builder.Services.AddTransient<IRequestHandler<PoApproveCommand, Result>, PoApproveCommandHandler>();
 

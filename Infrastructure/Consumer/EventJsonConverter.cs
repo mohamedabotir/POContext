@@ -26,6 +26,7 @@ public class EventJsonConverter: JsonConverter<DomainEventBase>
             nameof(PoCreatedEventBase) => JsonSerializer.Deserialize<PoCreatedEventBase>(json, GetCustomerOptions(options)),
             nameof(OrderBeingShipped) => JsonSerializer.Deserialize<OrderBeingShipped>(json, options),
             nameof(OrderShipped) => JsonSerializer.Deserialize<OrderShipped>(json, options),
+            nameof(OrderClosed) => JsonSerializer.Deserialize<OrderClosed>(json, options),
             _ => throw new JsonException($"Event Type {disc} not supported yet!")
         };
 

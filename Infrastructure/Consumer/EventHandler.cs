@@ -2,12 +2,14 @@ using Common.Constants;
 using Infrastructure.Repository;
 using Common.DomainEvents;
 using Common.Events;
+using Common.Handlers;
 using Common.Repository;
+using Common.Utils;
 using Infrastructure.Exceptions;
 
 namespace Infrastructure.Consumer;
 
-public class EventHandler(IPurchaseOrderRepository purchaseOrderRepository ):IEventHandler
+public class EventHandler(IPurchaseOrderRepository purchaseOrderRepository,IEventDispatcherWithFactory eventDispatcher):IEventHandler
 {
     public async Task On(OrderBeingShipped @event)
     {
@@ -20,5 +22,10 @@ public class EventHandler(IPurchaseOrderRepository purchaseOrderRepository ):IEv
         if(purchaseOrder.Value.PurchaseOrderStage != PurchaseOrderStage.BeingShipped)
            throw new CommulativeException($"Shipping order {@event.PoNumber} is not being shipped");
         await purchaseOrderRepository.UpdatePoStageWithFactoryAsync(@event.PurchaseOrderGuid,PurchaseOrderStage.Shipped);
+    }
+
+    public async Task On(OrderClosed @event)
+    {
+       await eventDispatcher.DispatchDomainEventAsync([@event]);
     }
 }

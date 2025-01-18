@@ -48,7 +48,13 @@ public class PoEntity : AggregateRoot
             ));
         return Result.Result.Ok();
     }
-
+    public Result.Result ClosePurchaseOrder()
+    {
+        if(PurchaseOrderStage != PurchaseOrderStage.Shipped)
+            return Result.Result.Fail("purchase order  Should be on shipped to close it.");
+        PurchaseOrderStage = PurchaseOrderStage.Closed;
+        return Result.Result.Ok();
+    }
     public virtual PoNumber PoNumber { get; protected set; }
     public  ICollection<LineItem> LineItems { get; protected set; } = new List<LineItem>();
     

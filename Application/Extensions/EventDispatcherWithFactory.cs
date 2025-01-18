@@ -1,36 +1,30 @@
-using Common.DomainEvents;
-using Application.EventHandlers;
 using Common.Events;
 using Common.Handlers;
 using Common.Utils;
 
 namespace Application.Extensions;
 
-public class EventDispatcher :IEventDispatcher
+public class EventDispatcherWithFactory:IEventDispatcherWithFactory
 {
-    private  IServiceProvider _serviceProvider;
-
-    public EventDispatcher(IServiceProvider serviceProvider)
+    private readonly IServiceProviderFactory _serviceProviderFactory;
+    public EventDispatcherWithFactory(IServiceProviderFactory serviceProviderFactory)
     {
-        _serviceProvider = serviceProvider;
+        _serviceProviderFactory = serviceProviderFactory;
     }
 
-    public EventDispatcher()
+    public async Task DispatchDomainEventAsync(IEnumerable<DomainEventBase> domainEvents)
     {
-        
-    }
-    public async Task DispatchDomainEventsAsync(IEnumerable<DomainEventBase> domainEvents)
-    {
+        var provider = _serviceProviderFactory.CreateScope();
         foreach (var domainEvent in domainEvents)
         {
             var handlerType = typeof(IEventHandler<>).MakeGenericType(domainEvent.GetType());
-            var handler = _serviceProvider.GetService(handlerType);
+            var handler = provider.GetService(handlerType);
             if (handler != null)
             {
                 var handleMethod = handlerType.GetMethod("HandleAsync");
                 await (Task)handleMethod.Invoke(handler, new object[] { domainEvent ,CancellationToken.None});
             }
         }
+        
     }
-
 }

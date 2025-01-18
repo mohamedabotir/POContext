@@ -8,7 +8,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="- add context factory to allow context creation on background services &#10;- consume OrderBeingShipped" />
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="subscribe  OrderShipped event">
+      <change afterPath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderClosedHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Extensions/EventDispatcherWithFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/UseCases/IPurchaseOrderClosed.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/UseCases/PurchaseOrderClosed.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Events/OrderClosed.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Utils/IEventDispatcherWithFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/Utils/IServiceProviderFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Utils/ServiceProviderFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/IEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/IEventHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +81,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/621526284d3e4868b98948aff942206525763e57e194a27623b66c384466/ServiceProviderServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/68b06b8592b1287fd78f3ee68566d6a38d6e2f45b9a9e6ebd4d0e9972f7c29/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71f8a5297672ad56962c6af62f7241a092ad7d95eaee4ef564601be5d8e37b38/Int32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d81b2d4f22bee75e5438c707251ae43cb0974c207db91ffc159118c84b4eb9/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8056cd3f452fefb9834f05cdb275b762dd41f27b7766cd71174e78592dc495b/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8b934f3b15886a282112a2d2b9b6bbbb6d2cf6702a289c2842eda7be1702bcb/ObjectWithParameterizedConstructorConverter.Large.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e2e3f232b3f74cfc56d24ec307aaea234eb831ec23796f1b454eb7e8fe1/CallSiteVisitor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,6 +97,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e358d67bcd5815a5083706ec88db8489a9872915d46156ba24277cd21bd662/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e3dbceecae5af84cbcd183e8765f2e6b1badd73eba26f72345dff9d73897684/ToCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e747192abb38e2df82cbdb37e721567726f559914a7b81f8b26ba537de632f4/List.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f7e838f3c047ee76488fa4c2b9b1bffb2b33b04a2780de4664de937e024e97/CallSiteFactory.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -201,7 +228,8 @@
       <workItem from="1737061677308" duration="4304000" />
       <workItem from="1737100488745" duration="18816000" />
       <workItem from="1737147296216" duration="7167000" />
-      <workItem from="1737198948400" duration="8028000" />
+      <workItem from="1737198948400" duration="11397000" />
+      <workItem from="1737219512948" duration="3386000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -331,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737205209070</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="subscribe  OrderShipped event">
+      <option name="closed" value="true" />
+      <created>1737210020390</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1737210020390</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +404,8 @@
     <MESSAGE value="change id parameter" />
     <MESSAGE value="implement approve and produce approvedEvent" />
     <MESSAGE value="- add context factory to allow context creation on background services &#10;- consume OrderBeingShipped" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add context factory to allow context creation on background services &#10;- consume OrderBeingShipped" />
+    <MESSAGE value="subscribe  OrderShipped event" />
+    <option name="LAST_COMMIT_MESSAGE" value="subscribe  OrderShipped event" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -446,13 +483,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs</url>
-          <line>26</line>
+          <line>27</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Extensions/EventDispatcher.cs" containingFunctionPresentation="Method 'DispatchDomainEventsAsync'">
             <startOffsets>
-              <option value="746" />
+              <option value="757" />
             </startOffsets>
             <endOffsets>
-              <option value="766" />
+              <option value="777" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="35" />
@@ -628,13 +665,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs</url>
-          <line>13</line>
+          <line>15</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" containingFunctionPresentation="Method 'On'">
             <startOffsets>
-              <option value="362" />
+              <option value="448" />
             </startOffsets>
             <endOffsets>
-              <option value="480" />
+              <option value="566" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="108" />
@@ -667,42 +704,81 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs</url>
-          <line>19</line>
+          <line>21</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" containingFunctionPresentation="Method 'On'">
             <startOffsets>
-              <option value="661" />
+              <option value="747" />
             </startOffsets>
             <endOffsets>
-              <option value="738" />
+              <option value="824" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs</url>
-          <line>27</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" containingFunctionPresentation="Method 'Read'">
-            <startOffsets>
-              <option value="1192" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1247" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="112" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs</url>
-          <line>18</line>
+          <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" containingFunctionPresentation="Method 'On'">
             <startOffsets>
-              <option value="548" />
+              <option value="634" />
             </startOffsets>
             <endOffsets>
-              <option value="652" />
+              <option value="738" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs</url>
+          <line>28</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" containingFunctionPresentation="Method 'On'">
+            <startOffsets>
+              <option value="1113" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1170" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs</url>
+          <line>28</line>
+          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" containingFunctionPresentation="Method 'Read'">
+            <startOffsets>
+              <option value="1284" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1338" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderClosedHandler.cs</url>
+          <line>11</line>
+          <properties documentPath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderClosedHandler.cs" containingFunctionPresentation="Method 'HandleAsync'">
+            <startOffsets>
+              <option value="362" />
+            </startOffsets>
+            <endOffsets>
+              <option value="416" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/Extensions/EventDispatcherWithFactory.cs</url>
+          <line>21</line>
+          <properties documentPath="$PROJECT_DIR$/Application/Extensions/EventDispatcherWithFactory.cs" containingFunctionPresentation="Method 'DispatchDomainEventAsync'">
+            <startOffsets>
+              <option value="781" />
+            </startOffsets>
+            <endOffsets>
+              <option value="801" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="118" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
