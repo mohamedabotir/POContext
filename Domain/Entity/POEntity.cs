@@ -47,7 +47,7 @@ public class PoEntity : AggregateRoot
             PurchaseOrderStage
             ));
         return Result.Result.Ok();
-    }
+    } 
     public Result.Result ClosePurchaseOrder()
     {
         if(PurchaseOrderStage != PurchaseOrderStage.Shipped)
