@@ -8,32 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="sync">
-      <change afterPath="$PROJECT_DIR$/PO.Test/UseCases/ClosePurchaseOrderUseCasesTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PO.Test/UseCases/PurchaseOrderApproveUseCaseTest.cs" afterDir="false" />
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="cover domain and application core unit test">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/UseCases/PurchaseOrderClosed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/UseCases/PurchaseOrderClosed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/LineItemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/Domains/LineItemTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/PO.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/PO.Test.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/Domains/PurchaseOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/QuantityTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/Domains/QuantityTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/Debug/net8.0/PO.Test.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/PO.Test.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +231,7 @@
       <workItem from="1737100488745" duration="18816000" />
       <workItem from="1737147296216" duration="7167000" />
       <workItem from="1737198948400" duration="11397000" />
-      <workItem from="1737219512948" duration="8747000" />
+      <workItem from="1737219512948" duration="10447000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -409,7 +385,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737223381088</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="cover domain and application core unit test">
+      <option name="closed" value="true" />
+      <created>1737228648479</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1737228648479</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +433,9 @@
     <MESSAGE value="subscribe  OrderShipped event" />
     <MESSAGE value="subscribe closed event and mark po as closed" />
     <MESSAGE value="sync" />
-    <option name="LAST_COMMIT_MESSAGE" value="sync" />
+    <MESSAGE value="cover domain and applicaion" />
+    <MESSAGE value="cover domain and application core unit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="cover domain and application core unit test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -879,12 +865,12 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/PO.Test/UseCases/PurchaseOrderApproveUseCaseTest.cs</url>
           <line>45</line>
-          <properties documentPath="$PROJECT_DIR$/PO.Test/UseCases/PurchaseOrderApproveUseCaseTest.cs" containingFunctionPresentation="Method 'ClosePurchaseOrder_Failed_DueTo_NotOrderOnShipped'">
+          <properties documentPath="$PROJECT_DIR$/PO.Test/UseCases/PurchaseOrderApproveUseCaseTest.cs" containingFunctionPresentation="Method 'ApproveOrder_S_DueTo_NotOrderOnShipped'">
             <startOffsets>
-              <option value="1507" />
+              <option value="1504" />
             </startOffsets>
             <endOffsets>
-              <option value="1652" />
+              <option value="1649" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="126" />
