@@ -12,7 +12,9 @@ public class PurchaseOrderClosed(IPurchaseOrderRepository purchaseOrderRepositor
         if(purchaseOrder.IsFailure)
             return Result.Fail(purchaseOrder.Message);
         var purchaseOrderClosed = purchaseOrder.Value.ClosePurchaseOrder();
-      await  purchaseOrderRepository.UpdatePoStageWithFactoryAsync(purchaseOrder.Value.Guid, purchaseOrder.Value.PurchaseOrderStage);
-      return Result.Ok();
+        if(purchaseOrderClosed.IsFailure)
+            return Result.Fail(purchaseOrderClosed.Message);
+        await  purchaseOrderRepository.UpdatePoStageWithFactoryAsync(purchaseOrder.Value.Guid, purchaseOrder.Value.PurchaseOrderStage);
+        return Result.Ok();
     }
 }

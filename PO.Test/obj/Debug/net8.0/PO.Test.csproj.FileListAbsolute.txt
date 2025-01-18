@@ -155,3 +155,7 @@
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/obj/Debug/net8.0/ref/PO.Test.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Common.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Common.pdb
+/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/MediatR.dll
+/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/MediatR.Contracts.dll
+/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Application.dll
+/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Application.pdb

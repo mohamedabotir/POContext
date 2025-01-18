@@ -32,7 +32,7 @@ public class PoEntity : AggregateRoot
     public virtual Money TotalAmount { get; protected set; }
     public virtual User Customer { get; protected set; }
     public  User Supplier { get; protected set; }
-    public virtual ActivationStatus ActivationStatus { get; protected set; } = ActivationStatus.Active;
+    public virtual ActivationStatus ActivationStatus { get;  set; } = ActivationStatus.Active;
 
     public Result.Result DeActivate() => new PoActivationProcessor(new PoDeActivationState(), ActivationStatus).ProcessOrder();
     public Result.Result Activate() => new PoActivationProcessor(new PoActivationState(), ActivationStatus).ProcessOrder();

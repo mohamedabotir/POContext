@@ -79,4 +79,30 @@ public class PurchaseOrder
 
         result.IsFailure.Should().Be(false);
     }
+    [Test]
+    public void  DeActivatePurchaseOrder_Success_DueTo_PurchaseOrderActivated()
+    {
+        
+        var PoGuid = Guid.NewGuid();
+        var money = Money.CreateInstance(15);
+
+        var PoEntity = new PoEntity(PoGuid,_customer, _supplier,_poNumber,PurchaseOrderStage.Created);
+       
+        var result = PoEntity.DeActivate();
+        
+        result.IsFailure.Should().Be(false);
+    }
+    [Test]
+    public void  DeActivatePurchaseOrder_Failed_DueTo_PurchaseOrderDeActivated()
+    {
+        
+        var PoGuid = Guid.NewGuid();
+        var money = Money.CreateInstance(15);
+
+        var PoEntity = new PoEntity(PoGuid,_customer, _supplier,_poNumber,PurchaseOrderStage.Created);
+        PoEntity.ActivationStatus = ActivationStatus.NotActive;
+        var result = PoEntity.DeActivate();
+        
+        result.IsFailure.Should().Be(true);
+    }
 }

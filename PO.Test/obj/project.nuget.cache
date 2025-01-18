@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5T1g91vfwn0=",
+  "dgSpecHash": "jerjOcT12oI=",
   "success": true,
   "projectFilePath": "/home/threading/DistributedSystem Assisment/POContext/PO.Test/PO.Test.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "/home/threading/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/home/threading/.nuget/packages/fluentassertions/8.0.0-rc.2/fluentassertions.8.0.0-rc.2.nupkg.sha512",
     "/home/threading/.nuget/packages/librdkafka.redist/2.8.0/librdkafka.redist.2.8.0.nupkg.sha512",
+    "/home/threading/.nuget/packages/mediatr/11.1.0/mediatr.11.1.0.nupkg.sha512",
+    "/home/threading/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
     "/home/threading/.nuget/packages/microsoft.codecoverage/17.8.0/microsoft.codecoverage.17.8.0.nupkg.sha512",
     "/home/threading/.nuget/packages/microsoft.entityframeworkcore/8.0.0/microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
     "/home/threading/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.0/microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",
