@@ -74,6 +74,7 @@ builder.Services.AddHostedService<ConsumerHostingService>();
 builder.Services.AddScoped<PurchaseOrderType>();
 builder.Services.AddScoped<LineItemsType>();
 builder.Services.AddScoped<PurchaseOrderQuery>();
+builder.Services.AddScoped<ActivationStatusEnumGraphType>();
 builder.Services.AddScoped<ISchema, PurchaseSchema>();
 builder.Services.AddGraphQL(b => b
     .AddAutoSchema<PurchaseOrderQuery>()  

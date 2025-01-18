@@ -9,10 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Common/Events/OrderBeingShipped.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/Models/ActivationStatusEnumGraphType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/Events/PurchaseOrderApproved.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/Events/PurchaseOrderApproved.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/ValueObject/Address.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/ValueObject/Address.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
@@ -21,9 +20,14 @@
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Context/Pocos/PurchaseOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/PO.Test/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/Models/PurchaseOrderType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/Models/PurchaseOrderType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/PurchaseOrderQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/PurchaseOrderQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +56,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/c6082341f4b545d4abd2b91be12aeb27c2e600/a2/51a7ab96/02000062.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5c3e7275521b435bb2f56ce61a4120095b400/52/565b3f9d/EventHandlers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7d73c1c2161408c96e77c81d00435b26ca00/7c/9434b3a9/Consumer`2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7d73c1c2161408c96e77c81d00435b26ca00/c6/4133e841/SafeKafkaHandle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c6082341f4b545d4abd2b91be12aeb27c2e600/5c/5713d1f5/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c6082341f4b545d4abd2b91be12aeb27c2e600/a5/5bd6cf3f/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d6eacc30f73c491c94ae7625a65c78ac77a00/20/c40eff88/BeforeAndAfterTestCommand.cs" root0="FORCE_HIGHLIGHTING" />
@@ -81,6 +86,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c1558d44394b3be0f45e5cfe17d84d06c60a9ea79543868636a2edb57c2342/IRequestHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce37be1a06b16c6faa02038d2cc477dd3bca5b217ceeb41c5f2ad45c1bf9/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7185afbe59eff37fdb572764d59313fd2aa33dc2158592e6597c2e7a913e/JsonConverterOfT.ReadCore.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df6ecc3a2f73aa6c2e4c935eb66e23191bcbbefd34be6244af449299ed894ac3/ValueTask.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dfd0695bfb41ede73eb6f6ea2ef339ec8a345366da40fa88f00d6d6b7345a/JsonConverterOfT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e358d67bcd5815a5083706ec88db8489a9872915d46156ba24277cd21bd662/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e3dbceecae5af84cbcd183e8765f2e6b1badd73eba26f72345dff9d73897684/ToCollection.cs" root0="FORCE_HIGHLIGHTING" />
@@ -213,7 +219,8 @@
       <workItem from="1736960606683" duration="5397000" />
       <workItem from="1737028142672" duration="21318000" />
       <workItem from="1737061677308" duration="4304000" />
-      <workItem from="1737100488745" duration="11207000" />
+      <workItem from="1737100488745" duration="18816000" />
+      <workItem from="1737147296216" duration="6756000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -474,19 +481,6 @@
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>42</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
-            <startOffsets>
-              <option value="1473" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1490" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs</url>
           <line>28</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Mongo/PurchaseOrderEventStore.cs" containingFunctionPresentation="Method 'SaveEventAsync'">
@@ -500,32 +494,6 @@
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>49</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
-            <startOffsets>
-              <option value="1771" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1859" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>53</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
-            <startOffsets>
-              <option value="2106" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2127" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs</url>
           <line>25</line>
           <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" containingFunctionPresentation="Method 'Read'">
@@ -537,19 +505,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>39</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
-            <startOffsets>
-              <option value="1409" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1410" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs</url>
@@ -682,17 +637,17 @@
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs</url>
-          <line>33</line>
-          <properties documentPath="$PROJECT_DIR$/Infrastructure/Consumer/EventConsumer.cs" containingFunctionPresentation="Method 'Consume'">
+          <url>file://$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/PurchaseOrderQuery.cs</url>
+          <line>16</line>
+          <properties documentPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/GraphQl/PurchaseOrderQuery.cs" containingFunctionPresentation="Lambda expression inside Constructor 'PurchaseOrderQuery'">
             <startOffsets>
-              <option value="1191" />
+              <option value="632" />
             </startOffsets>
             <endOffsets>
-              <option value="1226" />
+              <option value="704" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="102" />
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
