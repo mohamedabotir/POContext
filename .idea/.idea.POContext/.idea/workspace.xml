@@ -8,32 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="subscribe  OrderShipped event">
-      <change afterPath="$PROJECT_DIR$/Application/EventHandlers/PurchaseOrderClosedHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Extensions/EventDispatcherWithFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/UseCases/IPurchaseOrderClosed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/UseCases/PurchaseOrderClosed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Events/OrderClosed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Utils/IEventDispatcherWithFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Utils/IServiceProviderFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Utils/ServiceProviderFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.POContext/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Extensions/EventDispatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/POEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/bin/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/ref/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/refint/Domain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/EventJsonConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Consumer/IEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Consumer/IEventHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/POContext.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/POContext.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PurchaseOrder.WebAPI/Program.cs" afterDir="false" />
-    </list>
+    <list default="true" id="974dd438-d5d6-451f-8891-fd8ecdd40357" name="Changes" comment="subscribe closed event and mark po as closed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,6 +55,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5e36f79053446033ddbc7cc8397a3d0627114f46f804559a98a094977b488d/RequestExceptionProcessorBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/621526284d3e4868b98948aff942206525763e57e194a27623b66c384466/ServiceProviderServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/68b06b8592b1287fd78f3ee68566d6a38d6e2f45b9a9e6ebd4d0e9972f7c29/Object.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6fb33e68745bd92d2249dfea48bc67abfa1a43d6e52b7bfb3d34ca2f72ea2/Stack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71f8a5297672ad56962c6af62f7241a092ad7d95eaee4ef564601be5d8e37b38/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d81b2d4f22bee75e5438c707251ae43cb0974c207db91ffc159118c84b4eb9/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8056cd3f452fefb9834f05cdb275b762dd41f27b7766cd71174e78592dc495b/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
@@ -229,7 +205,7 @@
       <workItem from="1737100488745" duration="18816000" />
       <workItem from="1737147296216" duration="7167000" />
       <workItem from="1737198948400" duration="11397000" />
-      <workItem from="1737219512948" duration="3386000" />
+      <workItem from="1737219512948" duration="3701000" />
     </task>
     <task id="LOCAL-00001" summary="almost complete domain , and starts on application layer and implement communication across layers">
       <option name="closed" value="true" />
@@ -367,7 +343,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737210020390</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="subscribe closed event and mark po as closed">
+      <option name="closed" value="true" />
+      <created>1737223177744</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1737223177744</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +389,8 @@
     <MESSAGE value="implement approve and produce approvedEvent" />
     <MESSAGE value="- add context factory to allow context creation on background services &#10;- consume OrderBeingShipped" />
     <MESSAGE value="subscribe  OrderShipped event" />
-    <option name="LAST_COMMIT_MESSAGE" value="subscribe  OrderShipped event" />
+    <MESSAGE value="subscribe closed event and mark po as closed" />
+    <option name="LAST_COMMIT_MESSAGE" value="subscribe closed event and mark po as closed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -779,6 +764,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Application/UseCases/PurchaseOrderClosed.cs</url>
+          <line>10</line>
+          <properties documentPath="$PROJECT_DIR$/Application/UseCases/PurchaseOrderClosed.cs" containingFunctionPresentation="Method 'ClosePurchaseOrder'">
+            <startOffsets>
+              <option value="290" />
+            </startOffsets>
+            <endOffsets>
+              <option value="394" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
