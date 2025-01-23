@@ -31,6 +31,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using PurchaseOrder.WebAPI.GraphQl;
+using PurchaseOrder.WebAPI.Middlewares;
 using EventHandler = Infrastructure.Consumer.EventHandler;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -91,6 +92,7 @@ builder.Services.AddGraphQL(b => b
     .AddSystemTextJson());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 
@@ -103,6 +105,7 @@ app.UseGraphQLPlayground("/graphql-ui" , new PlaygroundOptions()
 {
     GraphQLEndPoint = "/graphql"
 });
+app.UseMiddleware<CorrelationMiddleware>();
 app.MapPost("/orders", async ([FromBody]PurchaseOrdersDto command, IMediator mediator) =>
 {
     var result = await mediator.Send(command);
