@@ -26,14 +26,26 @@ public class UnitOfWork : IUnitOfWork
     public async Task<int> SaveChangesAsync(IEnumerable<DomainEventBase> events,CancellationToken cancellationToken = default)
     {
      
-        var result = await _context.SaveChangesAsync(cancellationToken);
+        using var transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
 
-        if (events.Any())
+        try
         {
-            await _eventDispatcher.DispatchDomainEventsAsync(events);
-        }
+            var result = await _context.SaveChangesAsync(cancellationToken);
 
-        return result;
+            if (events.Any())
+            {
+                await _eventDispatcher.DispatchDomainEventsAsync(events);
+            }
+
+            await transaction.CommitAsync(cancellationToken);
+
+            return result;
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync(cancellationToken);
+            throw new InvalidOperationException("An error occurred during SaveChangesAsync", ex);
+        }
     }
 
 
