@@ -1,0 +1,54 @@
+name: Code Coverage
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0' # Adjust to your .NET version
+
+      - name: Install Dependencies
+        run: dotnet restore
+
+      - name: Run Tests with Coverage
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+
+      - name: Publish Coverage Report
+        run: mkdir -p coverage && mv TestResults/**/*.opencover.xml coverage/
+      
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/
+      - name: Extract Coverage Percentage
+        run: |
+          COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.opencover.xml | awk '{print $1 * 100}')
+          echo "Coverage: $COVERAGE%"
+          echo "coverage=$COVERAGE" >> $GITHUB_ENV
+
+      - name: Update README with Coverage Badge
+        run: |
+          sed -i "s/coverage-[0-9]*%/coverage-${{ env.coverage }}%/" README.md
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Update coverage badge to ${{ env.coverage }}%"
+          git push
+
+
+
