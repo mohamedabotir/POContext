@@ -25,19 +25,22 @@ jobs:
         run: dotnet restore
 
       - name: Run Tests with Coverage
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+        run: dotnet test --collect:"XPlat Code Coverage" --results-directory TestResults /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/
 
       - name: Publish Coverage Report
-        run: mkdir -p coverage && mv TestResults/**/*.opencover.xml coverage/
-      
+        run: |
+          mkdir -p coverage
+          mv TestResults/*/coverage.cobertura.xml coverage/ || echo "No coverage file found"
+
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
           path: coverage/
+
       - name: Extract Coverage Percentage
         run: |
-          COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.opencover.xml | awk '{print $1 * 100}')
+          COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml | awk '{print $1 * 100}')
           echo "Coverage: $COVERAGE%"
           echo "coverage=$COVERAGE" >> $GITHUB_ENV
 
@@ -49,7 +52,3 @@ jobs:
           git add README.md
           git commit -m "Update coverage badge to ${{ env.coverage }}%"
           git push
-
-
-
-
