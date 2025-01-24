@@ -4,6 +4,8 @@ This document outlines the design and implementation details of the **Purchase O
 
 ---
 
+Test Coverage ![Coverage](https://img.shields.io/badge/coverage-XX%25-brightgreen)
+
 ## Architecture Overview
 
 ### Key Components
