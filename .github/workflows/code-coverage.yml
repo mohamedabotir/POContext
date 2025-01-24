@@ -40,23 +40,36 @@ jobs:
 
       - name: Extract Coverage Percentage
         run: |
-         COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml | awk '{printf "%.0f", $1 * 100}')
-         echo "Coverage: $COVERAGE%"
-         echo "coverage=$COVERAGE" >> $GITHUB_ENV
-
+         if [[ ! -f coverage/coverage.opencover.xml ]]; then
+         echo "Error: coverage.opencover.xml not found."
+         exit 1
+         fi
+         COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.opencover.xml)
+         if [[ -z "$COVERAGE" ]]; then
+         echo "Error: Coverage value not found in coverage.opencover.xml."
+         exit 1
+         fi
+         PERCENTAGE=$(echo "$COVERAGE * 100" | bc)
+         echo "Coverage: $PERCENTAGE%"
+         echo "coverage=$PERCENTAGE" >> $GITHUB_ENV
 
       - name: Update README with Coverage Badge
         run: |
+         if [[ -z "${{ env.coverage }}" || ! "${{ env.coverage }}" =~ ^[0-9]+$ ]]; then
+         echo "Error: Invalid coverage value '${{ env.coverage }}'. Cannot update README.md."
+         exit 1
+         fi
+         BADGE_URL="https://img.shields.io/badge/coverage-${{ env.coverage }}%25-brightgreen"
          if grep -q "coverage-" README.md; then
-         sed -i "s/coverage-[0-9]*%/coverage-${{ env.coverage }}%/" README.md
+         echo "Existing coverage badge found. Replacing with new badge."
+         sed -i "s|https://img.shields.io/badge/coverage-[0-9]*%25-brightgreen|$BADGE_URL|" README.md
          else
          echo "No existing coverage badge found. Adding one to README.md."
-         echo "![Coverage](https://img.shields.io/badge/coverage-${{ env.coverage }}%25-brightgreen)" >> README.md
+         echo "![Coverage]($BADGE_URL)" >> README.md
          fi
-    
-         git config --global user.name "github-actions[bot]"
-         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-         git add README.md
-         git commit -m "Update coverage badge to ${{ env.coverage }}%"
-         git push
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Update coverage badge to ${{ env.coverage }}%"
+          git push
 
