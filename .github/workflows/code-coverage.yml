@@ -3,10 +3,10 @@ name: Code Coverage
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   test:
@@ -22,7 +22,7 @@ jobs:
           dotnet-version: '8.0' # Adjust to your .NET version
 
       - name: Install Dependencies
-        run: dotnet restore
+        run: dotnet restore ./PO.Test
 
       - name: Run Tests with Coverage
         run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
