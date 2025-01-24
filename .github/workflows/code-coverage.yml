@@ -46,8 +46,8 @@ jobs:
             exit 1
           fi
 
-          # Extract the coverage rate (decimal) from the XML file
-          COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml)
+          # Extract the first valid coverage value (line-rate attribute) from the XML file
+          COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml | head -n 1)
 
           # Check if coverage is extracted successfully
           if [[ -z "$COVERAGE" ]]; then
@@ -55,7 +55,7 @@ jobs:
             exit 1
           fi
 
-          # Check if the value is a valid number
+          # Check if the value is a valid number (float)
           if ! [[ "$COVERAGE" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
             echo "Error: Invalid coverage value '$COVERAGE'. Cannot process coverage percentage."
             exit 1
