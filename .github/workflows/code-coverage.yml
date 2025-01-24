@@ -40,11 +40,11 @@ jobs:
 
       - name: Extract Coverage Percentage
         run: |
-         if [[ ! -f coverage/coverage.opencover.xml ]]; then
+         if [[ ! -f coverage/coverage.cobertura.xml ]]; then
          echo "Error: coverage.opencover.xml not found."
          exit 1
          fi
-         COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.opencover.xml)
+         COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml)
          if [[ -z "$COVERAGE" ]]; then
          echo "Error: Coverage value not found in coverage.opencover.xml."
          exit 1
