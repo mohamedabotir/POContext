@@ -4,9 +4,9 @@ This document outlines the design and implementation details of the **Purchase O
   
 ---
 
-Stats ![GitHub repo size](https://img.shields.io/github/repo-size/mohamedabotir/Cafe?style=for-the-badge)
-![Lines of code](https://img.shields.io/tokei/lines/github/mohamedabotir/Cafe)
-![GitHub Repo stars](https://img.shields.io/github/stars/mohamedabotir/Cafe?style=social)
+Stats ![GitHub repo size](https://img.shields.io/github/repo-size/mohamedabotir/POContext?style=for-the-badge)
+![Lines of code](https://img.shields.io/tokei/lines/github/mohamedabotir/POContext)
+![GitHub Repo stars](https://img.shields.io/github/stars/mohamedabotir/POContext?style=social)
 ![example workflow](https://github.com/mohamedabotir/Cafe/actions/workflows/dotnet.yml/badge.svg)
 
 ## Architecture Overview
