@@ -60,7 +60,7 @@ jobs:
 
           # Output the coverage for debugging
           echo "Coverage Percentage: $COVERAGE_INT%"
-
+ 
           # Set coverage as environment variable
           echo "coverage=$COVERAGE_INT" >> $GITHUB_ENV
 
