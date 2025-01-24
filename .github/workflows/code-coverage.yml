@@ -41,18 +41,17 @@ jobs:
       - name: Extract Coverage Percentage
         run: |
          if [[ ! -f coverage/coverage.cobertura.xml ]]; then
-         echo "Error: coverage.opencover.xml not found."
-         exit 1
-         fi
-         COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml)
-         if [[ -z "$COVERAGE" ]]; then
-         echo "Error: Coverage value not found in coverage.opencover.xml."
-         exit 1
-         fi
-         PERCENTAGE=$(echo "$COVERAGE * 100" | bc)
-         echo "Coverage: $PERCENTAGE%"
-         echo "coverage=$PERCENTAGE" >> $GITHUB_ENV
-
+         echo "Error: coverage.cobertura.xml not found."
+          exit 1
+          fi
+          COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml)
+          if [[ -z "$COVERAGE" ]]; then
+          echo "Error: Coverage value not found in coverage.cobertura.xml."
+           exit 1
+           fi
+           COVERAGE_INT=$(echo "scale=0; $COVERAGE * 100 / 1" | bc)
+           echo "Coverage Percentage: $COVERAGE_INT%"
+           echo "coverage=$COVERAGE_INT" >> $GITHUB_ENV
       - name: Update README with Coverage Badge
         run: |
          if [[ -z "${{ env.coverage }}" || ! "${{ env.coverage }}" =~ ^[0-9]+$ ]]; then
