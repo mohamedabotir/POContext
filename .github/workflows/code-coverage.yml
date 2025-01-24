@@ -40,9 +40,10 @@ jobs:
 
       - name: Extract Coverage Percentage
         run: |
-          COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml | awk '{print $1 * 100}')
-          echo "Coverage: $COVERAGE%"
-          echo "coverage=$COVERAGE" >> $GITHUB_ENV
+         COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml | awk '{printf "%.0f", $1 * 100}')
+         echo "Coverage: $COVERAGE%"
+         echo "coverage=$COVERAGE" >> $GITHUB_ENV
+
 
       - name: Update README with Coverage Badge
         run: |
