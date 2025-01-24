@@ -47,9 +47,16 @@ jobs:
 
       - name: Update README with Coverage Badge
         run: |
-          sed -i "s/coverage-[0-9]*%/coverage-${{ env.coverage }}%/" README.md
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "Update coverage badge to ${{ env.coverage }}%"
-          git push
+         if grep -q "coverage-" README.md; then
+         sed -i "s/coverage-[0-9]*%/coverage-${{ env.coverage }}%/" README.md
+         else
+         echo "No existing coverage badge found. Adding one to README.md."
+         echo "![Coverage](https://img.shields.io/badge/coverage-${{ env.coverage }}%25-brightgreen)" >> README.md
+         fi
+    
+         git config --global user.name "github-actions[bot]"
+         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+         git add README.md
+         git commit -m "Update coverage badge to ${{ env.coverage }}%"
+         git push
+
