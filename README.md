@@ -1,7 +1,7 @@
 # Purchase Order Service
 
 This document outlines the design and implementation details of the **Purchase Order Service** using **Domain-Driven Design (DDD)**, **GraphQL**, **Kafka**, and **MongoDB** for recording events.
- 
+  
 ---
 
 Test Coverage ![Coverage](https://img.shields.io/badge/coverage-XX%25-brightgreen)
