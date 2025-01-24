@@ -55,12 +55,26 @@ jobs:
             exit 1
           fi
 
-          # Convert the extracted coverage value to an integer percentage (round to nearest integer)
-          COVERAGE_INT=$(printf "%.0f" "$(echo "$COVERAGE * 100" | bc)")
+          # Check if the value is a valid number
+          if ! [[ "$COVERAGE" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "Error: Invalid coverage value '$COVERAGE'. Cannot process coverage percentage."
+            exit 1
+          fi
+
+          # Handle edge cases like full or zero coverage to prevent miscalculations
+          if [[ "$COVERAGE" == "1" ]]; then
+            COVERAGE_INT=100
+          elif [[ "$COVERAGE" == "0" ]]; then
+            COVERAGE_INT=0
+          else
+            # Convert the extracted coverage value to an integer percentage (round to nearest integer)
+            COVERAGE_INT=$(echo "$COVERAGE * 100" | bc)
+            COVERAGE_INT=$(printf "%.0f" "$COVERAGE_INT")
+          fi
 
           # Output the coverage for debugging
           echo "Coverage Percentage: $COVERAGE_INT%"
- 
+
           # Set coverage as environment variable
           echo "coverage=$COVERAGE_INT" >> $GITHUB_ENV
 
