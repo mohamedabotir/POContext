@@ -1,6 +1,6 @@
 using Common.Result;
 
-namespace Application.UseCases.PO;
+namespace Application.UseCases;
 
 public interface IPurchaseOrderApproveUseCase
 {

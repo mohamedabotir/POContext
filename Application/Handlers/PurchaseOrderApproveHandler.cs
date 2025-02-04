@@ -1,8 +1,7 @@
-using Common.DomainEvents;
 using Common.Events;
 using Common.Handlers;
 
-namespace Application.EventHandlers;
+namespace Application.Handlers;
 
 public class PurchaseOrderApproveHandler(IEventStore eventStore):IEventHandler<PurchaseOrderApproved>
 {

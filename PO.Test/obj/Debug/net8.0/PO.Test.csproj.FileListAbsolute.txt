@@ -16,16 +16,7 @@
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Microsoft.TestPlatform.CoreUtilities.dll
@@ -44,7 +35,6 @@
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/nunit.framework.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/SharpCompress.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Snappier.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/System.Diagnostics.EventLog.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/ZstdSharp.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/cs/Microsoft.TestPlatform.CoreUtilities.resources.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/cs/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
@@ -135,8 +125,6 @@
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/runtimes/win-x86/native/vcruntime140.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/runtimes/win-x86/native/zlib1.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/runtimes/win-x86/native/zstd.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll
-/home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Diagnostics.EventLog.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Domain.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Infrastructure.dll
 /home/threading/DistributedSystem Assisment/POContext/PO.Test/bin/Debug/net8.0/Domain.pdb

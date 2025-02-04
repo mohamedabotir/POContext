@@ -1,5 +1,6 @@
 using Application.Context.Pocos;
 using Common.Entity;
+using Domain.Entity;
 using GraphQL.Types;
 
 namespace PurchaseOrder.WebAPI.GraphQl;

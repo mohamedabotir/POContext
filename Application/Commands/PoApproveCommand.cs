@@ -1,6 +1,6 @@
 using Common.Result;
 using MediatR;
 
-namespace Application.UseCases.PO.Models;
+namespace Application.Commands;
 
 public record PoApproveCommand (string PurchaseOrderNumber): IRequest<Result>;

@@ -1,4 +1,4 @@
-using Common.Mongo;
+using Infrastructure.Producers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -6,16 +6,16 @@ using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Consumer;
 
-public class ConsumerHostingService(ILogger<ConsumerHostingService> _logger,IServiceProvider _serviceProvider,IOptions<Topic> _topic):IHostedService
+public class ConsumerHostingService(ILogger<ConsumerHostingService> logger,IServiceProvider serviceProvider,IOptions<Topic> topic):IHostedService
 {
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        _logger.LogInformation($"Event Consumer Event Running.");
+        logger.LogInformation($"Event Consumer Event Running.");
 
-        using (var scoped = _serviceProvider.CreateScope())
+        using (var scoped = serviceProvider.CreateScope())
         {
             var consumer = scoped.ServiceProvider.GetRequiredService<IEventConsumer<EventConsumer>>();
-            Task.Run(() => consumer.Consume(_topic.Value.TopicName), cancellationToken);
+            Task.Run(() => consumer.Consume(topic.Value.TopicName), cancellationToken);
 
         }
         return Task.CompletedTask;

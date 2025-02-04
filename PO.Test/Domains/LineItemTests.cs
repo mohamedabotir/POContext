@@ -1,5 +1,6 @@
 using Common.Entity;
 using Common.ValueObject;
+using Domain.Entity;
 using FluentAssertions;
 
 namespace PO.Test;
@@ -11,7 +12,7 @@ public class LineItemTests
     {
         Quantity quantity  = null;
         Item purchaseOrderItem = new Item("Panadol",500,"asdssada");
-        Action act = () => new LineItem(quantity,purchaseOrderItem,Guid.NewGuid(),0);
+        Action act = () => new LineItem(quantity,purchaseOrderItem,Guid.NewGuid(),0,0);
 
         act.Should().Throw<ArgumentNullException>();
 

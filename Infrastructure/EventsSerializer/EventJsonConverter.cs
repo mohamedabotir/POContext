@@ -1,10 +1,10 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Common.Events;
-using Common.DomainEvents;
 using Common.Serializer;
+using Domain.DomainEvents;
 
-namespace Infrastructure.Consumer;
+namespace Infrastructure.EventsSerializer;
 
 public class EventJsonConverter: JsonConverter<DomainEventBase>
 {

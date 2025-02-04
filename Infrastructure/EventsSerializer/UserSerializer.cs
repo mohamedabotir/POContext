@@ -2,7 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Common.ValueObject;
 
-namespace Common.Serializer;
+namespace Infrastructure.EventsSerializer;
 public class UserJsonConverter : JsonConverter<User>
 {
     public override User Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -14,7 +14,7 @@ public class UserJsonConverter : JsonConverter<User>
         if (email.IsFailure)
             throw new JsonException(email.Message);
         // Assuming User has a static factory method `CreateInstance`
-        return User.CreateInstance(email.Value,name,jsonObject.GetProperty("PhoneNumber").GetString(),address.Value).Value;
+        return User.CreateInstance(email.Value,name,jsonObject.GetProperty("PhoneNumber").GetString()!,address.Value).Value;
     }
 
     public override void Write(Utf8JsonWriter writer, User value, JsonSerializerOptions options)

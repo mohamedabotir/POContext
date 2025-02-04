@@ -1,8 +1,8 @@
 using Common.Events;
-using Common.DomainEvents;
 using Common.Handlers;
+using Domain.DomainEvents;
 
-namespace Application.EventHandlers;
+namespace Application.Handlers;
 
 public class PurchaseOrderCreationHandler(IEventStore eventStore):IEventHandler<PoCreatedEventBase>
 {

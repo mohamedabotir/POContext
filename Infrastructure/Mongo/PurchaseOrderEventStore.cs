@@ -1,13 +1,11 @@
-using Common.Events;
 using Common.Entity;
-using Common.Mongo.Producers;
+using Common.Events;
 using Common.Repository;
-using Confluent.Kafka;
-using Common.DomainEvents;
 using Common.Result;
+using Infrastructure.Producers;
 using Microsoft.Extensions.Options;
 
-namespace Common.Mongo;
+namespace Infrastructure.Mongo;
 
 public class PurchaseOrderEventStore(IEventRepository eventRepository, IProducer producer, IOptions<Topic> options) : IEventStore
 {
@@ -15,7 +13,7 @@ public class PurchaseOrderEventStore(IEventRepository eventRepository, IProducer
     public async Task SaveEventAsync(Guid aggregateId, DomainEventBase eventBase,List<Maybe<string>> anotherTopic)
     {
  
-            var eventModel = new Application.Mongo.EventModel
+            var eventModel = new EventModel
             {
                 Id = Guid.NewGuid(),
                 TimeStamp = DateTime.Now,
@@ -30,10 +28,4 @@ public class PurchaseOrderEventStore(IEventRepository eventRepository, IProducer
             await producer.ProduceAsync(topicName, eventBase);
  
     }
-
-    public Task<List<DomainEventBase>> GetEventsAsync(Guid aggregateId, string collectionName = "")
-    {
-        throw new NotImplementedException();
-    }
-
 }

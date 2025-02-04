@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Common.Entity;
 using Common.ValueObject;
+using Domain.Entity;
 
 namespace Application.Context.Pocos;
 
@@ -42,7 +43,7 @@ public class LineItems
 
     public LineItem MapLineItemPocoToItemLine()
     {
-        return new LineItem(new Quantity(QuantityValue, QuantityType),new Item(Name, Price, SKU),Guid,(int)Id);
+        return new LineItem(new Quantity(QuantityValue, QuantityType),new Item(Name, Price, SKU),Guid,(int)Id,PurchaseOrderId);
     }
 
     public LineItems MapItemLineToLineItemPoco(LineItem item)

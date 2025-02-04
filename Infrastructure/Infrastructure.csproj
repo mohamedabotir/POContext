@@ -20,10 +20,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Context\Configuration\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
         <HintPath>..\..\..\.dotnet\shared\Microsoft.AspNetCore.App\8.0.11\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
       </Reference>

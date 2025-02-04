@@ -2,19 +2,13 @@ using Common.Events;
 using Common.Handlers;
 using Common.Utils;
 
-namespace Application.Extensions;
+namespace Infrastructure.Handlers;
 
-public class EventDispatcherWithFactory:IEventDispatcherWithFactory
+public class EventDispatcherWithFactory(IServiceProviderFactory serviceProviderFactory) : IEventDispatcherWithFactory
 {
-    private readonly IServiceProviderFactory _serviceProviderFactory;
-    public EventDispatcherWithFactory(IServiceProviderFactory serviceProviderFactory)
-    {
-        _serviceProviderFactory = serviceProviderFactory;
-    }
-
     public async Task DispatchDomainEventAsync(IEnumerable<DomainEventBase> domainEvents)
     {
-        var provider = _serviceProviderFactory.CreateScope();
+        var provider = serviceProviderFactory.CreateScope();
         foreach (var domainEvent in domainEvents)
         {
             var handlerType = typeof(IEventHandler<>).MakeGenericType(domainEvent.GetType());
@@ -22,7 +16,7 @@ public class EventDispatcherWithFactory:IEventDispatcherWithFactory
             if (handler != null)
             {
                 var handleMethod = handlerType.GetMethod("HandleAsync");
-                await (Task)handleMethod.Invoke(handler, new object[] { domainEvent ,CancellationToken.None});
+                await (Task)handleMethod?.Invoke(handler, [domainEvent ,CancellationToken.None])!;
             }
         }
         

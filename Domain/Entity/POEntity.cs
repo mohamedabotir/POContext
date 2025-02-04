@@ -1,10 +1,11 @@
 using Common.Constants;
-using Common.DomainEvents;
 using Common.Events;
 using Common.Entity;
 using Common.Result;
 using Common.Utils;
 using Common.ValueObject;
+using Domain.DomainEvents;
+using Domain.Entity;
 
 namespace Common.Entity;
 

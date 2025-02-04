@@ -1,9 +1,8 @@
 using Application.UseCases;
-using Common.DomainEvents;
 using Common.Events;
 using Common.Handlers;
 
-namespace Application.EventHandlers;
+namespace Application.Handlers;
 
 public class PurchaseOrderClosedHandler(IPurchaseOrderClosed purchaseOrderClosed):IEventHandler<OrderClosed>
 {

@@ -8,12 +8,12 @@ using Common.Result;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Repository;
+namespace Infrastructure.Repositories;
 
 public class PurchaseOrderRepository : IPurchaseOrderRepository
 {
-    private PurchaseOrderDbContext _context;
-    private PurchaseOrderContextFactory _factoryContext;
+    private readonly PurchaseOrderDbContext _context;
+    private readonly PurchaseOrderContextFactory _factoryContext;
 
     public PurchaseOrderRepository(PurchaseOrderDbContext dbContext,PurchaseOrderContextFactory factoryContext)
     {
@@ -64,10 +64,10 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
 
     public async Task UpdatePoStageWithFactoryAsync(Guid poId,PurchaseOrderStage stage)
     {
-        var dbconext = _factoryContext.CreateDataBaseContext();
-        var purchaseOrder =  dbconext.PurchaseOrder.FirstOrDefault(e => e.Guid == poId);
+        var context = _factoryContext.CreateDataBaseContext();
+        var purchaseOrder =  context.PurchaseOrder.First(e => e.Guid == poId);
         purchaseOrder.OrderStage = stage;
-       await dbconext.SaveChangesAsync();
+       await context.SaveChangesAsync();
     }
     public bool IsPoExists(Guid poId) =>_context.PurchaseOrder.Any(e=>e.Guid == poId);
     public async Task<Result<PoEntity>> GetPoByPurchaseNumberAsync(string poId)
@@ -81,19 +81,19 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
 
     public Task UpdatePoStageAsync(Guid poId, PurchaseOrderStage stage)
     {
-        var purchaseOrder = _context.PurchaseOrder.FirstOrDefault(e => e.Guid == poId);
-        purchaseOrder!.OrderStage = stage;
+        var purchaseOrder = _context.PurchaseOrder.First(e => e.Guid == poId);
+        purchaseOrder.OrderStage = stage;
         _context.Update(purchaseOrder);
         return Task.CompletedTask;    
     }
-    public async Task<Result<PoEntity>> GetPoByPurchaseNumberWithFactoryAsync(string poId)
+    public Task<Result<PoEntity>> GetPoByPurchaseNumberWithFactoryAsync(string poId)
     {
-        var dbconext = _factoryContext.CreateDataBaseContext();
-            var purchaseOrder =  dbconext.PurchaseOrder
+        var context = _factoryContext.CreateDataBaseContext();
+            var purchaseOrder =  context.PurchaseOrder
                 .Include(e=>e.LineItems)
                 .Single(e=>e.PoNumber == poId);
-            var poEntity = purchaseOrder!.GetPoEntity();
-            return poEntity;
+            var poEntity = purchaseOrder.GetPoEntity();
+            return Task.FromResult(poEntity);
        
     }
 }

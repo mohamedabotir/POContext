@@ -1,8 +1,8 @@
 using Common.Constants;
-using Common.DomainEvents;
 using Common.Entity;
 using Common.Utils;
 using Common.ValueObject;
+using Domain.Entity;
 using FluentAssertions;
 
 namespace PO.Test;
@@ -55,8 +55,8 @@ public class PurchaseOrder
         var item = new Item("panadol", 25M, "123");
        var result =   PoEntity.AddLineItems(new List<LineItem>()
         {
-            new LineItem(Quantity.Tab, item,Guid.NewGuid(),0),
-            new LineItem(Quantity.Tab, item,Guid.NewGuid(),0)
+            new LineItem(Quantity.Tab, item,Guid.NewGuid(),0,0),
+            new LineItem(Quantity.Tab, item,Guid.NewGuid(),0,0)
         });
         result.Message.Should().Be("Item already added");
     }
@@ -73,8 +73,8 @@ public class PurchaseOrder
          
         var result =  PoEntity.AddLineItems(new List<LineItem>()
         {
-            new LineItem(Quantity.Tab, item1,Guid.NewGuid(),0),
-            new LineItem(Quantity.Tab, item2,Guid.NewGuid(),0)
+            new LineItem(Quantity.Tab, item1,Guid.NewGuid(),0,0),
+            new LineItem(Quantity.Tab, item2,Guid.NewGuid(),0,0)
         });
 
         result.IsFailure.Should().Be(false);

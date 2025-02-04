@@ -1,13 +1,10 @@
 using Common.Constants;
-using Infrastructure.Repository;
-using Common.DomainEvents;
 using Common.Events;
-using Common.Handlers;
 using Common.Repository;
 using Common.Utils;
 using Infrastructure.Exceptions;
 
-namespace Infrastructure.Consumer;
+namespace Infrastructure.Handlers;
 
 public class EventHandler(IPurchaseOrderRepository purchaseOrderRepository,IEventDispatcherWithFactory eventDispatcher):IEventHandler
 {

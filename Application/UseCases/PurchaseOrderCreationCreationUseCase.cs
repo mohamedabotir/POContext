@@ -1,17 +1,18 @@
-using Application.UseCases.PO.Models;
+using Application.Commands;
 using Common.Constants;
+using Common.Entity;
 using Common.Repository;
 using Common.Result;
-using Common.Entity;
 using Common.Utils;
 using Common.ValueObject;
+using Domain.Entity;
 
-namespace Application.UseCases.PO;
+namespace Application.UseCases;
 
 public class PurchaseOrderCreationCreationUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepository purchaseOrderRepository)
     : IPurchaseOrderCreationUseCase
 {
-    public async Task<Result> CreatePurchaseOrder(List<PurchaseOrderDto> purchaseOrdersDto)
+    public async Task<Result> CreatePurchaseOrder(List<PurchaseOrderCommand> purchaseOrdersDto)
     {
         
         using (unitOfWork)
@@ -57,7 +58,7 @@ public class PurchaseOrderCreationCreationUseCase(IUnitOfWork unitOfWork,IPurcha
                     continue;
                 }
                 
-                await purchaseOrderRepository.AddAsync(purchaseOrder)!;
+                await purchaseOrderRepository.AddAsync(purchaseOrder);
                 await unitOfWork.SaveChangesAsync(purchaseOrder.DomainEvents);
                 results.AddResult(Result.Ok($"Po created Successfully For :{purchaseOrderDto.RootGuid}"));
             }
@@ -66,5 +67,5 @@ public class PurchaseOrderCreationCreationUseCase(IUnitOfWork unitOfWork,IPurcha
     }
 
     private LineItem ItemLineDtoToLineItemEntity(ItemLineDto itemLineDto) 
-        => new LineItem(itemLineDto.Quantity,new Item(itemLineDto.Name,itemLineDto.Price,itemLineDto.Sku),itemLineDto.Guid,0);
+        => new LineItem(itemLineDto.Quantity,new Item(itemLineDto.Name,itemLineDto.Price,itemLineDto.Sku),itemLineDto.Guid,0,0);
 }

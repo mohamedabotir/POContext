@@ -1,11 +1,8 @@
-namespace Application.Mongo;
+namespace Infrastructure.Mongo;
 
 public class PurchaseOrderConfig
 {
-
-    public string ConnectionString { get; init; }
-    public string DatabaseName { get; init; }
-    public string CollectionName { get; init; }
-
-   
+    public required string ConnectionString { get; init; }
+    public required string DatabaseName { get; init; }
+    public required string CollectionName { get; init; }
 }

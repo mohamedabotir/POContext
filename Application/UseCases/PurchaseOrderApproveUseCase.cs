@@ -1,7 +1,7 @@
 using Common.Repository;
 using Common.Result;
 
-namespace Application.UseCases.PO;
+namespace Application.UseCases;
 
 public class PurchaseOrderApproveUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepository purchaseOrderRepository):IPurchaseOrderApproveUseCase
 {

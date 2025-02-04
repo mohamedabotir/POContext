@@ -1,7 +1,6 @@
-using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Application.Mongo;
+namespace Infrastructure.Mongo;
 
 public  class EventModel : Common.Events.EventModel
 {

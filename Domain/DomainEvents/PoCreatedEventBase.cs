@@ -1,36 +1,31 @@
 using System.Text.Json.Serialization;
-using Common.Events;
 using Common.Entity;
+using Common.Events;
 using Common.ValueObject;
+using Domain.Entity;
 
-namespace Common.DomainEvents;
+namespace Domain.DomainEvents;
 
-public  class  PoCreatedEventBase : DomainEventBase
+[method: JsonConstructor]
+public class PoCreatedEventBase(
+    long internalPoId,
+    Guid poGuid,
+    IReadOnlyList<LineItem> lineItems,
+    Money totalAmount,
+    User customer,
+    User supplier)
+    : DomainEventBase(nameof(PoCreatedEventBase))
 {
-    
-    [JsonConstructor]
-    public PoCreatedEventBase(long internalPoId,Guid poGuid,IReadOnlyList<LineItem> lineItems, Money totalAmount, User customer,User supplier):base(nameof(PoCreatedEventBase))
-    {
-        Supplier = supplier;
-        Customer = customer;
-        TotalAmount = totalAmount;
-        LineItems = lineItems;
-        PoGuid = poGuid;
-        InternalPoId = internalPoId;
-    }
-
-    public User Supplier { set; get; }
+    public User Supplier { init; get; } = supplier;
 
 
-    public User Customer { set; get; }
+    public User Customer { init; get; } = customer;
 
-    public Money TotalAmount { set; get; }
+    public Money TotalAmount { init; get; } = totalAmount;
 
-    public IReadOnlyList<LineItem> LineItems { set; get; }
+    public IReadOnlyList<LineItem> LineItems { init; get; } = lineItems;
 
-    public Guid PoGuid { set; get; }
+    public Guid PoGuid { init; get; } = poGuid;
 
-    public long InternalPoId{set; get; }
-
-   
+    public long InternalPoId{init; get; } = internalPoId;
 }

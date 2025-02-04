@@ -3,9 +3,9 @@ using Common.Utils;
 using Common.ValueObject;
 using MediatR;
 
-namespace Application.UseCases.PO.Models;
+namespace Application.Commands;
 
-public record PurchaseOrderDto(
+public record PurchaseOrderCommand(
     Guid RootGuid,
     UserDto Customer,
     UserDto Supplier,
@@ -14,4 +14,4 @@ public record PurchaseOrderDto(
 
 public record ItemLineDto(Quantity Quantity, string Name, decimal Price, string Sku,Guid Guid);
 public record UserDto(string Email, string PhoneNumber, string Name);
-public record PurchaseOrdersDto(List<PurchaseOrderDto> PurchaseOrders):IRequest<Result>;
+public record PurchaseOrdersCommand(List<PurchaseOrderCommand> PurchaseOrders):IRequest<Result>;

@@ -1,10 +1,10 @@
-using Application.Mongo;
 using Common.Repository;
+using Infrastructure.Mongo;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using EventModel = Common.Events.EventModel;
 
-namespace Infrastructure.Repository;
+namespace Infrastructure.Repositories;
 
 public class EventRepository:IEventRepository
 {
@@ -20,42 +20,14 @@ public class EventRepository:IEventRepository
         }
         public async Task<List<EventModel>> GetAggregate(Guid aggregateId)
         {
-            try
-            {
                 _eventCollection = _mongoClient.GetCollection<EventModel>(_collectionName);
 
                 return await _eventCollection.Find(e => e.AggregateIdentifier == aggregateId).ToListAsync();
-            }
-            catch
-            {
-
-                throw;
-            }
-
- 
         }
-
-        public Task<List<EventModel>> GetAggregateByUserName(string name)
-        {
-            try
-            {
-                //var loggedData = await _eventCollection.Find(e => e.EventData.GetType() == typeof(UserLoggedInEvent) && (e.EventData as UserLoggedInEvent).Name == name).ToListAsync();
-                //return loggedData.Any()? loggedData: await _eventCollection.Find(e => e.EventData.GetType() == typeof(UserCreatedEvent) && (e.EventData as UserCreatedEvent).Name == name).ToListAsync();
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-            return (Task<List<EventModel>>)Task.CompletedTask;
-        }
-
         public async Task SaveEventAsync(EventModel @event)
         {
-          
             _eventCollection = _mongoClient.GetCollection<EventModel>(_collectionName);
 
             await _eventCollection.InsertOneAsync(@event).ConfigureAwait(true);
-
         }
     }
