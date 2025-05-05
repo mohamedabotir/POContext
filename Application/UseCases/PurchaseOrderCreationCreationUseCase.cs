@@ -51,7 +51,12 @@ public class PurchaseOrderCreationCreationUseCase(IUnitOfWork<PoEntity> unitOfWo
                 var purchaseOrder = new PoEntity(purchaseOrderDto.RootGuid,
                     customerUser.Value, supplierUser.Value,poNumber.Value,PurchaseOrderStage.Created);
                 var lineItems = purchaseOrderDto.ItemLines.Select(ItemLineDtoToLineItemEntity).ToList();
-                var addLineResult = purchaseOrder.AddLineItems(lineItems);
+                if(lineItems.Any(e=>e.IsFailure))
+                {
+                    results.AddResult(lineItems.FirstOrDefault(e=>e.IsFailure)!);
+                    continue;
+                }
+                var addLineResult = purchaseOrder.AddLineItems(lineItems.Select(e=>e.Value).ToList());
                 if(addLineResult.IsFailure)
                 {
                     results.AddResult(addLineResult);
@@ -66,6 +71,12 @@ public class PurchaseOrderCreationCreationUseCase(IUnitOfWork<PoEntity> unitOfWo
         }
     }
 
-    private LineItem ItemLineDtoToLineItemEntity(ItemLineDto itemLineDto) 
-        => new LineItem(itemLineDto.Quantity,new Item(itemLineDto.Name,itemLineDto.Price,itemLineDto.Sku),itemLineDto.Guid,0,0);
+    private Result<LineItem> ItemLineDtoToLineItemEntity(ItemLineDto itemLineDto)
+    {
+            var quantity = Quantity.CreateInstance(itemLineDto.QuantityValue,itemLineDto.QuantityType);
+        if (quantity.IsFailure)
+            return Result.Fail<LineItem>(quantity.Message);
+
+        return Result.Ok(new LineItem(quantity.Value, new Item(itemLineDto.Name,itemLineDto.Price,itemLineDto.Sku),itemLineDto.Guid,0,0));
+    } 
 }

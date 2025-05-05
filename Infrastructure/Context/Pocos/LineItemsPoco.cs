@@ -43,7 +43,7 @@ public class LineItems
 
     public LineItem MapLineItemPocoToItemLine()
     {
-        return new LineItem(new Quantity(QuantityValue, QuantityType),new Item(Name, Price, SKU),Guid,(int)Id,PurchaseOrderId);
+        return new LineItem(Quantity.CreateInstance(QuantityValue, QuantityType).Value,new Item(Name, Price, SKU),Guid,(int)Id,PurchaseOrderId);
     }
 
     public LineItems MapItemLineToLineItemPoco(LineItem item)

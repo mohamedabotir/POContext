@@ -12,6 +12,8 @@ public record PurchaseOrderCommand(
     List<ItemLineDto> ItemLines,
     NumberGenerator NumberGenerator,string address);
 
-public record ItemLineDto(Quantity Quantity, string Name, decimal Price, string Sku,Guid Guid);
+
+
+public record ItemLineDto(int QuantityValue, QuantityType QuantityType, string Name, decimal Price, string Sku,Guid Guid);
 public record UserDto(string Email, string PhoneNumber, string Name);
 public record PurchaseOrdersCommand(List<PurchaseOrderCommand> PurchaseOrders):IRequest<Result>;

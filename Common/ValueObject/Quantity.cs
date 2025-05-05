@@ -1,3 +1,4 @@
+using Common.Result;
 using Common.ValueObject;
 
 namespace Common.ValueObject;
@@ -14,12 +15,17 @@ public sealed class Quantity : ValueObject<Quantity>
         
     }
 
-    public Quantity(int quantityQuantityValue,QuantityType quantityType)
+    private Quantity(int quantityQuantityValue,QuantityType quantityType)
     {
         QuantityValue = quantityQuantityValue;
         QuantityType = quantityType;
     }
 
+    public static Result<Quantity> CreateInstance(int quantityQuantityValue, QuantityType quantityType) {
+        if (quantityQuantityValue <= 0)
+            return Result.Result.Fail<Quantity>("Quantity Is Negative");
+        return Result<Quantity>.Ok(new Quantity(quantityQuantityValue, quantityType));
+    }
     public static readonly Quantity Tab = new Quantity(100, QuantityType.Tab);
     public  int QuantityValue { get;}
     public  QuantityType QuantityType { get; }
