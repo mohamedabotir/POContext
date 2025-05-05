@@ -83,7 +83,7 @@ jobs:
 
           if grep -q "coverage-" README.md; then
             echo "Replacing existing coverage badge in README.md"
-            sed -i "s|https://img.shields.io/badge/coverage-[0-9]*%25-brightgreen|$BADGE_URL|" README.md
+            sed -i "s|!\[Coverage\](https://img.shields.io/badge/coverage-[0-9]*%25-brightgreen)|![Coverage]($BADGE_URL)|" README.md
           else
             echo "Adding new coverage badge to README.md"
             echo "![Coverage]($BADGE_URL)" >> README.md
