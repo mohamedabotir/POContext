@@ -19,7 +19,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0' # Adjust to your .NET version
+          dotnet-version: '8.0'
 
       - name: Install Dependencies
         run: dotnet restore
@@ -40,67 +40,55 @@ jobs:
 
       - name: Extract Coverage Percentage
         run: |
-          # Ensure the file exists
           if [[ ! -f coverage/coverage.cobertura.xml ]]; then
             echo "Error: coverage.cobertura.xml not found."
             exit 1
           fi
 
-          # Extract the first valid coverage value (line-rate attribute) from the XML file
           COVERAGE=$(grep -oP '(?<=line-rate=")[0-9.]+(?=")' coverage/coverage.cobertura.xml | head -n 1)
 
-          # Check if coverage is extracted successfully
           if [[ -z "$COVERAGE" ]]; then
             echo "Error: Coverage value not found in coverage.cobertura.xml."
             exit 1
           fi
 
-          # Check if the value is a valid number (float)
           if ! [[ "$COVERAGE" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
             echo "Error: Invalid coverage value '$COVERAGE'. Cannot process coverage percentage."
             exit 1
           fi
 
-          # Handle edge cases like full or zero coverage to prevent miscalculations
           if [[ "$COVERAGE" == "1" ]]; then
             COVERAGE_INT=100
           elif [[ "$COVERAGE" == "0" ]]; then
             COVERAGE_INT=0
           else
-            # Convert the extracted coverage value to an integer percentage (round to nearest integer)
-            COVERAGE_INT=$(echo "$COVERAGE * 100" | bc)
-            COVERAGE_INT=$(printf "%.0f" "$COVERAGE_INT")
+            COVERAGE_INT=$(awk "BEGIN { printf(\"%.0f\", $COVERAGE * 100) }")
           fi
 
-          # Output the coverage for debugging
           echo "Coverage Percentage: $COVERAGE_INT%"
-
-          # Set coverage as environment variable
           echo "coverage=$COVERAGE_INT" >> $GITHUB_ENV
 
+      - name: Debug Coverage Value
+        run: echo "Extracted coverage: ${{ env.coverage }}"
+
       - name: Update README with Coverage Badge
+        continue-on-error: true
         run: |
-          # Ensure the coverage value exists and is valid
           if [[ -z "${{ env.coverage }}" || ! "${{ env.coverage }}" =~ ^[0-9]+$ ]]; then
-            echo "Error: Invalid coverage value '${{ env.coverage }}'. Cannot update README.md."
-            exit 1
+            echo "Invalid coverage value: '${{ env.coverage }}'. Skipping README update."
+            exit 0
           fi
 
-          # Format the badge URL with the correct percentage
           BADGE_URL="https://img.shields.io/badge/coverage-${{ env.coverage }}%25-brightgreen"
 
-          # Check if a coverage badge already exists in README.md
           if grep -q "coverage-" README.md; then
-            # Replace the existing badge with the new one
-            echo "Existing coverage badge found. Replacing with new badge."
+            echo "Replacing existing coverage badge in README.md"
             sed -i "s|https://img.shields.io/badge/coverage-[0-9]*%25-brightgreen|$BADGE_URL|" README.md
           else
-            # If no badge is found, add a new badge at the end of README.md
-            echo "No existing coverage badge found. Adding one to README.md."
+            echo "Adding new coverage badge to README.md"
             echo "![Coverage]($BADGE_URL)" >> README.md
           fi
 
-          # Commit the updated README
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
