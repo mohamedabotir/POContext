@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
@@ -21,8 +22,8 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore
 
-      - name: Run Tests with Coverage
-        run: dotnet test --collect:"XPlat Code Coverage" --results-directory TestResults /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/
+      - name: Run Tests with Coverage (Test project only)
+        run: dotnet test ./PO.Test/PO.Test.csproj --collect:"XPlat Code Coverage" --results-directory TestResults /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/
 
       - name: Extract and Upload Coverage Report
         run: |
@@ -52,6 +53,9 @@ jobs:
           COVERAGE_INT=$(awk "BEGIN { printf(\"%.0f\", $COVERAGE * 100) }")
           echo "coverage=$COVERAGE_INT" >> $GITHUB_ENV
           echo "Extracted Coverage: $COVERAGE_INT%"
+
+      - name: Debug Coverage Value
+        run: echo "Extracted coverage: ${{ env.coverage }}"
 
       - name: Update README with Coverage Badge
         continue-on-error: true
