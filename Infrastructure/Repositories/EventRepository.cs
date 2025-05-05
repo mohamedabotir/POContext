@@ -39,11 +39,11 @@ public class EventRepository:IEventRepository
         return await _eventCollection.Find(filter).ToListAsync();
     }
 
-    public async Task MarkAsProcessed(Guid eventId)
+    public async Task MarkAsProcessed(string eventId)
     {
         _eventCollection = _mongoClient.GetCollection<EventModel>(_collectionName);
 
-        var filter = Builders<EventModel>.Filter.Eq(e => e.EventBaseData.Id, eventId);
+        var filter = Builders<EventModel>.Filter.Eq(e => e.Id, eventId);
         var update = Builders<EventModel>.Update.Set(e => e.IsProcessed, true);
 
         await _eventCollection.UpdateOneAsync(filter, update);

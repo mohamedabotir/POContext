@@ -8,5 +8,5 @@ public interface IEventRepository
     Task SaveEventAsync(string aggregateId, IEnumerable<DomainEventBase> baseEvents, int expectedVersion, bool byName = false, string topicName = "", string collectionName = "");
     Task<List<EventModel>> GetAggregate(string aggregateId);
     Task<List<EventModel>> GetUnprocessedEventsAsync();
-    Task MarkAsProcessed(Guid eventId);
+    Task MarkAsProcessed(string eventId);
 }
