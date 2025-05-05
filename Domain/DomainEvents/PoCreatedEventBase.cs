@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using Common.Entity;
 using Common.Events;
+using Common.Utils;
 using Common.ValueObject;
 using Domain.Entity;
 
@@ -13,7 +14,8 @@ public class PoCreatedEventBase(
     IReadOnlyList<LineItem> lineItems,
     Money totalAmount,
     User customer,
-    User supplier)
+    User supplier,
+    PoNumber poNumber)
     : DomainEventBase(nameof(PoCreatedEventBase))
 {
     public User Supplier { init; get; } = supplier;
@@ -28,4 +30,5 @@ public class PoCreatedEventBase(
     public Guid PoGuid { init; get; } = poGuid;
 
     public long InternalPoId{init; get; } = internalPoId;
+    public string PoNumber { get; set; } = poNumber.PoNumberValue;
 }

@@ -69,10 +69,9 @@ public static class ConfigurationServices
         services.AddTransient<IEventHandler, EventHandler>();
         services.AddTransient<IEventDispatcherWithFactory, EventDispatcherWithFactory>();
         services.AddTransient<IEventDispatcher, EventDispatcher>();
+        services.AddTransient<IEventSourcing<PoEntity>, EventSourcing>();
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddTransient<IRequestHandler<PurchaseOrdersCommand, Result>, PoCreationCommandHandler>();
-        services.AddTransient<IEventHandler<PoCreatedEventBase>, PurchaseOrderCreationHandler>();
-        services.AddTransient<IEventHandler<PurchaseOrderApproved>, PurchaseOrderApproveHandler>();
         services.AddTransient<IEventHandler<OrderClosed>, PurchaseOrderClosedHandler>();
 
         services.AddTransient<IRequestHandler<PoApproveCommand, Result>, PoApproveCommandHandler>();
@@ -83,6 +82,7 @@ public static class ConfigurationServices
         services.AddTransient<IEventConsumer<EventConsumer>, EventConsumer>();
         services.AddTransient<IProducer, Producer>();
         services.AddHostedService<ConsumerHostingService>();
+        //services.AddHostedService<OutboxProcessor>();
         return services;
     }
     public static IServiceCollection AddUsecases(this IServiceCollection services)
@@ -94,8 +94,7 @@ public static class ConfigurationServices
     }
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
-        services.AddTransient<IUnitOfWork, UnitOfWork>();
-        services.AddTransient<IEventStore, PurchaseOrderEventStore>();
+        services.AddTransient<IUnitOfWork<PoEntity>, UnitOfWork>();
         services.AddTransient<IEventRepository, EventRepository>();
         services.AddTransient<IPurchaseOrderRepository, PurchaseOrderRepository>();
         services.AddTransient<IRepository<PoEntity>, PurchaseOrderRepository>();
@@ -124,6 +123,7 @@ public static class ConfigurationServices
         BsonClassMap.RegisterClassMap<DomainEventBase>();
         BsonClassMap.RegisterClassMap<PoCreatedEventBase>();
         BsonClassMap.RegisterClassMap<OrderBeingShipped>();
+        BsonClassMap.RegisterClassMap<EventModel>();
         return services;
     }
 }

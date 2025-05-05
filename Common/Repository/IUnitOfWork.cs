@@ -3,8 +3,8 @@ using Common.Entity;
 
 namespace Common.Repository;
 
-public interface IUnitOfWork: IDisposable
+public interface IUnitOfWork<TSource>: IDisposable
 {
-    public  Task<int> SaveChangesAsync(IEnumerable<DomainEventBase> events,CancellationToken cancellationToken = default);
+    public  Task<int> SaveChangesAsync(TSource events,CancellationToken cancellationToken = default);
     public IRepository<T>? GetRepository<T>() where T : AggregateRoot;
 }

@@ -1,7 +1,5 @@
 using Common.Constants;
 using Common.Events;
-using Common.Entity;
-using Common.Result;
 using Common.Utils;
 using Common.ValueObject;
 using Domain.DomainEvents;
@@ -43,12 +41,25 @@ public class PoEntity : AggregateRoot
         if(PurchaseOrderStage != PurchaseOrderStage.Created)
             return Result.Result.Fail("PurchaseOrderStage Should be on Created");
         PurchaseOrderStage = PurchaseOrderStage.Approved;
-        AddDomainEvent(new PurchaseOrderApproved(Guid,PoNumber.PoNumberValue,ActivationStatus,TotalAmount,Customer.Name,Customer.Address.AddressValue,
+        RaiseEvent(new PurchaseOrderApproved(Guid,PoNumber.PoNumberValue,ActivationStatus,TotalAmount,Customer.Name,Customer.Address.AddressValue,
             Customer.PhoneNumber,
             PurchaseOrderStage
             ));
         return Result.Result.Ok();
-    } 
+    }
+    public void Apply(PurchaseOrderApproved @event)
+    {
+        Guid = @event.PurchaseOrderId;
+        PoNumber =  PoNumber.SetPoNumber(@event.PurchaseOrderNumber).Value;
+        ActivationStatus = @event.ActivationStatus;
+        TotalAmount = @event.TotalAmount;
+        PurchaseOrderStage = @event.OrderStage;
+
+        var address = Address.CreateInstance(@event.CustomerAddress).Value;
+        var email = Email.CreateInstance("unknown@example.com").Value; // use actual email if available
+        Customer = User.CreateInstance(email, @event.CustomerName, @event.CustomerPhoneNumber, address).Value;
+    }
+
     public Result.Result ClosePurchaseOrder()
     {
         if(PurchaseOrderStage != PurchaseOrderStage.Shipped)
@@ -73,11 +84,21 @@ public class PoEntity : AggregateRoot
         if (moneyAmount.IsFailure)
             return moneyAmount;
         TotalAmount = moneyAmount.Value;
-        AddDomainEvent(new PoCreatedEventBase(Id, Guid,(IReadOnlyList<LineItem>)LineItems, TotalAmount,Customer,Supplier));
+        RaiseEvent(new PoCreatedEventBase(Id, Guid,(IReadOnlyList<LineItem>)LineItems, TotalAmount,Customer,Supplier,PoNumber));
        return Result.Result.Ok();
     }
 
-     
+    public void Apply(PoCreatedEventBase @event)
+    {
+        Guid = @event.PoGuid;
+        PurchaseOrderStage = PurchaseOrderStage.Created;
+        LineItems = new List<LineItem>(@event.LineItems);
+        TotalAmount = @event.TotalAmount;
+        Customer = @event.Customer;
+        Supplier = @event.Supplier;
+        PoNumber = PoNumber.SetPoNumber(@event.PoNumber).Value;
+    }
+
 
     public Result.Result SetLineItems(List<LineItem> lineItem)
     { 

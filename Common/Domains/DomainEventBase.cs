@@ -7,4 +7,7 @@ public  abstract class DomainEventBase
         this.Type = type;
     }
     public string Type { get; set;}
+    public Guid Id { get; set; }
+    public int Version { get; set; }
+
 };

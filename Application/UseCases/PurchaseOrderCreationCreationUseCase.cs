@@ -9,7 +9,7 @@ using Domain.Entity;
 
 namespace Application.UseCases;
 
-public class PurchaseOrderCreationCreationUseCase(IUnitOfWork unitOfWork,IPurchaseOrderRepository purchaseOrderRepository)
+public class PurchaseOrderCreationCreationUseCase(IUnitOfWork<PoEntity> unitOfWork,IPurchaseOrderRepository purchaseOrderRepository)
     : IPurchaseOrderCreationUseCase
 {
     public async Task<Result> CreatePurchaseOrder(List<PurchaseOrderCommand> purchaseOrdersDto)
@@ -59,7 +59,7 @@ public class PurchaseOrderCreationCreationUseCase(IUnitOfWork unitOfWork,IPurcha
                 }
                 
                 await purchaseOrderRepository.AddAsync(purchaseOrder);
-                await unitOfWork.SaveChangesAsync(purchaseOrder.DomainEvents);
+                await unitOfWork.SaveChangesAsync(purchaseOrder);
                 results.AddResult(Result.Ok($"Po created Successfully For :{purchaseOrderDto.RootGuid}"));
             }
             return results;

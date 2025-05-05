@@ -12,10 +12,10 @@ public class UnitOfWork(
     PurchaseOrderDbContext dbContext,
     IServiceProvider serviceProvider,
     IEventDispatcher eventDispatcher,
-    IHttpContextAccessor httpContextAccessor)
-    : IUnitOfWork
+    IHttpContextAccessor httpContextAccessor,IEventSourcing<PoEntity> eventSourcing)
+    : IUnitOfWork<PoEntity>
 {
-    public async Task<int> SaveChangesAsync(IEnumerable<DomainEventBase> events,CancellationToken cancellationToken = default)
+    public async Task<int> SaveChangesAsync(PoEntity root,CancellationToken cancellationToken = default)
     {
         await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
         var correlationId = string.Empty;
@@ -25,13 +25,9 @@ public class UnitOfWork(
             correlationId = httpContextAccessor.HttpContext!.GetCorrelationId();
             var result = await dbContext.SaveChangesAsync(cancellationToken);
 
-            var domainEventBases = events.ToList();
-            if (domainEventBases.Any())
-            {
-                await eventDispatcher.DispatchDomainEventsAsync(domainEventBases);
-            }
+            await eventSourcing.SaveAsync(root);
 
-            await transaction.CommitAsync(cancellationToken);
+             await transaction.CommitAsync(cancellationToken);
 
             return result;
         }

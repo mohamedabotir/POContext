@@ -15,7 +15,8 @@ namespace PO.Test.UseCases;
 public class PurchaseOrderApproveUseCaseTest
 {
     Mock<IPurchaseOrderRepository> mockPurchaseOrderRepository;
-    Mock<IUnitOfWork> mockUnitOfWork;
+    Mock<IUnitOfWork<PoEntity>> mockUnitOfWork;
+    Mock<IEventSourcing<PoEntity>> mockEventSourcing;
 
     private Result<Email> customerEmail;
     private Result<Email> supplierEmail;
@@ -28,7 +29,8 @@ public class PurchaseOrderApproveUseCaseTest
     public void Setup()
     {
         mockPurchaseOrderRepository = new Mock<IPurchaseOrderRepository>();
-        mockUnitOfWork = new Mock<IUnitOfWork>();
+        mockEventSourcing = new Mock<IEventSourcing<PoEntity>>();
+        mockUnitOfWork = new Mock<IUnitOfWork<PoEntity>>();
         customerEmail = Email.CreateInstance("customer@email.com");
         supplierEmail = Email.CreateInstance("supplier@email.com");
         userLocation = Address.CreateInstance("El Maadi ndgsfdasdaddfg");
@@ -50,10 +52,11 @@ public class PurchaseOrderApproveUseCaseTest
             .Returns(successResultOfPo);
         mockPurchaseOrderRepository.Setup(e => e.UpdatePoStageAsync(successResultOfPo.Value.Guid,
             successResultOfPo.Value.PurchaseOrderStage));
-        mockUnitOfWork.Setup(e => e.SaveChangesAsync(It.IsAny<IEnumerable<DomainEventBase>>(),
+        mockUnitOfWork.Setup(e => e.SaveChangesAsync(It.IsAny<PoEntity>(),
             It.IsAny<CancellationToken>()));
-        
-        var purchaseOrder = new PurchaseOrderApproveUseCase(mockUnitOfWork.Object,mockPurchaseOrderRepository.Object);
+        mockEventSourcing.SetupGet(e => e.GetByIdAsync(successResultOfPo.Value.PoNumber.PoNumberValue, "").Result)
+    .Returns(successResultOfPo.Value);
+        var purchaseOrder = new PurchaseOrderApproveUseCase(mockUnitOfWork.Object,mockEventSourcing.Object, mockPurchaseOrderRepository.Object);
         var approvedEvent = new PurchaseOrderApproved(successResultOfPo.Value.Guid, poNumber.Value.PoNumberValue,
             ActivationStatus.Active,
             Money.CreateInstance(150M).Value, customerUser.Value.Name,
@@ -73,10 +76,12 @@ public class PurchaseOrderApproveUseCaseTest
             .Returns(successResultOfPo);
         mockPurchaseOrderRepository.Setup(e => e.UpdatePoStageAsync(successResultOfPo.Value.Guid,
             successResultOfPo.Value.PurchaseOrderStage));
-        mockUnitOfWork.Setup(e => e.SaveChangesAsync(It.IsAny<IEnumerable<DomainEventBase>>(),
+        mockUnitOfWork.Setup(e => e.SaveChangesAsync(It.IsAny<PoEntity>(),
             It.IsAny<CancellationToken>()));
-        
-        var purchaseOrder = new PurchaseOrderApproveUseCase(mockUnitOfWork.Object,mockPurchaseOrderRepository.Object);
+        mockEventSourcing.SetupGet(e => e.GetByIdAsync(successResultOfPo.Value.PoNumber.PoNumberValue, "").Result)
+            .Returns(successResultOfPo.Value);
+
+        var purchaseOrder = new PurchaseOrderApproveUseCase(mockUnitOfWork.Object, mockEventSourcing.Object,mockPurchaseOrderRepository.Object);
         var approvedEvent = new PurchaseOrderApproved(successResultOfPo.Value.Guid, poNumber.Value.PoNumberValue,
             ActivationStatus.Active,
             Money.CreateInstance(150M).Value, customerUser.Value.Name,
