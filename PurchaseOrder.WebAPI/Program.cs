@@ -51,6 +51,7 @@ app.UseGraphQLPlayground("/graphql-ui" , new PlaygroundOptions()
 
 app.UseMiddleware<CorrelationMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
 app.MapPost("/orders", async ([FromBody]PurchaseOrdersCommand command, IMediator mediator) =>
 {

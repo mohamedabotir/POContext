@@ -2,7 +2,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Common.Events;
 using Common.Serializer;
-using Domain.DomainEvents;
 
 namespace Infrastructure.EventsSerializer;
 
@@ -23,7 +22,7 @@ public class EventJsonConverter: JsonConverter<DomainEventBase>
         var json = doc.RootElement.GetRawText();
         return disc switch
         {
-            nameof(PoCreatedEventBase) => JsonSerializer.Deserialize<PoCreatedEventBase>(json, GetCustomerOptions(options)),
+            //nameof(PoCreatedEventBase) => JsonSerializer.Deserialize<PoCreatedEventBase>(json, GetCustomerOptions(options)),
             nameof(OrderBeingShipped) => JsonSerializer.Deserialize<OrderBeingShipped>(json, options),
             nameof(OrderShipped) => JsonSerializer.Deserialize<OrderShipped>(json, options),
             nameof(OrderClosed) => JsonSerializer.Deserialize<OrderClosed>(json, options),

@@ -23,7 +23,7 @@ public class OutboxProcessor
             try
             {
                 await _producer.ProduceAsync(_topic, evt.EventBaseData);
-                await _eventRepo.MarkAsProcessed(evt.Id); // Make sure EventBaseData.Id exists
+                await _eventRepo.MarkAsProcessed(evt.Id); 
             }
             catch (Exception ex)
             {
