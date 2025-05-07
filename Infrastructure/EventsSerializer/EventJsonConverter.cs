@@ -2,6 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Common.Events;
 using Common.Serializer;
+using Infrastructure.Serializer;
 
 namespace Infrastructure.EventsSerializer;
 
@@ -23,7 +24,7 @@ public class EventJsonConverter: JsonConverter<DomainEventBase>
         return disc switch
         {
             //nameof(PoCreatedEventBase) => JsonSerializer.Deserialize<PoCreatedEventBase>(json, GetCustomerOptions(options)),
-            nameof(OrderBeingShipped) => JsonSerializer.Deserialize<OrderBeingShipped>(json, options),
+            nameof(OrderBeingShipped) => JsonSerializer.Deserialize<OrderBeingShipped>(json, GetOrderBeingShippedOptions(options)),
             nameof(OrderShipped) => JsonSerializer.Deserialize<OrderShipped>(json, options),
             nameof(OrderClosed) => JsonSerializer.Deserialize<OrderClosed>(json, options),
             _ => throw new JsonException($"Event Type {disc} not supported yet!")
@@ -44,6 +45,20 @@ public class EventJsonConverter: JsonConverter<DomainEventBase>
             .Add(new UserJsonConverter());
         @new.PropertyNameCaseInsensitive = true;
         return @new;
+    }
+    private JsonSerializerOptions GetOrderBeingShippedOptions(JsonSerializerOptions defaultOption)
+    {
+        var newOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+
+        foreach (var converter in defaultOption.Converters)
+        {
+            newOptions.Converters.Add(converter);
+        }
+
+        newOptions.Converters.Add(new AddressJsonConverter());
+        newOptions.PropertyNameCaseInsensitive = true;
+
+        return newOptions;
     }
 
     public override void Write(Utf8JsonWriter writer, DomainEventBase value, JsonSerializerOptions options)
