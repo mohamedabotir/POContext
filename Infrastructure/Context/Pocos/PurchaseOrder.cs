@@ -14,10 +14,10 @@ namespace Application.Context.Pocos;
         public int Id { get; set; }
         [Required] 
         [StringLength(100)] 
-        public  string PoNumber { get; protected set; }
+        public  string PoNumber { get;  set; }
         [Required] 
         [StringLength(100)] 
-        public  Guid Guid { get; protected set; }
+        public  Guid Guid { get;  set; }
 
         [Required] 
         [Column(TypeName = "decimal(18, 2)")] 
@@ -55,19 +55,19 @@ namespace Application.Context.Pocos;
 
         [Required] 
         [Column(name:"IsActive")]
-        public  ActivationStatus ActivationStatus { get;protected set; }
+        public  ActivationStatus ActivationStatus { get; set; }
 
         [Required] 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public  DateTime? CreatedOn { get; protected set; }
+        public  DateTime? CreatedOn { get;  set; }
 
         [Required] 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)] 
-        public  DateTime? ModifiedOn { get;protected set; }
+        public  DateTime? ModifiedOn { get; set; }
         
         [Required] 
         public PurchaseOrderStage OrderStage { get;  set; }
-        public  virtual ICollection<LineItems> LineItems { get; protected set; }
+        public  virtual ICollection<LineItems> LineItems { get;  set; }
 
         public void MapPoEntityToPurchaseOrder(PoEntity purchaseEntity)
         {

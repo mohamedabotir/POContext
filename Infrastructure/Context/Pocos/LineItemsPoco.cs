@@ -11,10 +11,10 @@ public class LineItems
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public  int Id { get; protected set; }
+    public  int Id { get;    set; }
 
     [Required]
-    public  Guid Guid { get;protected set; }
+    public  Guid Guid { get; set; }
 
     [Required]
     public int QuantityValue { get; set; }
@@ -24,11 +24,11 @@ public class LineItems
 
     [Required]
     [ForeignKey("PurchaseOrder")]
-    public  int PurchaseOrderId { get;protected set; }
+    public  int PurchaseOrderId { get; set; }
 
     [Required]
     [MaxLength(50)]
-    public  string Name { get;protected set; }
+    public  string Name { get; set; }
 
     [Required]
     [Column(TypeName = "decimal(8, 2)")]
@@ -36,7 +36,7 @@ public class LineItems
 
     [Required]
     [MaxLength(20)]
-    public  string SKU { get;protected set; }
+    public  string SKU { get; set; }
 
     [ForeignKey("PurchaseOrderId")]
     public virtual PurchaseOrder PurchaseOrder { get; set; }

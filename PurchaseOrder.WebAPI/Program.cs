@@ -35,7 +35,11 @@ builder.Services.AddDbContextServices(builder)
     .AddSwaggerGen()
     .AddHttpContextAccessor();
 builder.Host.UseSerilog();
-
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetSection("Redis")["Connection"];
+    options.InstanceName = "TopPO_";
+});
 var app = builder.Build();
 
 

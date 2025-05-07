@@ -92,6 +92,7 @@ public static class ConfigurationServices
         services.AddTransient<IPurchaseOrderCreationUseCase, PurchaseOrderCreationCreationUseCase>();
         services.AddTransient<IPurchaseOrderApproveUseCase, PurchaseOrderApproveUseCase>();
         services.AddTransient<IPurchaseOrderClosed, PurchaseOrderClosed>();
+        services.AddSingleton<TopPoCacheService>();
         return services;
     }
     public static IServiceCollection AddRepositories(this IServiceCollection services)
@@ -100,6 +101,7 @@ public static class ConfigurationServices
         services.AddTransient<IEventRepository, EventRepository>();
         services.AddTransient<IPurchaseOrderRepository, PurchaseOrderRepository>();
         services.AddTransient<IRepository<PoEntity>, PurchaseOrderRepository>();
+        services.AddTransient<PocoRepository>();
         return services;
     }
     public static IServiceCollection AddConfigurationService(this IServiceCollection services,WebApplicationBuilder builder)
