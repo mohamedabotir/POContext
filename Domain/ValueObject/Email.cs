@@ -6,7 +6,7 @@ namespace Common.ValueObject;
 
 public sealed class Email : ValueObject<Email>
 {
-    public string EmailValue { get; }
+    public string EmailValue { get; private set; }
 
     private Email(string email)
     {

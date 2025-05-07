@@ -9,8 +9,10 @@ using Common.Handlers;
 using Common.Repository;
 using Common.Result;
 using Common.Utils;
+using Common.ValueObject;
 using Confluent.Kafka;
 using Domain.DomainEvents;
+using Domain.Entity;
 using GraphQL;
 using GraphQL.Types;
 using Infrastructure.Consumer;
@@ -124,6 +126,45 @@ public static class ConfigurationServices
         BsonClassMap.RegisterClassMap<PoCreatedEventBase>();
         BsonClassMap.RegisterClassMap<OrderBeingShipped>();
         BsonClassMap.RegisterClassMap<EventModel>();
+        BsonSerializer.RegisterSerializer(typeof(decimal), new DecimalSerializer(BsonType.Decimal128));
+
+        BsonClassMap.RegisterClassMap<Email>(cm =>
+        {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+
+        BsonClassMap.RegisterClassMap<Address>(cm =>
+        {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        }); 
+        BsonClassMap.RegisterClassMap<User>(cm =>
+        {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+        BsonClassMap.RegisterClassMap<Quantity>(cm =>
+        {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+        BsonClassMap.RegisterClassMap<Money>(cm =>
+        {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+        BsonClassMap.RegisterClassMap<Item>(cm =>
+        {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        }); 
+        BsonClassMap.RegisterClassMap<LineItem>(cm =>
+        {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+
         return services;
     }
 }

@@ -27,8 +27,8 @@ public sealed class Quantity : ValueObject<Quantity>
         return Result<Quantity>.Ok(new Quantity(quantityQuantityValue, quantityType));
     }
     public static readonly Quantity Tab = new Quantity(100, QuantityType.Tab);
-    public  int QuantityValue { get;}
-    public  QuantityType QuantityType { get; }
+    public  int QuantityValue { get; private set; }
+    public  QuantityType QuantityType { get; private set; }
 
    
     protected override bool EqualsCore(Quantity other)

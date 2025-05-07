@@ -5,7 +5,7 @@ namespace Common.ValueObject;
 
 public class Money:ValueObject<Money>
 {
-    public decimal MoneyValue { get; }
+    public decimal MoneyValue { get; private set;}
 
     private Money(decimal moneyValue)
     {

@@ -27,12 +27,12 @@ public class PurchaseOrderApproved : DomainEventBase
         OrderStage = orderStage;
     }
 
-    public Guid PurchaseOrderId { get; }
-    public string PurchaseOrderNumber { get;  }
-    public ActivationStatus ActivationStatus { get; }
-    public Money TotalAmount { get;}
-    public string CustomerName { get;}
-    public string CustomerAddress { get;}
-    public string CustomerPhoneNumber { get;}
-    public PurchaseOrderStage OrderStage { get;}
+    public Guid PurchaseOrderId { get; private set; }
+    public string PurchaseOrderNumber { get; private set; }
+    public ActivationStatus ActivationStatus { get; private set; }
+    public Money TotalAmount { get; private set; }
+    public string CustomerName { get; private set; }
+    public string CustomerAddress { get; private set; }
+    public string CustomerPhoneNumber { get; private set; }
+    public PurchaseOrderStage OrderStage { get; private set; }
 }
