@@ -173,7 +173,22 @@ query {
   }
 }
 ```
-
+### GetTop7 by latest date , and cached 
+```
+query {
+  top7PurchaseOrder {
+    id
+    poNumberValue
+    moneyValue
+    activationStatus
+    lineItems {
+      id
+      name
+      price
+    }
+  }
+}
+```
 ---
 
 ## Event Sourcing and Kafka
