@@ -1,6 +1,6 @@
 using Common.Events;
 
-namespace Infrastructure.Handlers;
+namespace Domain.DomainEvents;
 
 public interface IEventHandler
 {

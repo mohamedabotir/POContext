@@ -3,7 +3,7 @@ version: '3.8'
 services:
   zookeeper:
     image: wurstmeister/zookeeper:latest
-    container_name: zookeeper
+    container_name: zookeeper-dev
     hostname: zookeeper
     ports:
       - "2181:2181"
@@ -12,7 +12,7 @@ services:
 
   kafka:
     image: wurstmeister/kafka:latest
-    container_name: kafka
+    container_name: kafka-dev
     hostname: kafka
     ports:
       - "9092:9092"
@@ -32,7 +32,7 @@ services:
 
   mongo:
     image: mongo:latest
-    container_name: mongo
+    container_name: mongo-dev
     hostname: mongo
     ports:
       - "27017:27017"
@@ -44,13 +44,33 @@ services:
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: sqlserver
+    container_name: sqlserver-dev
     hostname: sqlserver
     ports:
       - "1453:1433"
     environment:
       SA_PASSWORD: "P@ssw0rd"
       ACCEPT_EULA: "Y"
+    networks:
+      - kafka-network
+
+  redis:
+    image: redis:latest
+    container_name: redis-dev
+    hostname: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - kafka-network
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.18
+    container_name: elasticsearch-dev
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
     networks:
       - kafka-network
 

@@ -1,6 +1,5 @@
 using System.Reflection;
 using Application.Commands;
-using Application.Handlers;
 using Application.UseCases;
 using Application.UseCases.PO.Command;
 using Common.Entity;
@@ -74,7 +73,6 @@ public static class ConfigurationServices
         services.AddTransient<IEventSourcing<PoEntity>, EventSourcing>();
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddTransient<IRequestHandler<PurchaseOrdersCommand, Result>, PoCreationCommandHandler>();
-        services.AddTransient<IEventHandler<OrderClosed>, PurchaseOrderClosedHandler>();
 
         services.AddTransient<IRequestHandler<PoApproveCommand, Result>, PoApproveCommandHandler>();
         return services;
@@ -91,7 +89,6 @@ public static class ConfigurationServices
     {
         services.AddTransient<IPurchaseOrderCreationUseCase, PurchaseOrderCreationCreationUseCase>();
         services.AddTransient<IPurchaseOrderApproveUseCase, PurchaseOrderApproveUseCase>();
-        services.AddTransient<IPurchaseOrderClosed, PurchaseOrderClosed>();
         services.AddSingleton<TopPoCacheService>();
         return services;
     }
@@ -127,6 +124,9 @@ public static class ConfigurationServices
         BsonClassMap.RegisterClassMap<DomainEventBase>();
         BsonClassMap.RegisterClassMap<PoCreatedEventBase>();
         BsonClassMap.RegisterClassMap<OrderBeingShipped>();
+        BsonClassMap.RegisterClassMap<PurchaseOrderApproved>();
+        BsonClassMap.RegisterClassMap<OrderShipped>();
+        BsonClassMap.RegisterClassMap<OrderClosed>();
         BsonClassMap.RegisterClassMap<EventModel>();
         BsonSerializer.RegisterSerializer(typeof(decimal), new DecimalSerializer(BsonType.Decimal128));
 

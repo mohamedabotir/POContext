@@ -60,12 +60,43 @@ public class PoEntity : AggregateRoot
         Customer = User.CreateInstance(email, @event.CustomerName, @event.CustomerPhoneNumber, address).Value;
     }
 
-    public Result.Result ClosePurchaseOrder()
+    public Result.Result ClosePurchaseOrder(OrderClosed orderClosed)
     {
         if(PurchaseOrderStage != PurchaseOrderStage.Shipped)
             return Result.Result.Fail("purchase order  Should be on shipped to close it.");
         PurchaseOrderStage = PurchaseOrderStage.Closed;
+        RaiseEvent(orderClosed);
         return Result.Result.Ok();
+    }
+    public Result.Result MakeOrderBeingShipped(OrderBeingShipped OrderBeingShippedEvent)
+    {
+        if(PurchaseOrderStage != PurchaseOrderStage.Approved)
+            return Result.Result.Fail("purchase order  Should be on approved to BeingShipped it.");
+        PurchaseOrderStage = PurchaseOrderStage.BeingShipped;
+        RaiseEvent(OrderBeingShippedEvent);
+        return Result.Result.Ok();
+    }
+
+    public void Apply(OrderBeingShipped OrderBeingShippedEvent)
+    {
+        PurchaseOrderStage = PurchaseOrderStage.BeingShipped;
+    }
+    public Result.Result MakeOrderShipped(OrderShipped OrderBeingShippedEvent)
+    {
+        if(PurchaseOrderStage != PurchaseOrderStage.BeingShipped)
+            return Result.Result.Fail("purchase order  Should be on BeingShipped to be Shipped.");
+        PurchaseOrderStage = PurchaseOrderStage.Shipped;
+        RaiseEvent(OrderBeingShippedEvent);
+        return Result.Result.Ok();
+    }
+
+    public void Apply(OrderShipped OrderBeingShippedEvent)
+    {
+        PurchaseOrderStage = PurchaseOrderStage.Shipped;
+    } 
+    public void Apply(OrderClosed OrderBeingShippedEvent)
+    {
+        PurchaseOrderStage = PurchaseOrderStage.Closed;
     }
     public virtual PoNumber PoNumber { get; protected set; }
     public  ICollection<LineItem> LineItems { get; protected set; } = new List<LineItem>();

@@ -65,11 +65,21 @@ public class EventRepository:IEventRepository
                 AggregateIdentifier = aggregateId,
                 Version = version,
                 EventBaseData = @event,
-                EventType = @event.GetType().Name
+                EventType = @event.GetType().Name,
+                IsProcessed = IsEventAllowedToSkipProcessing(@event.GetType().Name)
             };
             version++;
 
             await SaveEventAsync(eventModel);
         }
     }
+    public bool IsEventAllowedToSkipProcessing(string eventName) =>
+        eventName switch
+        {
+            nameof(OrderShipped) => true,
+            nameof(OrderBeingShipped) => true,
+            nameof(OrderClosed) => true,
+            _ => false
+        };
+
 }
