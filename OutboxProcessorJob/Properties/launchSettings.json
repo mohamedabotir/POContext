@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "OutboxProcessorJob": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

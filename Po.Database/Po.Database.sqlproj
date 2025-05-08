@@ -64,5 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Po.Database.publish.xml" />
+    <None Include="Po.Database-Production.publish.xml" />
   </ItemGroup>
 </Project>
