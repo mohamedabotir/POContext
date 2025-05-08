@@ -7,7 +7,7 @@ This document outlines the design and implementation details of the **Purchase O
 ![GitHub repo size](https://img.shields.io/github/repo-size/mohamedabotir/POContext?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/mohamedabotir/POContext?style=social)
 ![example workflow](https://github.com/mohamedabotir/POContext/actions/workflows/dotnet.yml/badge.svg)
-![Coverage](https://img.shields.io/badge/coverage-37%25-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-36%25-brightgreen)
 
 ## Architecture Overview
 
@@ -173,7 +173,22 @@ query {
   }
 }
 ```
-
+### GetTop7 by latest date , and cached 
+```
+query {
+  top7PurchaseOrder {
+    id
+    poNumberValue
+    moneyValue
+    activationStatus
+    lineItems {
+      id
+      name
+      price
+    }
+  }
+}
+```
 ---
 
 ## Event Sourcing and Kafka
@@ -229,4 +244,4 @@ query {
 3. add population script for purchase order  
 
 ---
-![Coverage](https://img.shields.io/badge/coverage-37%25-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-36%25-brightgreen)
