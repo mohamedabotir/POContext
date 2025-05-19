@@ -25,7 +25,7 @@ public class OutboxProcessor
                 sleepDurationProvider: attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)),
                 onRetry: (exception, timeSpan, retryCount, context) =>
                 {
-                    Log.Warning($"🔁 Retry {retryCount} for event {context["EventId"]} after {timeSpan.TotalSeconds}s: {exception.Message}");
+                    Log.Warning($"Retry {retryCount} for event {context["EventId"]} after {timeSpan.TotalSeconds}s: {exception.Message}");
                 });
     }
 
@@ -48,10 +48,10 @@ public class OutboxProcessor
             }
             catch (Exception ex)
             {
-                Log.Error($"❌ Failed after 3 retries for event {evt.Id}: {ex.Message}");
+                Log.Error($"Failed after 3 retries for event {evt.Id}: {ex.Message}");
             }
         }
 
-        Log.Information("✅ Finished processing outbox events.");
+        Log.Information("Finished processing outbox events.");
     }
 }
